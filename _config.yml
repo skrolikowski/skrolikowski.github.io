@@ -1,5 +1,4 @@
-# theme: jekyll-theme-minimalm
-remote_theme: mistakes/minimal-mistakes
+remote_theme: "mmistakes/minimal-mistakes@4.14.2"
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
