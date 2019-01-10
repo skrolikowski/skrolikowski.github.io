@@ -1,6 +1,6 @@
-name: Shane Krolikowski
+title: Shane Krolikowski
 description: Another Seattle Programmer
-avatar: https://avatars0.githubusercontent.com/u/8143970?s=460&v=4
+logo: https://avatars0.githubusercontent.com/u/8143970?s=460&v=4
 theme: jekyll-theme-minimal
 plugins:
   - jekyll-seo-tag
