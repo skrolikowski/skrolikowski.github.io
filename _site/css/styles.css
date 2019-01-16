@@ -1,5 +1,6 @@
 .jumbotron {
-  background-color: #181818; }
+  background-color: #181818;
+  margin-bottom: 0; }
 
 nav.navbar span.navbar-text a:hover {
   color: #17a2b8; }
