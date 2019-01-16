@@ -1,34 +1,21 @@
 <header>
-    <nav id="main-navigation" class="navbar navbar-expand-md navbar-dark fixed-top">
-        <a class="navbar-brand" href="/">
-            <img src="/assets/me.png" class="rounded" width="40" height="40" />
-            Shane Krolikowski
-        </a>
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #181818;">
+        <a class="navbar-brand" href="/"><img src="/assets/me.png" class="rounded" width="30" height="30" /></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="collapse navbar-collapse text-right" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#experience">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#education">Education</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#skills">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#interests">Interests</a>
-                </li>
+
+                {% for my_page in site.pages %}
+                    {% if my_page.title %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
             </ul>
             <span class="navbar-text">
                 <a class="pr-2 social-icons" href="https://github.com/skrolikowski" title="Shane Krolikowski - GitHub" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>

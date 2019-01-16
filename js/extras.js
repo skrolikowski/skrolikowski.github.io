@@ -1,5 +1,5 @@
 $(function(){
-    $("nav ul li a[href^='#']").on('click', function(e) {
+    $("ul.nav li a[href^='#']").on('click', function(e) {
         e.preventDefault();
 
         var hash = this.hash;

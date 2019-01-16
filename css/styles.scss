@@ -1,0 +1,27 @@
+---
+---
+
+.jumbotron {
+    background-color: #181818;
+}
+
+nav.navbar span.navbar-text a:hover {
+    color: #17a2b8;
+}
+
+article a,
+a.text-primary,
+.card-link {
+    color: #17a2b8;
+}
+
+article a:hover,
+a.text-primary:hover,
+.card-link:hover {
+    color: #181818;
+    text-decoration: none;
+}
+
+li.nav-item a.nav-link.text-secondary.active {
+    color: #17a2b8 !important;
+}

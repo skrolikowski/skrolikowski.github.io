@@ -1,17 +1,12 @@
-<div class="col-xs-12 col-sm-6 col-md-4">
-    <div class="card bg-light border-dark mb-5">
+<div class="col-xs-12 col-sm-6 col-md-4 my-3">
+    <div class="card bg-white border-secondary">
         <a href="{{page.url}}" title="{{ page.title }}">
             <img src="{{ page.cover }}" class="card-img-top" alt="{{ page.title }}" />
-            <div class="card-img-overlay">
-                <h3 class="card-title text-right my-0">
-                    <span class="badge badge-light my-0" style="color: #E74727">{{ page.title }}</span>
-                </h3>
-            </div>
         </a>
-        <div class="card-footer">
-            {% for category in page.categories %}
-                <span class="badge badge-dark" style="background-color: #E74727">{{ category | replace: ",", "" | capitalize }}</span>
-            {% endfor %}
+        <div class="card-body">
+            <p class="card-text">
+                <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" class="card-link">{{ page.title }}</a>
+            </p>
         </div>
     </div>
 </div>

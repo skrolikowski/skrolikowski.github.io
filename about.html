@@ -1,0 +1,24 @@
+---
+layout: default
+title: About Me
+excerpt: This is my personal website. I am a programmer from Seattle.
+---
+
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-9">
+                {% include about/about.html %}
+                {% include about/education.html %}
+                {% include about/experience.html %}
+                {% include about/skills.html %}
+            </div>
+            <div class="col-3">
+                <ul id="list-scrollspy" class="nav flex-column position-fixed">
+                    <li class="nav-item"><a class="nav-link text-secondary" href="#about-me">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary" href="#skills">Skills</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
