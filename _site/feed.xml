@@ -1,71 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-15T20:31:09-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Shane Krolikowski</title><subtitle>This is my personal website. I am a programmer from Seattle.</subtitle><author><name>skrolikowski</name></author><entry><title type="html">World</title><link href="http://localhost:4000/2019/01/13/World" rel="alternate" type="text/html" title="World" /><published>2019-01-13T00:00:00-08:00</published><updated>2019-01-13T00:00:00-08:00</updated><id>http://localhost:4000/2019/01/13/World</id><content type="html" xml:base="http://localhost:4000/2019/01/13/World">&lt;h2 id=&quot;welcome-to-github-pages&quot;&gt;Welcome to GitHub Pages&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-16T21:44:13-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Shane Krolikowski</title><subtitle>This is my personal website. I am a programmer from Seattle.</subtitle><author><name>skrolikowski</name></author><entry><title type="html">World</title><link href="http://localhost:4000/2019/01/13/World" rel="alternate" type="text/html" title="World" /><published>2019-01-13T00:00:00-08:00</published><updated>2019-01-13T00:00:00-08:00</updated><id>http://localhost:4000/2019/01/13/World</id><content type="html" xml:base="http://localhost:4000/2019/01/13/World">## Welcome to GitHub Pages
 
-&lt;p&gt;&lt;b&gt;You&lt;/b&gt; can use the &lt;a href=&quot;https://github.com/skrolikowski/skrolikowski.github.io/edit/master/index.md&quot;&gt;editor on GitHub&lt;/a&gt; to maintain and preview the content for your website in Markdown files.&lt;/p&gt;
+&lt;b&gt;You&lt;/b&gt; can use the [editor on GitHub](https://github.com/skrolikowski/skrolikowski.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
-&lt;p&gt;Whenever you commit to this repository, GitHub Pages will run &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; to rebuild the pages in your site, from the content in your Markdown files.&lt;/p&gt;
+Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-&lt;h3 id=&quot;markdown&quot;&gt;Markdown&lt;/h3&gt;
+### Markdown
 
-&lt;p&gt;Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for&lt;/p&gt;
+Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Syntax highlighted code block
+```markdown
+Syntax highlighted code block
 
-&lt;span class=&quot;gh&quot;&gt;# Header 1&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;## Header 2&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;### Header 3&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;
--&lt;/span&gt; Bulleted
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; List
-&lt;span class=&quot;p&quot;&gt;
-1.&lt;/span&gt; Numbered
-&lt;span class=&quot;p&quot;&gt;2.&lt;/span&gt; List
+# Header 1
+## Header 2
+### Header 3
 
-&lt;span class=&quot;gs&quot;&gt;**Bold**&lt;/span&gt; and _Italic_ and &lt;span class=&quot;sb&quot;&gt;`Code`&lt;/span&gt; text
+- Bulleted
+- List
 
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; and !&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+1. Numbered
+2. List
 
-&lt;p&gt;For more details see &lt;a href=&quot;https://guides.github.com/features/mastering-markdown/&quot;&gt;GitHub Flavored Markdown&lt;/a&gt;.&lt;/p&gt;
+**Bold** and _Italic_ and `Code` text
 
-&lt;h3 id=&quot;jekyll-themes&quot;&gt;Jekyll Themes&lt;/h3&gt;
+[Link](url) and ![Image](src)
+```
 
-&lt;p&gt;Your Pages site will use the layout and styles from the Jekyll theme you have selected in your &lt;a href=&quot;https://github.com/skrolikowski/skrolikowski.github.io/settings&quot;&gt;repository settings&lt;/a&gt;. The name of this theme is saved in the Jekyll &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; configuration file.&lt;/p&gt;
+For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-&lt;h3 id=&quot;support-or-contact&quot;&gt;Support or Contact&lt;/h3&gt;
+### Jekyll Themes
 
-&lt;p&gt;Having trouble with Pages? Check out our &lt;a href=&quot;https://help.github.com/categories/github-pages-basics/&quot;&gt;documentation&lt;/a&gt; or &lt;a href=&quot;https://github.com/contact&quot;&gt;contact support&lt;/a&gt; and we’ll help you sort it out.&lt;/p&gt;</content><author><name>skrolikowski</name></author><summary type="html">Welcome to GitHub Pages</summary></entry><entry><title type="html">Welcome</title><link href="http://localhost:4000/2019/01/13/Welcome" rel="alternate" type="text/html" title="Welcome" /><published>2019-01-13T00:00:00-08:00</published><updated>2019-01-13T00:00:00-08:00</updated><id>http://localhost:4000/2019/01/13/Welcome</id><content type="html" xml:base="http://localhost:4000/2019/01/13/Welcome">&lt;h2 id=&quot;welcome-to-github-pages&quot;&gt;Welcome to GitHub Pages&lt;/h2&gt;
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/skrolikowski/skrolikowski.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-&lt;p&gt;&lt;b&gt;You&lt;/b&gt; can use the &lt;a href=&quot;https://github.com/skrolikowski/skrolikowski.github.io/edit/master/index.md&quot;&gt;editor on GitHub&lt;/a&gt; to maintain and preview the content for your website in Markdown files.&lt;/p&gt;
+### Support or Contact
 
-&lt;p&gt;Whenever you commit to this repository, GitHub Pages will run &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; to rebuild the pages in your site, from the content in your Markdown files.&lt;/p&gt;
+Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.</content><author><name>skrolikowski</name></author><summary type="html">Welcome to GitHub Pages</summary></entry><entry><title type="html">Welcome</title><link href="http://localhost:4000/2019/01/13/Welcome" rel="alternate" type="text/html" title="Welcome" /><published>2019-01-13T00:00:00-08:00</published><updated>2019-01-13T00:00:00-08:00</updated><id>http://localhost:4000/2019/01/13/Welcome</id><content type="html" xml:base="http://localhost:4000/2019/01/13/Welcome">## Welcome to GitHub Pages
 
-&lt;h3 id=&quot;markdown&quot;&gt;Markdown&lt;/h3&gt;
+&lt;b&gt;You&lt;/b&gt; can use the [editor on GitHub](https://github.com/skrolikowski/skrolikowski.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
-&lt;p&gt;Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for&lt;/p&gt;
+Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Syntax highlighted code block
+### Markdown
 
-&lt;span class=&quot;gh&quot;&gt;# Header 1&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;## Header 2&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;### Header 3&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;
--&lt;/span&gt; Bulleted
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; List
-&lt;span class=&quot;p&quot;&gt;
-1.&lt;/span&gt; Numbered
-&lt;span class=&quot;p&quot;&gt;2.&lt;/span&gt; List
+Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-&lt;span class=&quot;gs&quot;&gt;**Bold**&lt;/span&gt; and _Italic_ and &lt;span class=&quot;sb&quot;&gt;`Code`&lt;/span&gt; text
+```markdown
+Syntax highlighted code block
 
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; and !&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+# Header 1
+## Header 2
+### Header 3
 
-&lt;p&gt;For more details see &lt;a href=&quot;https://guides.github.com/features/mastering-markdown/&quot;&gt;GitHub Flavored Markdown&lt;/a&gt;.&lt;/p&gt;
+- Bulleted
+- List
 
-&lt;h3 id=&quot;jekyll-themes&quot;&gt;Jekyll Themes&lt;/h3&gt;
+1. Numbered
+2. List
 
-&lt;p&gt;Your Pages site will use the layout and styles from the Jekyll theme you have selected in your &lt;a href=&quot;https://github.com/skrolikowski/skrolikowski.github.io/settings&quot;&gt;repository settings&lt;/a&gt;. The name of this theme is saved in the Jekyll &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; configuration file.&lt;/p&gt;
+**Bold** and _Italic_ and `Code` text
 
-&lt;h3 id=&quot;support-or-contact&quot;&gt;Support or Contact&lt;/h3&gt;
+[Link](url) and ![Image](src)
+```
 
-&lt;p&gt;Having trouble with Pages? Check out our &lt;a href=&quot;https://help.github.com/categories/github-pages-basics/&quot;&gt;documentation&lt;/a&gt; or &lt;a href=&quot;https://github.com/contact&quot;&gt;contact support&lt;/a&gt; and we’ll help you sort it out.&lt;/p&gt;</content><author><name>skrolikowski</name></author><summary type="html">Welcome to GitHub Pages</summary></entry></feed>
+For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+
+### Jekyll Themes
+
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/skrolikowski/skrolikowski.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+
+### Support or Contact
+
+Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.</content><author><name>skrolikowski</name></author><summary type="html">Welcome to GitHub Pages</summary></entry></feed>

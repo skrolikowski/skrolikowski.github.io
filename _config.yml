@@ -48,7 +48,7 @@ collections:
 
 
 # Performance
-incremental: false         # Enable the experimental incremental build feature.
+incremental: true          # Enable the experimental incremental build feature.
 profile: true              # Generate a Liquid rendering profile to help you identify performance bottlenecks.
 strict_front_matter: true  # Cause a build to fail if there is a YAML syntax error in a page's front matter.
 

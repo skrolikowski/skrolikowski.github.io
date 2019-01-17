@@ -5,14 +5,14 @@ layout: default
 <div class="container py-5">
     <div class="row mb-2">
         <article class="col" itemscope itemtype="http://schema.org/BlogPosting">
-            <span class="float-right">
-            <i class="fas fa-square fa-2x pr-2 text-info"></i>
-            <i class="fas fa-square fa-2x pr-2 text-info"></i>
-            <i class="fas fa-square fa-2x pr-2 text-info"></i>
-            </span>
             <h1 itemprop="name headline">{{ page.title }}</h1>
 
             <p class="border-top border-dark text-muted py-2">
+                <span class="float-right">
+                    <i class="fas fa-square fa-2x pr-2 text-info"></i>
+                    <i class="fas fa-square fa-2x pr-2 text-info"></i>
+                    <i class="fas fa-square fa-2x pr-2 text-info"></i>
+                </span>
                 <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
             </p>
 

@@ -2,7 +2,10 @@
   background-color: #181818;
   margin-bottom: 0; }
 
-nav.navbar span.navbar-text a:hover {
+a.social-icons i {
+  color: #fff; }
+
+a.social-icons i:hover {
   color: #17a2b8; }
 
 article a,
