@@ -30,11 +30,11 @@ paginate_path: /page:num
 # timezone: America/Los_Angeles
 
 # Blogs
-show_drafts: false  # Process and render draft posts.
-future: false       # Publish posts or collection documents with a future date.
-unpublished: false  # Render posts that were marked as unpublished.
-lsi: true           # Produce an index for related posts.
-limit_posts: 0      # Limit the number of posts to parse and publish.
+show_drafts: false                # Process and render draft posts.
+future: false                     # Publish posts or collection documents with a future date.
+unpublished: false                # Render posts that were marked as unpublished.
+lsi: true                         # Produce an index for related posts.
+limit_posts: 0                    # Limit the number of posts to parse and publish.
 
 # Collections
 collections_dir: collections
@@ -54,6 +54,7 @@ strict_front_matter: true  # Cause a build to fail if there is a YAML syntax err
 
 # Plugins
 plugins:
+  - jemoji
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap

@@ -1,42 +1,43 @@
+{% assign skills = site.data.skills %}
+{% assign links = site.data.links %}
+{% assign keywords = site.data.keywords %}
+
 <div id="skills" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
     <div class="card-body d-flex">
         <div class="w-100 my-auto">
             <h3 class="card-title">Skills</h3>
             <div class="card-text border-top border-dark">
+
                 <div class="py-3">
                     <h5>Languages</h5>
-                    <ul>
-                        <li><span class="badge badge-secondary float-right">Fair</span> C++</li>
-                        <li><span class="badge badge-secondary float-right">Fair</span> C#</li>
-                        <li><span class="badge badge-primary float-right">Good</span> JavaScript</li>
-                        <li><span class="badge badge-primary float-right">Good</span> Lua</li>
-                        <li><span class="badge badge-success float-right">Great</span> PHP</li>
-                        <li><span class="badge badge-primary float-right">Good</span> Python</li>
-                        <li><span class="badge badge-primary float-right">Good</span> SQL</li>
-                    </ul>
+                    {% for language in skills.languages %}
+                        <div class="row py-1">
+                            <div class="col-2 font-weight-bold text-right">{{ language.title }}</div>
+                            <div class="col-3">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: {{ language.level }}%" aria-valuenow="{{ language.level }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
+
                 <div class="py-3">
-                    <h5>Practice</h5>
+                    <h5>Coding Challenge Sites</h5>
                     <ul>
-                        <li><a href="https://leetcode.com/skrolikowski/" target="_blank" class="card-link">LeetCode</a></li>
-                        <li><a href="https://exercism.io/profiles/skrolikowski" target="_blank" class="card-link">exercism</a></li>
-                        <li><a href="https://projecteuler.net/" target="_blank" class="card-link">Project Euler</a></li>
+                        <li><a href="{{ links.leetcode.profile }}" target="_blank" class="card-link">{{ links.leetcode.title }}</a></li>
+                        <li><a href="{{ links.exercism.link }}" target="_blank" class="card-link">{{ links.exercism.title }}</a></li>
+                        <li><a href="{{ links.projecteuler.link }}" target="_blank" class="card-link">{{ links.projecteuler.title }}</a></li>
                     </ul>
                 </div>
+
                 <div class="py-3">
                     <h5>Keywords</h5>
-                    <span class="badge badge-dark">Adaptive</span>
-                    <span class="badge badge-dark">Appreciative</span>
-                    <span class="badge badge-dark">Cooperative</span>
-                    <span class="badge badge-dark">Creative</span>
-                    <span class="badge badge-dark">Dedicated</span>
-                    <span class="badge badge-dark">Honest</span>
-                    <span class="badge badge-dark">Humble</span>
-                    <span class="badge badge-dark">Optimistic</span>
-                    <span class="badge badge-dark">Purposeful</span>
-                    <span class="badge badge-dark">Respectful</span>
-                    <span class="badge badge-dark">Responsible</span>
+                    {% for keyword in keywords %}
+                        <span class="badge badge-dark">{{ keyword }}</span>
+                    {% endfor %}
                 </div>
+
                 <div class="mt-5 text-right">
                     <i class="fas fa-square fa-2x pr-2 text-muted"></i>
                 </div>

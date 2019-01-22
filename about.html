@@ -4,27 +4,31 @@ title: About Me
 excerpt: This is my personal website. I am a programmer from Seattle.
 ---
 
-    <div class="container py-3">
-        <div class="row">
-            <div class="col">
-                {% include about/about.html %}
-                {% include about/education.html %}
-                {% include about/experience.html %}
-                {% include about/disciplines.html %}
-                {% include about/skills.html %}
-                {% include about/interests.html %}
-                {% include about/references.html %}
-            </div>
-            <div class="col-3 d-none d-lg-block">
-                <ul id="list-scrollspy" class="nav flex-column position-fixed">
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#about-me">About Me</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#disciplines">Disciplines</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#interests">Interests</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#references">References</a></li>
-                </ul>
-            </div>
+<div class="container d-none d-print-block">
+    {% include resume.html %}
+</div>
+
+<div class="container d-print-none py-3">
+    <div class="row">
+        <div class="col">
+            {% include about/intro.html %}
+            {% include about/education.html %}
+            {% include about/experience.html %}
+            {% include about/disciplines.html %}
+            {% include about/skills.html %}
+            {% include about/interests.html %}
+            {% include about/references.html %}
+        </div>
+        <div class="col-3 d-none d-lg-block py-3">
+            <ul id="list-scrollspy" class="nav flex-column position-fixed">
+                <li class="nav-item"><a class="nav-link text-secondary" href="#intro">About Me</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="#education">Education</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="#disciplines">Disciplines</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="#interests">Interests</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="#references">References</a></li>
+            </ul>
         </div>
     </div>
+</div>

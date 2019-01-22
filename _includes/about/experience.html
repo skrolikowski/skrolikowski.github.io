@@ -1,61 +1,31 @@
+{% assign content = site.data.about.experience %}
+
 <div id="experience" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
     <div class="card-body d-flex">
         <div class="w-100 my-auto">
-            <h3 class="card-title">Experience</h3>
+            <h3 class="card-title">{{ content.title }}</h3>
             <div class="card-text border-top border-dark">
-                <div class="py-3">
-                    <div class="float-right">
-                        <span class="badge badge-dark">2008</span>
-                        <span class="badge badge-dark">2017</span>
+
+                {% for job in content.employment %}
+                    <div class="py-3">
+                        <div class="float-right">
+                            <span class="badge badge-dark">{{ job.started }}</span>
+                            <span class="badge badge-dark">{{ job.ended }}</span>
+                        </div>
+                        <h5>{{ job.title }}</h5>
+                        <em>{{ job.company }}</em>
+                        {% if job.bullets %}
+                            <ul>
+                                {% for item in job.bullets %}
+                                    <li>{{ item }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        {% for tag in job.tags %}
+                            <span class="badge badge-info badge-pill">{{ tag }}</span>
+                        {% endfor %}
                     </div>
-                    <h5>Web Application Developer</h5>
-                    <em>efelle creative, Seattle, WA</em>
-                    <ul>
-                        <li>Lead dev team to build company's proprietary CMS software from the ground up.</li>
-                        <li>Built and maintained e-commerce, scheduling, API, and many other modules.</li>
-                        <li>Worked with several APIs (e.g. BigCommerce, Google, and payment gateways).</li>
-                        <li>Meet with other departments and clients regularly to effectively communicate current project goals.</li>
-                    </ul>
-                    <span class="badge badge-info badge-pill">PHP</span>
-                    <span class="badge badge-info badge-pill">MySQL</span>
-                    <span class="badge badge-info badge-pill">JavaScript</span>
-                    <span class="badge badge-info badge-pill">JSON</span>
-                    <span class="badge badge-info badge-pill">XML</span>
-                    <span class="badge badge-info badge-pill">Laravel</span>
-                </div>
-                <div class="py-3">
-                    <div class="float-right">
-                        <span class="badge badge-dark">2006</span>
-                        <span class="badge badge-dark">2007</span>
-                    </div>
-                    <h5>Web Application Developer</h5>
-                    <em>Geckowerx, Seattle, WA</em>
-                    <ul>
-                        <li>Built custom CMS software for client websites.</li>
-                    </ul>
-                    <span class="badge badge-info badge-pill">PHP</span>
-                    <span class="badge badge-info badge-pill">MySQL</span>
-                    <span class="badge badge-info badge-pill">JavaScript</span>
-                    <span class="badge badge-info badge-pill">HTML</span>
-                    <span class="badge badge-info badge-pill">CSS</span>
-                </div>
-                <div class="py-3">
-                    <div class="float-right">
-                        <span class="badge badge-dark">2005</span>
-                        <span class="badge badge-dark">2007</span>
-                    </div>
-                    <h5>Web Designer</h5>
-                    <em>Puget Sound Energy, Bellevue, WA</em>
-                    <ul>
-                        <li>Contract position; worked solely to designed, developed, &amp; maintained intranet website for Human Resources department.</li>
-                        <li>Meet with each team for specification requirements.</li>
-                        <li>Meet with the department regularly for progress reports.</li>
-                    </ul>
-                    <span class="badge badge-info badge-pill">FrontPage</span>
-                    <span class="badge badge-info badge-pill">JavaScript</span>
-                    <span class="badge badge-info badge-pill">HTML</span>
-                    <span class="badge badge-info badge-pill">CSS</span>
-                </div>
+                {% endfor %}
                 <div class="mt-5 text-right">
                     <i class="fas fa-square fa-2x pr-2 text-muted"></i>
                 </div>

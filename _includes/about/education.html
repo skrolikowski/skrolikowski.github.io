@@ -1,35 +1,29 @@
+{% assign content = site.data.about.education %}
+
 <div id="education" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
     <div class="card-body d-flex">
         <div class="w-100 my-auto">
-            <h3 class="card-title">Education</h3>
+            <h3 class="card-title">{{ content.title }}</h3>
             <div class="card-text border-top border-dark">
-                <div class="py-3">
-                    <div class="float-right">
-                        <span class="badge badge-dark">2008</span>
-                        <span class="badge badge-dark">2010</span>
+
+                {% for school in content.schools %}
+                    <div class="py-3">
+                        <div class="float-right">
+                            <span class="badge badge-dark">{{ school.enrolled }}</span>
+                            <span class="badge badge-dark">{{ school.graduated }}</span>
+                        </div>
+                        <h5>{{ school.program }}</h5>
+                        <em>{{ school.title }}</em>
+                        {% if school.bullets %}
+                            <ul>
+                                {% for item in school.bullets %}
+                                    <li>{{ item }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
                     </div>
-                    <h5>Bachelor of Science, Computing and Software Systems</h5>
-                    <em>University of Washington, Bothell</em>
-                </div>
-                <div class="py-3">
-                    <div class="float-right">
-                        <span class="badge badge-dark">2007</span>
-                        <span class="badge badge-dark">2007</span>
-                    </div>
-                    <h5>A.S., Computer Science</h5>
-                    <em>North Seattle College, Seattle, WA</em>
-                </div>
-                <div class="py-3">
-                    <div class="float-right">
-                        <span class="badge badge-dark">2001</span>
-                        <span class="badge badge-dark">2004</span>
-                    </div>
-                    <h5>Bachelor of Science, Botany</h5>
-                    <em>University of Washington, Seattle</em>
-                    <ul>
-                        <li>Webmaster for Table Tennis club.</li>
-                    </ul>
-                </div>
+                {% endfor %}
+
                 <div class="mt-5 text-right">
                     <i class="fas fa-square fa-2x pr-2 text-muted"></i>
                 </div>

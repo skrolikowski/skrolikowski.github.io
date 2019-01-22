@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://localhost:4000/about" />
 <meta property="og:site_name" content="Shane Krolikowski" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/me.png"},"name":"skrolikowski"},"url":"http://localhost:4000/about","headline":"About Me","author":{"@type":"Person","name":"skrolikowski"},"description":"This is my personal website. I am a programmer from Seattle.","@type":"WebPage","@context":"http://schema.org"}</script>
+{"url":"http://localhost:4000/about","headline":"About Me","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/me.png"},"name":"skrolikowski"},"author":{"@type":"Person","name":"skrolikowski"},"description":"This is my personal website. I am a programmer from Seattle.","@type":"WebPage","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Shane Krolikowski" />
@@ -31,7 +31,7 @@
 
     <body data-spy="scroll" data-target="#list-scrollspy" data-offset="0">
 
-        <header>
+        <header class="d-print-none">
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #181818;">
         <a class="navbar-brand" href="/"><img src="/assets/me.png" class="rounded" width="30" height="30" /></a>
 
@@ -41,7 +41,6 @@
 
         <div class="collapse navbar-collapse text-right" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-
                 
                     
                         <li class="nav-item">
@@ -50,17 +49,13 @@
                     
                 
                     
-                        <li class="nav-item">
-                            <a class="nav-link" href="/algorithms">Algorithms</a>
-                        </li>
+                
                     
                 
                     
                         <li class="nav-item">
-                            <a class="nav-link" href="/challenges">Challenges</a>
+                            <a class="nav-link" href="/posts">Posts</a>
                         </li>
-                    
-                
                     
                 
                     
@@ -73,81 +68,113 @@
                 
             </ul>
             <span class="navbar-text">
-                <a class="pr-2 social-icons" href="https://github.com/skrolikowski" title="Shane Krolikowski - GitHub" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
-                <a class="pr-2 social-icons" href="https://www.instagram.com/shanekrolikowski/" title="Shane Krolikowski - Instagram" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
-                <a class="pr-2 social-icons" href="https://www.reddit.com/user/skrolikowski" title="Shane Krolikowski - Reddit" target="_blank"><i class="fab fa-reddit-square fa-2x"></i></a>
-                <a class="pr-2 social-icons" href="https://www.linkedin.com/in/skrolikowski/" title="Shane Krolikowski - LinkedIn" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-                <a class="pr-2 social-icons" href="mailto:skrolikowski@gmail.com" title="Shane Krolikowski - Email"><i class="far fa-envelope fa-2x"></i></a>
+                
+                <a class="pr-2 social-icons" href="https://github.com/skrolikowski" title="GitHub" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
+                <a class="pr-2 social-icons" href="https://www.instagram.com/shanekrolikowski/" title="Instagram" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                <a class="pr-2 social-icons" href="https://www.reddit.com/user/skrolikowski" title="Reddit" target="_blank"><i class="fab fa-reddit-square fa-2x"></i></a>
+                <a class="pr-2 social-icons" href="https://www.linkedin.com/in/skrolikowski/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a class="pr-2 social-icons" href="mailto:skrolikowski@gmail.com" title="Email" target="_blank"><i class="far fa-envelope fa-2x"></i></a>
             </span>
         </div>
     </nav>
 </header>
 
-            <div class="container py-3">
-        <div class="row">
-            <div class="col">
-                <div id="about-me" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
-    <div class="card-body">
-        <div class="card-text">
-            <div class="py-3">
-                <p>
-                    My name is Shane Krolikowski.
-                    Tacoma, WA born, currently residing in the Queen Anne neighborhood of Seattle, WA.
-                    I have several disciples, but my most passionate one is programming.
-                    It started out as an evening hobby, but soon became an obsession.
-                    I started out in the Web Development field, but recently turned my interests to Game &amp; Application Development.
-                    It is my goal to continually challenge myself, learn from my failures, and grow.
-                    Try, fail, learn, repeat.
-                </p>
-                <p>
-                    I am a passionate and determined problem solver.
-                    I strive to learn the next topic, while focused on the current task in hand.
-                    Humble &amp; cooperative, even though I tend to work on my own.
-                    Trustworthy &amp; loyal, but I am not afraid to offer up challenge.
-                    Perceptive &amp; attentive, but will still probably ask a thousand questions.
-                </p>
-            </div>
-            <div class="py-3">
-                <div id="google-map" class="w-100" style="height: 400px;"></div>
-            </div>
-            <div class="mt-5 text-right">
-                <i class="fas fa-square fa-2x pr-2 text-muted"></i>
+        <div class="container d-none d-print-block">
+    
+
+
+
+
+<div class="row">
+    <div class="col">
+        <img src="/assets/me.png" class="rounded" />
+        I am a passionate and determined problem solver. I strive to learn the next topic, while focused on the current task in hand. Humble &amp; cooperative, even though I tend to work on my own. Trustworthy &amp; loyal, but I am not afraid to offer up challenge. Perceptive &amp; attentive, but will still probably ask a thousand questions.
+
+    </div>
+</div>
+</div>
+
+<div class="container d-print-none py-3">
+    <div class="row">
+        <div class="col">
+            
+
+<div id="intro" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
+    <div class="card-body d-flex">
+        <div class="w-100 my-auto">
+            <div class="card-text">
+
+                
+                    <div class="py-3">
+                        <p>My name is Shane Krolikowski. Tacoma, WA born, currently residing in the Queen Anne neighborhood of Seattle, WA. I have several disciplines, but my most passionate one is programming. It started out as an evening hobby, but soon became an obsession. I started out in the Web Development field, but recently turned my interests to Game &amp; Application Development. It is my goal to continually challenge myself, learn from my failures, and grow. Try, fail, learn, repeat.</p>
+
+                    </div>
+                
+                    <div class="py-3">
+                        <p>I am a passionate and determined problem solver. I strive to learn the next topic, while focused on the current task in hand. Humble &amp; cooperative, even though I tend to work on my own. Trustworthy &amp; loyal, but I am not afraid to offer up challenge. Perceptive &amp; attentive, but will still probably ask a thousand questions.</p>
+
+                    </div>
+                
+                    <div class="py-3">
+                        <div id="google-map" class="w-100" style="height: 400px;"></div>
+
+                    </div>
+                
+
+                <div class="mt-5 text-right">
+                    <i class="fas fa-square fa-2x pr-2 text-muted"></i>
+                </div>
             </div>
         </div>
     </div>
 </div>
-                <div id="education" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
+
+            
+
+<div id="education" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
     <div class="card-body d-flex">
         <div class="w-100 my-auto">
             <h3 class="card-title">Education</h3>
             <div class="card-text border-top border-dark">
-                <div class="py-3">
-                    <div class="float-right">
-                        <span class="badge badge-dark">2008</span>
-                        <span class="badge badge-dark">2010</span>
+
+                
+                    <div class="py-3">
+                        <div class="float-right">
+                            <span class="badge badge-dark">2008</span>
+                            <span class="badge badge-dark">2010</span>
+                        </div>
+                        <h5>Bachelor of Science, Computing and Software Systems</h5>
+                        <em>University of Washington, Bothell, WA</em>
+                        
                     </div>
-                    <h5>Bachelor of Science, Computing and Software Systems</h5>
-                    <em>University of Washington, Bothell</em>
-                </div>
-                <div class="py-3">
-                    <div class="float-right">
-                        <span class="badge badge-dark">2007</span>
-                        <span class="badge badge-dark">2007</span>
+                
+                    <div class="py-3">
+                        <div class="float-right">
+                            <span class="badge badge-dark">2001</span>
+                            <span class="badge badge-dark">2004</span>
+                        </div>
+                        <h5>A.S., Computer Science</h5>
+                        <em>North Seattle College, Seattle, WA</em>
+                        
                     </div>
-                    <h5>A.S., Computer Science</h5>
-                    <em>North Seattle College, Seattle, WA</em>
-                </div>
-                <div class="py-3">
-                    <div class="float-right">
-                        <span class="badge badge-dark">2001</span>
-                        <span class="badge badge-dark">2004</span>
+                
+                    <div class="py-3">
+                        <div class="float-right">
+                            <span class="badge badge-dark">2001</span>
+                            <span class="badge badge-dark">2004</span>
+                        </div>
+                        <h5>Bachelor of Science, Botany</h5>
+                        <em>University of Washington, Seattle, WA</em>
+                        
+                            <ul>
+                                
+                                    <li>Webmaster for Table Tennis club.</li>
+                                
+                            </ul>
+                        
                     </div>
-                    <h5>Bachelor of Science, Botany</h5>
-                    <em>University of Washington, Seattle</em>
-                    <ul>
-                        <li>Webmaster for Table Tennis club.</li>
-                    </ul>
-                </div>
+                
+
                 <div class="mt-5 text-right">
                     <i class="fas fa-square fa-2x pr-2 text-muted"></i>
                 </div>
@@ -155,64 +182,114 @@
         </div>
     </div>
 </div>
-                <div id="experience" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
+            
+
+<div id="experience" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
     <div class="card-body d-flex">
         <div class="w-100 my-auto">
             <h3 class="card-title">Experience</h3>
             <div class="card-text border-top border-dark">
-                <div class="py-3">
-                    <div class="float-right">
-                        <span class="badge badge-dark">2008</span>
-                        <span class="badge badge-dark">2017</span>
+
+                
+                    <div class="py-3">
+                        <div class="float-right">
+                            <span class="badge badge-dark">2008</span>
+                            <span class="badge badge-dark">2017</span>
+                        </div>
+                        <h5>Web Application Developer</h5>
+                        <em>efelle creative, Seattle, WA</em>
+                        
+                            <ul>
+                                
+                                    <li>Lead dev team to build company's proprietary CMS software from the ground up.</li>
+                                
+                                    <li>Built and maintained e-commerce, scheduling, API, and many other modules.</li>
+                                
+                                    <li>Worked with several APIs (e.g. BigCommerce, Google, and payment gateways).</li>
+                                
+                                    <li>Meet with other departments and clients regularly to effectively communicate current project goals.</li>
+                                
+                            </ul>
+                        
+                        
+                            <span class="badge badge-info badge-pill">PHP</span>
+                        
+                            <span class="badge badge-info badge-pill">MySQL</span>
+                        
+                            <span class="badge badge-info badge-pill">JavaScript</span>
+                        
+                            <span class="badge badge-info badge-pill">JSON</span>
+                        
+                            <span class="badge badge-info badge-pill">SASS</span>
+                        
+                            <span class="badge badge-info badge-pill">CSS</span>
+                        
+                            <span class="badge badge-info badge-pill">XML</span>
+                        
+                            <span class="badge badge-info badge-pill">Laravel</span>
+                        
+                            <span class="badge badge-info badge-pill">CMS</span>
+                        
                     </div>
-                    <h5>Web Application Developer</h5>
-                    <em>efelle creative, Seattle, WA</em>
-                    <ul>
-                        <li>Lead dev team to build company's proprietary CMS software from the ground up.</li>
-                        <li>Built and maintained e-commerce, scheduling, API, and many other modules.</li>
-                        <li>Worked with several APIs (e.g. BigCommerce, Google, and payment gateways).</li>
-                        <li>Meet with other departments and clients regularly to effectively communicate current project goals.</li>
-                    </ul>
-                    <span class="badge badge-info badge-pill">PHP</span>
-                    <span class="badge badge-info badge-pill">MySQL</span>
-                    <span class="badge badge-info badge-pill">JavaScript</span>
-                    <span class="badge badge-info badge-pill">JSON</span>
-                    <span class="badge badge-info badge-pill">XML</span>
-                    <span class="badge badge-info badge-pill">Laravel</span>
-                </div>
-                <div class="py-3">
-                    <div class="float-right">
-                        <span class="badge badge-dark">2006</span>
-                        <span class="badge badge-dark">2007</span>
+                
+                    <div class="py-3">
+                        <div class="float-right">
+                            <span class="badge badge-dark">2006</span>
+                            <span class="badge badge-dark">2007</span>
+                        </div>
+                        <h5>Web Application Developer</h5>
+                        <em>Geckowerx, Seattle, WA</em>
+                        
+                            <ul>
+                                
+                                    <li>Built custom CMS software for client websites.</li>
+                                
+                            </ul>
+                        
+                        
+                            <span class="badge badge-info badge-pill">PHP</span>
+                        
+                            <span class="badge badge-info badge-pill">MySQL</span>
+                        
+                            <span class="badge badge-info badge-pill">JavaScript</span>
+                        
+                            <span class="badge badge-info badge-pill">HTML</span>
+                        
+                            <span class="badge badge-info badge-pill">CSS</span>
+                        
+                            <span class="badge badge-info badge-pill">CMS</span>
+                        
                     </div>
-                    <h5>Web Application Developer</h5>
-                    <em>Geckowerx, Seattle, WA</em>
-                    <ul>
-                        <li>Built custom CMS software for client websites.</li>
-                    </ul>
-                    <span class="badge badge-info badge-pill">PHP</span>
-                    <span class="badge badge-info badge-pill">MySQL</span>
-                    <span class="badge badge-info badge-pill">JavaScript</span>
-                    <span class="badge badge-info badge-pill">HTML</span>
-                    <span class="badge badge-info badge-pill">CSS</span>
-                </div>
-                <div class="py-3">
-                    <div class="float-right">
-                        <span class="badge badge-dark">2005</span>
-                        <span class="badge badge-dark">2007</span>
+                
+                    <div class="py-3">
+                        <div class="float-right">
+                            <span class="badge badge-dark">2006</span>
+                            <span class="badge badge-dark">2007</span>
+                        </div>
+                        <h5>Web Designer</h5>
+                        <em>Puget Sound Energy, Bellevue, WA</em>
+                        
+                            <ul>
+                                
+                                    <li>Contract position; worked solely to designed, developed, &amp; maintained intranet website for Human Resources department.</li>
+                                
+                                    <li>Meet with each team for specification requirements.</li>
+                                
+                                    <li>Meet with the department regularly for progress reports.</li>
+                                
+                            </ul>
+                        
+                        
+                            <span class="badge badge-info badge-pill">FrontPage</span>
+                        
+                            <span class="badge badge-info badge-pill">JavaScript</span>
+                        
+                            <span class="badge badge-info badge-pill">HTML</span>
+                        
+                            <span class="badge badge-info badge-pill">CSS</span>
+                        
                     </div>
-                    <h5>Web Designer</h5>
-                    <em>Puget Sound Energy, Bellevue, WA</em>
-                    <ul>
-                        <li>Contract position; worked solely to designed, developed, &amp; maintained intranet website for Human Resources department.</li>
-                        <li>Meet with each team for specification requirements.</li>
-                        <li>Meet with the department regularly for progress reports.</li>
-                    </ul>
-                    <span class="badge badge-info badge-pill">FrontPage</span>
-                    <span class="badge badge-info badge-pill">JavaScript</span>
-                    <span class="badge badge-info badge-pill">HTML</span>
-                    <span class="badge badge-info badge-pill">CSS</span>
-                </div>
+                
                 <div class="mt-5 text-right">
                     <i class="fas fa-square fa-2x pr-2 text-muted"></i>
                 </div>
@@ -220,58 +297,140 @@
         </div>
     </div>
 </div>
-                <div id="disciples" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
+            
+
+<div id="disciplines" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
     <div class="card-body d-flex">
         <div class="w-100 my-auto">
-            <h3 class="card-title">Disciples</h3>
+            <h3 class="card-title">Disciplines</h3>
             <div class="card-text border-top border-dark">
-                <div class="py-3">
-                    <h5>Computer Science</h5>
-                    <ul>
-                        <li>Data structures &amp; data algorithms.</li>
-                        <li>Code Katas.</li>
-                    </ul>
-                </div>
-                <div class="py-3">
-                    <h5>Game Development</h5>
-                    <ul>
-                        <li>Experience with game frameworks:
-                            <a href="https://love2d.org/" target="_blank" class="card-link">Love2D</a>
-                            &amp;
-                            <a href="https://bitbucket.org/pyglet/pyglet/wiki/Home" target="_blank" class="card-link">pyglet</a>.
-                        </li>
-                        <li>Built mini-framework for the use in several game clones.
+
+                
+                    <div class="py-3">
+                        <div class="float-right">
+                            <small>
+                                
+                                    <span class="badge badge-dark badge-pill">data-structures</span>
+                                
+                                    <span class="badge badge-dark badge-pill">algorithms</span>
+                                
+                                    <span class="badge badge-dark badge-pill">code-katas</span>
+                                
+                                    <span class="badge badge-dark badge-pill">programming</span>
+                                
+                            </small>
+                        </div>
+                        <h5>Computer Science</h5>
+                        
+                        
                             <ul>
-                                <li><a href="https://github.com/skrolikowski/Lua-Tools" target="_blank" class="card-link">Lua-Tools</a></li>
-                                <li><a href="https://github.com/skrolikowski/PyBox" target="_blank" class="card-link">PyBox</a></li>
+                                
+                                    <li>Study data structures, algorithms, & patterns.</li>
+                                
+                                    <li>Coding challenges for practice.</li>
+                                
                             </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="py-3">
-                    <h5>Web Development</h5>
-                    <ul>
-                        <li>Over 10 years of experience.</li>
-                        <li>Experienced in PHP, MySQL, and other web technologies.</li>
-                    </ul>
-                </div>
-                <div class="py-3">
-                    <h5>Drawing</h5>
-                    <p>Just over 3 years ago, I set out to practice drawing in the hopes of one day writing and designing a graphic novel.
-                        It's been a long journey with pitfalls, frustration, and defeating at times, but I have loved every minute of it.
-                        Coming from a logical thinking background, turning off the left side of the brain is a challenge within itself.
-                    </p>
-                    <p>
-                        <a href="https://www.youtube.com/watch?v=AZn9ghG9nRw" target="_blank" class="card-link">Don't Think, Feel!</a>
-                    </p>
-                </div>
-                <div class="py-3">
-                    <h5>Game Boy Admirer</h5>
-                    <p>Owner of several Game Boys; some broken, some not.
-                        The goal was to learn electronics, while combining it with another passion: video games.
-                        I own several models, but the <a href="https://en.wikipedia.org/wiki/List_of_Game_Boy_colors_and_styles#Game_Boy" target="_blank" class="card-link">DMG-01</a> is my favorite based on style & nostalgic value alone.
-                    </p>
-                </div>
+                        
+                    </div>
+                
+                    <div class="py-3">
+                        <div class="float-right">
+                            <small>
+                                
+                                    <span class="badge badge-dark badge-pill">game-dev</span>
+                                
+                                    <span class="badge badge-dark badge-pill">level-design</span>
+                                
+                                    <span class="badge badge-dark badge-pill">programming</span>
+                                
+                            </small>
+                        </div>
+                        <h5>Game Development</h5>
+                        
+                        
+                            <ul>
+                                
+                                    <li>Experience working with game frameworks: <a href="https://love2d.org/" target="_blank" class="card-link">Love2D</a> &amp; <a href="https://bitbucket.org/pyglet/pyglet/wiki/Home" target="_blank" class="card-link">pyglet</a>.
+</li>
+                                
+                                    <li>Built mini-framework for the use in several game clones: <a href="https://github.com/skrolikowski/Lua-Tools" target="_blank" class="card-link">Lua-Tools</a> &amp; <a href="https://github.com/skrolikowski/PyBox" target="_blank" class="card-link">PyBox</a>
+</li>
+                                
+                            </ul>
+                        
+                    </div>
+                
+                    <div class="py-3">
+                        <div class="float-right">
+                            <small>
+                                
+                                    <span class="badge badge-dark badge-pill">web-dev</span>
+                                
+                                    <span class="badge badge-dark badge-pill">web-technology</span>
+                                
+                                    <span class="badge badge-dark badge-pill">networking</span>
+                                
+                                    <span class="badge badge-dark badge-pill">programming</span>
+                                
+                            </small>
+                        </div>
+                        <h5>Web Development</h5>
+                        
+                        
+                            <ul>
+                                
+                                    <li>Over 10 years of experience.</li>
+                                
+                                    <li>Experienced in PHP, MySQL, and other web technologies.</li>
+                                
+                                    <li>Built several large-scale content management systems.</li>
+                                
+                                    <li>Minimal server/network level skills.</li>
+                                
+                            </ul>
+                        
+                    </div>
+                
+                    <div class="py-3">
+                        <div class="float-right">
+                            <small>
+                                
+                                    <span class="badge badge-dark badge-pill">art</span>
+                                
+                                    <span class="badge badge-dark badge-pill">drawing</span>
+                                
+                                    <span class="badge badge-dark badge-pill">creativity</span>
+                                
+                            </small>
+                        </div>
+                        <h5>Drawing</h5>
+                        
+                            Just over 3 years ago, I set out to practice drawing in the hopes of one day writing and designing a graphic novel. It's been a long journey with pitfalls, frustration, and defeating at times, but I have loved every minute of it. Coming from a logical thinking background, turning off the left side of the brain is a challenge within itself.
+
+                        
+                        
+                    </div>
+                
+                    <div class="py-3">
+                        <div class="float-right">
+                            <small>
+                                
+                                    <span class="badge badge-dark badge-pill">hands-on</span>
+                                
+                                    <span class="badge badge-dark badge-pill">electronics</span>
+                                
+                                    <span class="badge badge-dark badge-pill">gaming</span>
+                                
+                            </small>
+                        </div>
+                        <h5>Game Boy Admirer</h5>
+                        
+                            Owner of several Game Boys; some broken, some not. The goal was to learn electronics, while combining it with another passion: video games. I own several models, but the <a href="https://en.wikipedia.org/wiki/List_of_Game_Boy_colors_and_styles#Game_Boy" target="_blank" class="card-link">DMG-01</a> is my favorite based on style & nostalgic value alone.
+
+                        
+                        
+                    </div>
+                
                 <div class="mt-5 text-right">
                     <i class="fas fa-square fa-2x pr-2 text-muted"></i>
                 </div>
@@ -279,45 +438,121 @@
         </div>
     </div>
 </div>
-                <div id="skills" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
+
+            
+
+
+
+<div id="skills" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
     <div class="card-body d-flex">
         <div class="w-100 my-auto">
             <h3 class="card-title">Skills</h3>
             <div class="card-text border-top border-dark">
+
                 <div class="py-3">
                     <h5>Languages</h5>
-                    <ul>
-                        <li><span class="badge badge-secondary float-right">Fair</span> C++</li>
-                        <li><span class="badge badge-secondary float-right">Fair</span> C#</li>
-                        <li><span class="badge badge-primary float-right">Good</span> JavaScript</li>
-                        <li><span class="badge badge-primary float-right">Good</span> Lua</li>
-                        <li><span class="badge badge-success float-right">Great</span> PHP</li>
-                        <li><span class="badge badge-primary float-right">Good</span> Python</li>
-                        <li><span class="badge badge-primary float-right">Good</span> SQL</li>
-                    </ul>
+                    
+                        <div class="row py-1">
+                            <div class="col-2 font-weight-bold text-right">C++</div>
+                            <div class="col-3">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="row py-1">
+                            <div class="col-2 font-weight-bold text-right">C#</div>
+                            <div class="col-3">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="row py-1">
+                            <div class="col-2 font-weight-bold text-right">JavaScript</div>
+                            <div class="col-3">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="row py-1">
+                            <div class="col-2 font-weight-bold text-right">Lua</div>
+                            <div class="col-3">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="row py-1">
+                            <div class="col-2 font-weight-bold text-right">PHP</div>
+                            <div class="col-3">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="row py-1">
+                            <div class="col-2 font-weight-bold text-right">Python</div>
+                            <div class="col-3">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="row py-1">
+                            <div class="col-2 font-weight-bold text-right">SQL</div>
+                            <div class="col-3">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    
                 </div>
+
                 <div class="py-3">
-                    <h5>Practice</h5>
+                    <h5>Coding Challenge Sites</h5>
                     <ul>
-                        <li><a href="https://leetcode.com/skrolikowski/" target="_blank" class="card-link">LeetCode</a></li>
-                        <li><a href="https://exercism.io/profiles/skrolikowski" target="_blank" class="card-link">exercism</a></li>
+                        <li><a href="https://leetcode.com/skrolikowski" target="_blank" class="card-link">LeetCode</a></li>
+                        <li><a href="https://exercism.io/" target="_blank" class="card-link">exercism.io</a></li>
                         <li><a href="https://projecteuler.net/" target="_blank" class="card-link">Project Euler</a></li>
                     </ul>
                 </div>
+
                 <div class="py-3">
                     <h5>Keywords</h5>
-                    <span class="badge badge-dark">Adaptive</span>
-                    <span class="badge badge-dark">Appreciative</span>
-                    <span class="badge badge-dark">Cooperative</span>
-                    <span class="badge badge-dark">Creative</span>
-                    <span class="badge badge-dark">Dedicated</span>
-                    <span class="badge badge-dark">Honest</span>
-                    <span class="badge badge-dark">Humble</span>
-                    <span class="badge badge-dark">Optimistic</span>
-                    <span class="badge badge-dark">Purposeful</span>
-                    <span class="badge badge-dark">Respectful</span>
-                    <span class="badge badge-dark">Responsible</span>
+                    
+                        <span class="badge badge-dark">Adaptive</span>
+                    
+                        <span class="badge badge-dark">Appreciative</span>
+                    
+                        <span class="badge badge-dark">Cooperative</span>
+                    
+                        <span class="badge badge-dark">Creative</span>
+                    
+                        <span class="badge badge-dark">Dedicated</span>
+                    
+                        <span class="badge badge-dark">Honest</span>
+                    
+                        <span class="badge badge-dark">Humble</span>
+                    
+                        <span class="badge badge-dark">Optimistic</span>
+                    
+                        <span class="badge badge-dark">Purposeful</span>
+                    
+                        <span class="badge badge-dark">Respectful</span>
+                    
+                        <span class="badge badge-dark">Responsible</span>
+                    
                 </div>
+
                 <div class="mt-5 text-right">
                     <i class="fas fa-square fa-2x pr-2 text-muted"></i>
                 </div>
@@ -325,7 +560,7 @@
         </div>
     </div>
 </div>
-                <div id="interests" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
+            <div id="interests" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
     <div class="card-body d-flex">
         <div class="w-100 my-auto">
             <h3 class="card-title">Interests</h3>
@@ -345,7 +580,7 @@
         </div>
     </div>
 </div>
-                <div id="references" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
+            <div id="references" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
     <div class="card-body d-flex">
         <div class="w-100 my-auto">
             <h3 class="card-title">References</h3>
@@ -360,28 +595,31 @@
         </div>
     </div>
 </div>
-            </div>
-            <div class="col-3 d-none d-lg-block">
-                <ul id="list-scrollspy" class="nav flex-column position-fixed">
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#about-me">About Me</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#disciples">Disciples</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#interests">Interests</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="#references">References</a></li>
-                </ul>
-            </div>
+        </div>
+        <div class="col-3 d-none d-lg-block py-3">
+            <ul id="list-scrollspy" class="nav flex-column position-fixed">
+                <li class="nav-item"><a class="nav-link text-secondary" href="#intro">About Me</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="#education">Education</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="#disciplines">Disciplines</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="#interests">Interests</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" href="#references">References</a></li>
+            </ul>
         </div>
     </div>
+</div>
 
-        <div class="container-fluid h-100 text-light" style="background-color: #181818;">
+        <div class="container-fluid h-100 text-light d-print-none" style="background-color: #181818;">
     <div class="row py-3 justify-content-around">
         <div class="col">
             <span class="float-right">
+                
                 <a class="pr-2 social-icons" href="https://steamcommunity.com/id/skrolikowski/" title="Steam Community" target="_blank"><i class="fab fa-steam fa-2x"></i></a>
                 <a class="pr-2 social-icons" href="https://open.spotify.com/user/lonelywinner?si=NEnSfOzcSZaQQPV2dV09kQ" title="Spotify" target="_blank"><i class="fab fa-spotify fa-2x"></i></a>
-                <a class="pr-2 social-icons" href="https://www.instagram.com/bigboysampson/" title="Instagram - BigBoySampson" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                <a class="pr-2 social-icons" href="https://www.instagram.com/bigboysampson/" title="BigBoySampson" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+
+                
             </span>
             <small>You have reached the end of the page.</small>
         </div>

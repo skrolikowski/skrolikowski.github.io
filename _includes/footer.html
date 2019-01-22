@@ -1,10 +1,15 @@
-<div class="container-fluid h-100 text-light" style="background-color: #181818;">
+<div class="container-fluid h-100 text-light d-print-none" style="background-color: #181818;">
     <div class="row py-3 justify-content-around">
         <div class="col">
             <span class="float-right">
-                <a class="pr-2 social-icons" href="https://steamcommunity.com/id/skrolikowski/" title="Steam Community" target="_blank"><i class="fab fa-steam fa-2x"></i></a>
-                <a class="pr-2 social-icons" href="https://open.spotify.com/user/lonelywinner?si=NEnSfOzcSZaQQPV2dV09kQ" title="Spotify" target="_blank"><i class="fab fa-spotify fa-2x"></i></a>
-                <a class="pr-2 social-icons" href="https://www.instagram.com/bigboysampson/" title="Instagram - BigBoySampson" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                {% assign social = site.data.social %}
+                <a class="pr-2 social-icons" href="{{ social.steam.link }}" title="{{ social.steam.title }}" target="_blank"><i class="{{ social.steam.icon }}"></i></a>
+                <a class="pr-2 social-icons" href="{{ social.spotify.link }}" title="{{ social.spotify.title }}" target="_blank"><i class="{{ social.spotify.icon }}"></i></a>
+                <a class="pr-2 social-icons" href="{{ social.catstagram.link }}" title="{{ social.catstagram.title }}" target="_blank"><i class="{{ social.catstagram.icon }}"></i></a>
+
+                {% for item in site.data.social.footer %}
+                    <a class="pr-2 social-icons" href="{{ item.link }}" title="{{ item.title }}" target="_blank"><i class="{{ item.icon }}"></i></a>
+                {% endfor %}
             </span>
             <small>You have reached the end of the page.</small>
         </div>

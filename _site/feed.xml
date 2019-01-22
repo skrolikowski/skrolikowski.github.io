@@ -1,73 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-16T21:44:13-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Shane Krolikowski</title><subtitle>This is my personal website. I am a programmer from Seattle.</subtitle><author><name>skrolikowski</name></author><entry><title type="html">World</title><link href="http://localhost:4000/2019/01/13/World" rel="alternate" type="text/html" title="World" /><published>2019-01-13T00:00:00-08:00</published><updated>2019-01-13T00:00:00-08:00</updated><id>http://localhost:4000/2019/01/13/World</id><content type="html" xml:base="http://localhost:4000/2019/01/13/World">## Welcome to GitHub Pages
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-21T21:27:54-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Shane Krolikowski</title><subtitle>This is my personal website. I am a programmer from Seattle.</subtitle><author><name>skrolikowski</name></author><entry><title type="html">How To Get Started</title><link href="http://localhost:4000/game-dev/2019/01/20/how-to-get-started" rel="alternate" type="text/html" title="How To Get Started" /><published>2019-01-20T00:00:00-08:00</published><updated>2019-01-20T00:00:00-08:00</updated><id>http://localhost:4000/game-dev/2019/01/20/how-to-get-started</id><content type="html" xml:base="http://localhost:4000/game-dev/2019/01/20/how-to-get-started">&lt;h2 id=&quot;where-do-i-start&quot;&gt;Where Do I Start?&lt;/h2&gt;
 
-&lt;b&gt;You&lt;/b&gt; can use the [editor on GitHub](https://github.com/skrolikowski/skrolikowski.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+&lt;p&gt;It was probably about 2 years ago when I became serious about (becoming good at) game development. Prior to this I’d conceptualize or read some inspiring article, but it never went past the idea. The purpose of this article (and future articles on the topic) is to share my experiences as complete beginner, self-taught game developer.&lt;/p&gt;
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+&lt;p&gt;With that said, I do have 10+ years of programming experience (mainly PHP/JavaScript) and I have taken at least 2 courses on the topic. However, I don’t consider homework assignments to be adequate when compared to real world experiences. Sitting down and saying, “I’m going to build a great game” is hard, even for the more experienced. For those of us that inspire to enter the field, this is especially difficult since we have no idea where to start.&lt;/p&gt;
 
-### Markdown
+&lt;p&gt;Coming from a limited background, I wanted to share a couple tips from my experiences starting out on my own.&lt;/p&gt;
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+&lt;h3 id=&quot;clear-your-mind&quot;&gt;Clear Your Mind&lt;/h3&gt;
 
-```markdown
-Syntax highlighted code block
+&lt;p&gt;The first thing to do is throw out all your great game ideas. Stop thinking about the last great game you played and stop saying, “I want to make a game just like that.” You’ll need to think smaller. Think Pong.&lt;/p&gt;
 
-# Header 1
-## Header 2
-### Header 3
+&lt;p&gt;What I found helpful was to go through (this &lt;a href=&quot;http://inventwithpython.com/blog/2012/02/20/i-need-practice-programming-49-ideas-for-game-clones-to-code/&quot;&gt;list&lt;/a&gt;). Try building each game, one-by-one from scratch (with the help of a game framework, of course). At first you’ll have no idea what you’re doing, but eventually you’ll build confidence in your abilities and soon start to do it like it’s second nature.&lt;/p&gt;
 
-- Bulleted
-- List
+&lt;h3 id=&quot;picking-a-language&quot;&gt;Picking A Language&lt;/h3&gt;
 
-1. Numbered
-2. List
+&lt;p&gt;I’d say this comes down to a few factors:&lt;/p&gt;
 
-**Bold** and _Italic_ and `Code` text
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Choose what’s comfortable&lt;/strong&gt; - considering most programming languages follow similar semantics, but differ in syntax, pick a language you are comfortable with. Focusing on one won’t hinder you from easily learning another later &lt;small&gt;(of course going from python to c++ is more difficult that the opposite)&lt;/small&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Based on a framework?&lt;/strong&gt; - I started with Lua/Love2D, then experimented with C++/OpenGL, and now trying C#/MonoGame.Extended. Bottom line is you may choose the framework, or the framework may choose you.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Using a game engines?&lt;/strong&gt; - some game engines (i.e. Unity, Godot) allow you to code in several different languages, while others don’t.&lt;/li&gt;
+&lt;/ol&gt;
 
-[Link](url) and ![Image](src)
-```
+&lt;h3 id=&quot;framework-vs-from-scratch&quot;&gt;Framework vs From Scratch&lt;/h3&gt;
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+&lt;p&gt;If you’re just getting started, you’ll definitely want to choose a framework.&lt;/p&gt;
 
-### Jekyll Themes
+&lt;h4 id=&quot;yes-please&quot;&gt;Yes, Please!&lt;/h4&gt;
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/skrolikowski/skrolikowski.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+&lt;p&gt;Your anxiety will subside and you’ll become more confident. You may even find yourself exploring the library files to see what’s happening behind the scenes. Then you’ll venture into creating your own framework.&lt;/p&gt;
 
-### Support or Contact
+&lt;p&gt;Below is a list of frameworks with their corresponding language:&lt;/p&gt;
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.</content><author><name>skrolikowski</name></author><summary type="html">Welcome to GitHub Pages</summary></entry><entry><title type="html">Welcome</title><link href="http://localhost:4000/2019/01/13/Welcome" rel="alternate" type="text/html" title="Welcome" /><published>2019-01-13T00:00:00-08:00</published><updated>2019-01-13T00:00:00-08:00</updated><id>http://localhost:4000/2019/01/13/Welcome</id><content type="html" xml:base="http://localhost:4000/2019/01/13/Welcome">## Welcome to GitHub Pages
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.lua.org/&quot;&gt;Lua&lt;/a&gt;/&lt;a href=&quot;https://love2d.org/&quot;&gt;Love2D&lt;/a&gt; - Love2D provides you with several modules to build a 2D game. Plus it has a large, active community.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.python.org/&quot;&gt;Python&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://pyglet.readthedocs.io/en/pyglet-1.3-maintenance/&quot;&gt;pyglet&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.pygame.org/news&quot;&gt;pygame&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/dotnet/csharp/&quot;&gt;C#&lt;/a&gt;/&lt;a href=&quot;http://www.monogame.net/&quot;&gt;MonoGame&lt;/a&gt;&lt;a href=&quot;https://github.com/craftworkgames/MonoGame.Extended&quot;&gt;Extended&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;b&gt;You&lt;/b&gt; can use the [editor on GitHub](https://github.com/skrolikowski/skrolikowski.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+&lt;h4 id=&quot;no-thank-you&quot;&gt;No, thank you.&lt;/h4&gt;
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+&lt;p&gt;Choosing to build a framework from scratch is a multi-faceted journey into many topics causing you to wish you would have paid attention in school. Regardless, it’ll definitely push you to your limits and you will learn lots from it. Some topics include:&lt;/p&gt;
 
-### Markdown
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Physics&lt;/strong&gt;&lt;/p&gt;
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Forces&lt;/strong&gt; - Acceleration and environmental factors. Do you want gravity in your world? How will your entities interact with surfaces? In the air?&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Collision Detection/Response&lt;/strong&gt; - You could use brute force tactics or more efficient broad vs narrow approaches for detection. Learning how to detect collision can be grueling on the CPU, especially when you have thousands of calculations running every fraction of a second.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Input/Events&lt;/strong&gt; - Do you want to handle just keyboard events? How about mouse or gamepad?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Particles&lt;/strong&gt; - Not necessary but allows you to add cool effects (e.g. flames, explosions)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Math&lt;/strong&gt;&lt;/p&gt;
 
-```markdown
-Syntax highlighted code block
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Vectors&lt;/strong&gt; - Using a &lt;a href=&quot;https://en.wikipedia.org/wiki/Euclidean_vector&quot;&gt;Euclidian Vector&lt;/a&gt; as opposed to individual x, y (and z) variables opens you up to the wonderful properties of &lt;a href=&quot;https://mathinsight.org/vector_introduction&quot;&gt;vector math&lt;/a&gt;. For example, how do you find the direction from an &lt;em&gt;origin&lt;/em&gt; to a &lt;em&gt;target&lt;/em&gt;?&lt;/p&gt;
 
-# Header 1
-## Header 2
-### Header 3
+        &lt;p&gt;Simple: &lt;code class=&quot;highlighter-rouge&quot;&gt;target - direction = direction vector&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Matrix&lt;/strong&gt; - When it comes to 3D, you’ll want to understand what matrices are used for and how multiplication works.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-- Bulleted
-- List
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
 
-1. Numbered
-2. List
+&lt;p&gt;This is just an introduction to my beginning journey into game development. The intent was to help ease the anxiety and to get you started in your adventure. I hope to continue on this topic and create many more articles in the future.&lt;/p&gt;
 
-**Bold** and _Italic_ and `Code` text
+&lt;h3 id=&quot;further-reading&quot;&gt;Further Reading&lt;/h3&gt;
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/skrolikowski/skrolikowski.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.</content><author><name>skrolikowski</name></author><summary type="html">Welcome to GitHub Pages</summary></entry></feed>
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_game_engines&quot;&gt;List of Game Engines&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://inventwithpython.com/blog/2012/02/20/i-need-practice-programming-49-ideas-for-game-clones-to-code/&quot;&gt;“I Need Practice Programming”: 49 Ideas for Game Clones to Code&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/mbrukman/awesome-gamedev&quot;&gt;A list of Game Development resources to make magic happen&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>skrolikowski</name></author><category term="game-dev" /><category term="beginner" /><summary type="html">Getting started in game development can be hard. This article tries to eliminate some of the anxiety and provide tips on getting started.</summary></entry></feed>

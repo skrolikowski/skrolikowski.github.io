@@ -1,0 +1,13 @@
+---
+layout: collection
+title: Posts
+excerpt: Ramblings of a confused Seattle programmer.
+---
+
+{% assign posts = site['posts'] | sort: "date" %}
+
+<div class="card-deck">
+    {% for post in posts %}
+        {% include post-block.html %}
+    {% endfor %}
+</div>

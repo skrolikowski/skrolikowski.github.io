@@ -1,0 +1,56 @@
+languages:
+  -
+    title: C++
+    level: 50
+  -
+    title: C#
+    level: 65
+  -
+    title: JavaScript
+    level: 75
+  -
+    title: Lua
+    level: 75
+  -
+    title: PHP
+    level: 100
+  -
+    title: Python
+    level: 75
+  -
+    title: SQL
+    level: 60
+
+software:
+  -
+    title: Visual Studio
+    level: 50
+  -
+    title: Tiled
+    level: 100
+  -
+    title: Unity
+    level: 0
+  -
+    title: Word
+    level: 75
+  -
+    title: Excel
+    level: 75
+
+frameworks:
+  -
+    title: .Net Framework
+    level: 65
+  -
+    title: Laravel
+    level: 100
+  -
+    title: Godot
+    level: 30
+  -
+    title: Love2D
+    level: 90
+  -
+    title: MonoGame.Extended
+    level: 30

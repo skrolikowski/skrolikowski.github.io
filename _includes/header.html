@@ -1,4 +1,4 @@
-<header>
+<header class="d-print-none">
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #181818;">
         <a class="navbar-brand" href="/"><img src="/assets/me.png" class="rounded" width="30" height="30" /></a>
 
@@ -8,7 +8,6 @@
 
         <div class="collapse navbar-collapse text-right" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-
                 {% for my_page in site.pages %}
                     {% if my_page.title %}
                         <li class="nav-item">
@@ -18,11 +17,12 @@
                 {% endfor %}
             </ul>
             <span class="navbar-text">
-                <a class="pr-2 social-icons" href="https://github.com/skrolikowski" title="Shane Krolikowski - GitHub" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
-                <a class="pr-2 social-icons" href="https://www.instagram.com/shanekrolikowski/" title="Shane Krolikowski - Instagram" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
-                <a class="pr-2 social-icons" href="https://www.reddit.com/user/skrolikowski" title="Shane Krolikowski - Reddit" target="_blank"><i class="fab fa-reddit-square fa-2x"></i></a>
-                <a class="pr-2 social-icons" href="https://www.linkedin.com/in/skrolikowski/" title="Shane Krolikowski - LinkedIn" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-                <a class="pr-2 social-icons" href="mailto:skrolikowski@gmail.com" title="Shane Krolikowski - Email"><i class="far fa-envelope fa-2x"></i></a>
+                {% assign social = site.data.social %}
+                <a class="pr-2 social-icons" href="{{ social.github.link }}" title="{{ social.github.title }}" target="_blank"><i class="{{ social.github.icon }}"></i></a>
+                <a class="pr-2 social-icons" href="{{ social.instagram.link }}" title="{{ social.instagram.title }}" target="_blank"><i class="{{ social.instagram.icon }}"></i></a>
+                <a class="pr-2 social-icons" href="{{ social.reddit.link }}" title="{{ social.reddit.title }}" target="_blank"><i class="{{ social.reddit.icon }}"></i></a>
+                <a class="pr-2 social-icons" href="{{ social.linkedin.link }}" title="{{ social.linkedin.title }}" target="_blank"><i class="{{ social.linkedin.icon }}"></i></a>
+                <a class="pr-2 social-icons" href="{{ social.email.link }}" title="{{ social.email.title }}" target="_blank"><i class="{{ social.email.icon }}"></i></a>
             </span>
         </div>
     </nav>

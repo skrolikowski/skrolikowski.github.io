@@ -1,55 +1,33 @@
+{% assign content = site.data.about.disciplines %}
+
 <div id="disciplines" class="card col-12 text-dark bg-white border-white" style="min-height: 100%; min-height: 100vh;">
     <div class="card-body d-flex">
         <div class="w-100 my-auto">
-            <h3 class="card-title">Disciplines</h3>
+            <h3 class="card-title">{{ content.title }}</h3>
             <div class="card-text border-top border-dark">
-                <div class="py-3">
-                    <h5>Computer Science</h5>
-                    <ul>
-                        <li>Data structures &amp; data algorithms.</li>
-                        <li>Code Katas.</li>
-                    </ul>
-                </div>
-                <div class="py-3">
-                    <h5>Game Development</h5>
-                    <ul>
-                        <li>Experience with game frameworks:
-                            <a href="https://love2d.org/" target="_blank" class="card-link">Love2D</a>
-                            &amp;
-                            <a href="https://bitbucket.org/pyglet/pyglet/wiki/Home" target="_blank" class="card-link">pyglet</a>.
-                        </li>
-                        <li>Built mini-framework for the use in several game clones.
+
+                {% for project in content.projects %}
+                    <div class="py-3">
+                        <div class="float-right">
+                            <small>
+                                {% for tag in project.tags %}
+                                    <span class="badge badge-dark badge-pill">{{ tag }}</span>
+                                {% endfor %}
+                            </small>
+                        </div>
+                        <h5>{{ project.title }}</h5>
+                        {% if project.text %}
+                            {{ project.text }}
+                        {% endif %}
+                        {% if project.bullets %}
                             <ul>
-                                <li><a href="https://github.com/skrolikowski/Lua-Tools" target="_blank" class="card-link">Lua-Tools</a></li>
-                                <li><a href="https://github.com/skrolikowski/PyBox" target="_blank" class="card-link">PyBox</a></li>
+                                {% for item in project.bullets %}
+                                    <li>{{ item }}</li>
+                                {% endfor %}
                             </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="py-3">
-                    <h5>Web Development</h5>
-                    <ul>
-                        <li>Over 10 years of experience.</li>
-                        <li>Experienced in PHP, MySQL, and other web technologies.</li>
-                    </ul>
-                </div>
-                <div class="py-3">
-                    <h5>Drawing</h5>
-                    <p>Just over 3 years ago, I set out to practice drawing in the hopes of one day writing and designing a graphic novel.
-                        It's been a long journey with pitfalls, frustration, and defeating at times, but I have loved every minute of it.
-                        Coming from a logical thinking background, turning off the left side of the brain is a challenge within itself.
-                    </p>
-                    <p>
-                        <a href="https://www.youtube.com/watch?v=AZn9ghG9nRw" target="_blank" class="card-link">Don't Think, Feel!</a>
-                    </p>
-                </div>
-                <div class="py-3">
-                    <h5>Game Boy Admirer</h5>
-                    <p>Owner of several Game Boys; some broken, some not.
-                        The goal was to learn electronics, while combining it with another passion: video games.
-                        I own several models, but the <a href="https://en.wikipedia.org/wiki/List_of_Game_Boy_colors_and_styles#Game_Boy" target="_blank" class="card-link">DMG-01</a> is my favorite based on style & nostalgic value alone.
-                    </p>
-                </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
                 <div class="mt-5 text-right">
                     <i class="fas fa-square fa-2x pr-2 text-muted"></i>
                 </div>

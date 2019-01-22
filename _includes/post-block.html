@@ -4,9 +4,12 @@
         <h3 class="card-title">
             <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" class="card-link">{{ post.title }}</a>
         </h3>
-        <p class="card-text">{{ post.content | strip_html | truncatewords:30 }}</p>
-        <p class="card-text text-right">
-            <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" class="card-link">Read more</a>
+        <p class="card-text">{{ post.excerpt }}</p>
+        <p class="card-text">
+            {% for tag in post.tags %}
+                <span class="badge badge-dark badge-pill">{{ tag | remove: "," }}</span>
+            {% endfor %}
+            <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" class="card-link float-right">Read more</a>
         </p>
     </div>
 </div>
