@@ -8,17 +8,15 @@
 
                 {% for project in content.projects %}
                     <div class="py-3">
-                        <div class="float-right">
-                            <small>
-                                {% for tag in project.tags %}
-                                    <span class="badge badge-dark badge-pill">{{ tag }}</span>
-                                {% endfor %}
-                            </small>
-                        </div>
                         <h5>{{ project.title }}</h5>
                         {% if project.text %}
                             {{ project.text }}
                         {% endif %}
+                        <p class="d-none d-md-block">
+                            {% for tag in project.tags %}
+                                <span class="badge badge-info badge-pill">{{ tag }}</span>
+                            {% endfor %}
+                        </p>
                         {% if project.bullets %}
                             <ul>
                                 {% for item in project.bullets %}

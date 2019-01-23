@@ -1,0 +1,102 @@
+questions:
+  -
+    title: Favorite Movie
+    slug: favorite-movie
+    answer: Streets of Fire
+    text:
+      - >
+        If I were to ever write a graphic novel, this is the movie I'd base it on.
+        I love this movie cause the music, characters, and atmosphere.
+      - |
+        <strong>Runners up:</strong>
+        Terminator 2, Death Wish 1974, Ping Pong.
+    image: /assets/favorites/streets_of_fire.jpg
+    link: https://www.imdb.com/title/tt0088194/
+  -
+    title: Favorite Band
+    slug: favorite-band
+    answer: Led Zeppelin
+    text:
+      - >
+        Fun fact: I listened to Led Zeppelin probably 75% of my college years.
+    image: /assets/favorites/led_zeppelin.jpg
+    link: https://open.spotify.com/artist/36QJpDe2go2KgaRleHCDTp
+  -
+    title: Favorite Villain
+    slug: favorite-villain
+    answer: T-1000
+    text:
+      - >
+        The T-1000 has no fear, doesn't rest, and has only one purpose:
+        Terminate it's target.
+        Not only was the T-1000 practically unkillable, his demeanor was outright terrifying.
+    image: /assets/favorites/t_1000.jpg
+    link: https://www.imdb.com/title/tt0103064
+  -
+    title: Favorite TV-Show
+    slug: favorite-tv-show
+    answer: Columbo
+    text:
+      - >
+        Columbo is such a likable character; forgetful, clumsy, lost-in-thought.
+        From the outside he isn't what you'd expect a detective to look or act,
+        but it's his attention to detail, pesky behavior, and willingness focus on simple outliers
+        allows him to find the suspect.
+    image: /assets/favorites/columbo.jpg
+    link: https://www.imdb.com/title/tt1466074
+  -
+    title: Favorite Sport
+    slug: favorite-sport
+    answer: Tennis
+    text:
+      - >
+        Haven't played much in my adult years, but I tend to watch the Opens when I can.
+    image: /assets/favorites/tennis.jpg
+  -
+    title: Favorite Drink
+    slug: favorite-drink
+    answer: Coffee
+    text:
+      - >
+        I used to own a <a href="https://www.breville.com/us/en/products/espresso/bes870.html" target="_blank">Breville BES870XL</a> so
+        I could make my own espresso, but now I have a <a href="https://www.breville.com/us/en/products/coffee/bdc650.html" target="_blank">Breville - Grind Control</a>.
+      - >
+        The smell of freshly gound/roasted coffee is an euphoric sensation.
+    image: /assets/favorites/coffee.jpg
+  -
+    title: Favorite Holiday
+    slug: favorite-holiday
+    answer: Halloween
+    text:
+      - >
+        Mainly because of the movies.
+        Every year I try to watch a single horror movie a day for the month of October.
+      - |
+        <strong>Some of the favorites:</strong>
+        Halloween, Black Christmas, Night of the Living Dead, Return of the Living Dead, Feast.
+    image: /assets/favorites/halloween.jpg
+  -
+    title: Favorite hobby
+    slug: favorite-hobby
+    answer: Art/Drawing
+    text:
+      - >
+        Art is so much different that programming, in the sense of what part of the brain you use.
+        My approach is to throw out all your logical thinking and just have fun.
+        Sometimes you'll create average work, and other times you'll create something great (which tomorrow looks not as great).
+        The fun is in the journey.
+    image: /assets/favorites/art.jpg
+  -
+    title: Favorite Video Game
+    slug: favorite-video-game
+    answer: Doom II
+    link: https://en.wikipedia.org/wiki/Doom_II
+    text:
+      - >
+        I probably clocked a couple years on this game, it never gets old. Vanilla is great, but
+        <a href="https://www.moddb.com/addons/project-brutality" target="_blank">Project Brutality</a>
+        is bliss.
+      - |
+        <strong>A few I'm playing regularly:</strong>
+        7 Days to Die, Fallout 4, TIS-100, Axiom Verge, Poly Bridge, Orcs Must Die, Stardew Valley
+    image: /assets/favorites/doom.png

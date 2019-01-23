@@ -5,9 +5,10 @@ base:
     Humble &amp; cooperative, even though I tend to work on my own.
     Trustworthy &amp; loyal, but I am not afraid to offer up challenge.
     Perceptive &amp; attentive, but will still probably ask a thousand questions.
+  avatar: /assets/me.png
   name: Shane Krolikowski
   website: shanekrolikowski.com
-  address: Seattle, WA - 98119
+  address: Queen Anne, Seattle, WA
   phone: 206.910.6260
   email: skrolikowski@gmail.com
 intro:
@@ -26,8 +27,6 @@ intro:
       Humble &amp; cooperative, even though I tend to work on my own.
       Trustworthy &amp; loyal, but I am not afraid to offer up challenge.
       Perceptive &amp; attentive, but will still probably ask a thousand questions.</p>
-    - >
-      <div id="google-map" class="w-100" style="height: 400px;"></div>
 
 education:
   title: Education

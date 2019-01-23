@@ -1,0 +1,76 @@
+-
+  title: Lua-Tools
+  link: https://github.com/skrolikowski/Lua-Tools
+  text: >
+    When I started game programming I chose the Love2D game framework w/ Lua.
+    It seemed like a good introductory framework and language for getting into the field.
+    Shortly after working my way through building a series of game clones, I began to
+    notice myself writing the same code over and over.
+    That along with the need for more advanced algortihms was required, and Lua-Tools was born.
+  technologies:
+    - Steering behaviors
+    - Enemy AI
+    - Simple collison detection/response
+    - Simple physics
+    - Vector math
+    - Animations
+    - Camera
+    - Pathfinding
+  software:
+    - Sublime Text 3
+    - Love2D
+  tags: ['lua', 'love2d', 'game-dev', 'programming', 'game-frameworks']
+# -
+#   title: Love2D - Game Clones
+#   link: https://github.com/skrolikowski/Love2D-Game-Clones
+#   text: >
+#     Group of mini-projects (game clones) to push myself to become comfortable with the Love2D game framework.
+#   technologies:
+#     - Simple collision detection/response
+#     - Simple physics
+#     - Vector math
+#     - Pathfinding
+#   software:
+#     - Sublime Text 3
+#     - Love2D
+#   tags: ['lua', 'love2d', 'game-dev', 'programming', 'game-frameworks']
+# -
+#   title: Love2D - Autonomous Agents
+#   link: https://github.com/skrolikowski/Love2D-Autonomous-Agents
+#   text: >
+#     Group of mini-projects displaying different steering behaviors.
+#   technologies:
+#     - Steering behaviors
+#     - Simple physics
+#     - Vector math
+#     - Pathfinding
+#     - Flow fields
+#   software:
+#     - Sublime Text 3
+#     - Love2D
+#   tags: ['lua', 'love2d', 'game-dev', 'programming', steering-behaviors', 'game-frameworks']
+# -
+#   title: Traffic Lights
+#   link: https://github.com/skrolikowski/traffic-lights
+#   text: >
+#
+-
+  title: E/Generation
+  link: https://github.com/skrolikowski/E-Generation
+  text: >
+    E/Generation (still looking for a better name) is a
+    <a href="https://en.wikipedia.org/wiki/D/Generation" target="_blank" class="card-link">D/Generation</a>
+    game clone started a couple months ago. The game is an isometric, room-by-room progression with varying
+    enemies in each room that must be cleared out. Each floor offers a more difficult challenge to the player.
+    Still a WIP; decided to port it to C# .Net + MonoGame.
+  technologies:
+    - Enemy AI
+    - Collision detection/response
+    - Asset creation
+    - Pathfinding
+    - Level Design
+  software:
+    - Sublime Text 3
+    - Love2D
+    - AssetForge
+  tags: ['lua', 'love2d', 'game-dev', 'programming', 'game-libraries', 'game-framework', 'level-design']

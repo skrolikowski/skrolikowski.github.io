@@ -1,11 +1,98 @@
 {% assign base = site.data.about.base %}
 {% assign education = site.data.about.education %}
 {% assign experience = site.data.about.experience %}
-{% assign skills = site.data.about.skills %}
+{% assign skills = site.data.skills %}
 
 <div class="row">
+    <div class="col-3 bg-dark text-white">
+
+        <!-- Avatar -->
+        <div class="py-5 text-center">
+            <img src="{{ base.avatar }}" class="img-fluid rounded-circle" />
+        </div>
+
+        <!-- Information -->
+        <div class="pb-3">
+            <h4 class="text-right"></i> Information</h4>
+            <div class="border-white border-top py-3">
+                <p>
+                    <i class="fas fa-user-circle"></i>
+                    <strong>Name:</strong><br />
+                    {{ base.name }}
+                </p>
+                <p>
+                    <i class="fas fa-map-pin"></i>
+                    <strong>Address:</strong><br />
+                    {{ base.address }}
+                </p>
+                <p>
+                    <i class="fas fa-phone-square fa-sm"></i>
+                    <strong>Email:</strong><br />
+                    {{ base.email }}
+                </p>
+                <p>
+                    <i class="fas fa-envelope-square"></i>
+                    <strong>Phone:</strong><br />
+                    {{ base.phone }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="pb-3">
+            <h4 class="text-right">Languages</h4>
+            <div class="border-white border-top py-3">
+                {% for language in skills.languages %}
+                    {% if language.level > 0 %}
+                        <strong>{{ language.title }}</strong>
+                        <div class="progress" style="height: 5px;">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: {{ language.level }}%" aria-valuenow="{{ language.level }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Software -->
+        <div class="pb-3">
+            <h4 class="text-right">Software</h4>
+            <div class="border-white border-top py-3">
+                {% for item in skills.software %}
+                    {% if item.level > 0 %}
+                        <strong>{{ item.title }}</strong>
+                        <div class="progress" style="height: 5px;">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: {{ item.level }}%" aria-valuenow="{{ item.level }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="pb-3">
+            <h4 class="text-right">Frameworks</h4>
+            <div class="border-white border-top py-3">
+                {% for framework in skills.frameworks %}
+                    {% if framework.level > 0 %}
+                        <strong>{{ framework.title }}</strong>
+                        <div class="progress" style="height: 5px;">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: {{ framework.level }}%" aria-valuenow="{{ framework.level }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- References -->
+        <div class="pb-3">
+            <h4 class="text-right">References</h4>
+            <div class="border-white border-top py-3">
+                <em>Available upon request.</em>
+            </div>
+        </div>
+
+    </div>
     <div class="col">
-        <img src="/assets/me.png" class="rounded" />
         {{ base.synopsis }}
     </div>
 </div>

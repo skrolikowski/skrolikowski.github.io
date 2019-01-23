@@ -8,34 +8,37 @@
             <h3 class="card-title">Skills</h3>
             <div class="card-text border-top border-dark">
 
-                <div class="py-3">
-                    <h5>Languages</h5>
-                    {% for language in skills.languages %}
-                        <div class="row py-1">
-                            <div class="col-2 font-weight-bold text-right">{{ language.title }}</div>
-                            <div class="col-3">
-                                <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: {{ language.level }}%" aria-valuenow="{{ language.level }}" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="row py-3">
+                    <div class="col-sm-12 col-md">
+                        <h5>Languages</h5>
+                        {% for language in skills.languages %}
+                            <div class="row py-1">
+                                <div class="col-5 font-weight-bold text-right">{{ language.title }}</div>
+                                <div class="col-6">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: {{ language.level }}%" aria-valuenow="{{ language.level }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="col-sm-12 col-md">
+                        <h5>Code Katas</h5>
+                        <ul>
+                            <li><a href="{{ links.leetcode.profile }}" target="_blank" class="card-link">{{ links.leetcode.title }}</a></li>
+                            <li><a href="{{ links.exercism.link }}" target="_blank" class="card-link">{{ links.exercism.title }}</a></li>
+                            <li><a href="{{ links.projecteuler.link }}" target="_blank" class="card-link">{{ links.projecteuler.title }}</a></li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="py-3">
-                    <h5>Coding Challenge Sites</h5>
-                    <ul>
-                        <li><a href="{{ links.leetcode.profile }}" target="_blank" class="card-link">{{ links.leetcode.title }}</a></li>
-                        <li><a href="{{ links.exercism.link }}" target="_blank" class="card-link">{{ links.exercism.title }}</a></li>
-                        <li><a href="{{ links.projecteuler.link }}" target="_blank" class="card-link">{{ links.projecteuler.title }}</a></li>
-                    </ul>
-                </div>
-
-                <div class="py-3">
-                    <h5>Keywords</h5>
-                    {% for keyword in keywords %}
-                        <span class="badge badge-dark">{{ keyword }}</span>
-                    {% endfor %}
+                <div class="row py-3">
+                    <div class="col">
+                        <h5>Keywords</h5>
+                        {% for keyword in keywords %}
+                            <span class="badge badge-dark">{{ keyword }}</span>
+                        {% endfor %}
+                    </div>
                 </div>
 
                 <div class="mt-5 text-right">
