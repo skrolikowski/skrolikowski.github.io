@@ -1,32 +1,32 @@
 github:
   title: GitHub
   link: https://github.com/skrolikowski
-  icon: fab fa-github-square fa-2x
+  icon: fab fa-github-square
 instagram:
   title: Instagram
   link: https://www.instagram.com/shanekrolikowski/
-  icon: fab fa-instagram fa-2x
+  icon: fab fa-instagram
 reddit:
   title: Reddit
   link: https://www.reddit.com/user/skrolikowski
-  icon: fab fa-reddit-square fa-2x
+  icon: fab fa-reddit-square
 linkedin:
   title: LinkedIn
   link: https://www.linkedin.com/in/skrolikowski/
-  icon: fab fa-linkedin fa-2x
+  icon: fab fa-linkedin
 email:
   title: Email
   link: mailto:skrolikowski@gmail.com
-  icon: far fa-envelope fa-2x
+  icon: far fa-envelope
 steam:
   title: Steam Community
   link: https://steamcommunity.com/id/skrolikowski/
-  icon: fab fa-steam fa-2x
+  icon: fab fa-steam
 spotify:
   title: Spotify
   link: https://open.spotify.com/user/lonelywinner?si=NEnSfOzcSZaQQPV2dV09kQ
-  icon: fab fa-spotify fa-2x
+  icon: fab fa-spotify
 catstagram:
   title: BigBoySampson
   link: https://www.instagram.com/bigboysampson/
-  icon: fas fa-cat fa-2x
+  icon: fas fa-cat

@@ -9,8 +9,8 @@
                 <div class="card-columns py-3">
                     {% for question in content.questions %}
                         <div class="card">
-                            <a type="button" class="btn btn-outline-light text-center p-0" data-toggle="modal" data-target="#{{ question.slug }}">
-                                <img class="card-img" src="{{ question.image }}" alt="{{ question.answer }}" />
+                            <a href="javascript:void(0)" data-toggle="modal" data-target="#{{ question.slug }}">
+                                <img class="card-img-top" src="{{ question.image }}" alt="{{ question.answer }}" />
                             </a>
                             <div class="card-footer text-center p-1">
                                 <span class="text-uppercase font-weight-bold">{{ question.title }}</span>

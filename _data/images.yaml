@@ -1,0 +1,9 @@
+avatar:
+  src: /assets/me.png
+  alt: Shane Krolikowski
+keyboard:
+  src: /assets/covers/keyboard.jpg
+  alt: Keyboard - Pexels
+donuts:
+  src: /assets/covers/pexels-photo-1407346.jpeg
+  alt: Donuts - Pexels

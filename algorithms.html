@@ -1,9 +1,11 @@
 ---
 layout: collection
+title: Algorithms
 excerpt: Sorting and searching algorithms.
 ---
 
 {% assign pages = site['algorithms'] | where: "categories","sort" | sort: "title" %}
+{% assign images = site.data.images %}
 
 <div class="card-deck">
     {% for page in pages %}

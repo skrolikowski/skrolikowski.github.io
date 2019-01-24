@@ -1,85 +1,48 @@
 {% assign base = site.data.about.base %}
+{% assign images = site.data.images %}
+{% assign social = site.data.social %}
 {% assign education = site.data.about.education %}
 {% assign experience = site.data.about.experience %}
 {% assign skills = site.data.skills %}
 
 <div class="row">
-    <div class="col-3 bg-dark text-white">
+    <div class="col-4 bg-dark text-white">
 
         <!-- Avatar -->
         <div class="py-5 text-center">
-            <img src="{{ base.avatar }}" class="img-fluid rounded-circle" />
+            <p><img src="{{ images.avatar.src }}" class="img-fluid rounded-circle" /></p>
+            <h3>Shane Krolikowski</h3>
+            <em>Seattle Programmer</em>
         </div>
 
         <!-- Information -->
-        <div class="pb-3">
-            <h4 class="text-right"></i> Information</h4>
-            <div class="border-white border-top py-3">
-                <p>
-                    <i class="fas fa-user-circle"></i>
-                    <strong>Name:</strong><br />
-                    {{ base.name }}
-                </p>
-                <p>
-                    <i class="fas fa-map-pin"></i>
-                    <strong>Address:</strong><br />
-                    {{ base.address }}
-                </p>
-                <p>
-                    <i class="fas fa-phone-square fa-sm"></i>
-                    <strong>Email:</strong><br />
-                    {{ base.email }}
-                </p>
-                <p>
-                    <i class="fas fa-envelope-square"></i>
-                    <strong>Phone:</strong><br />
-                    {{ base.phone }}
-                </p>
+        <div class="py-3">
+            <h4 class="text-right">Profile</h4>
+            <div class="border-white border-top py-3 text-justify">
+                {{ base.synopsis }}
             </div>
         </div>
 
-        <!-- Languages -->
-        <div class="pb-3">
-            <h4 class="text-right">Languages</h4>
+        <!-- Contact -->
+        <div class="py-3">
+            <h4 class="text-right">Contact</h4>
             <div class="border-white border-top py-3">
-                {% for language in skills.languages %}
-                    {% if language.level > 0 %}
-                        <strong>{{ language.title }}</strong>
-                        <div class="progress" style="height: 5px;">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: {{ language.level }}%" aria-valuenow="{{ language.level }}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-
-        <!-- Software -->
-        <div class="pb-3">
-            <h4 class="text-right">Software</h4>
-            <div class="border-white border-top py-3">
-                {% for item in skills.software %}
-                    {% if item.level > 0 %}
-                        <strong>{{ item.title }}</strong>
-                        <div class="progress" style="height: 5px;">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: {{ item.level }}%" aria-valuenow="{{ item.level }}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-
-        <!-- Frameworks -->
-        <div class="pb-3">
-            <h4 class="text-right">Frameworks</h4>
-            <div class="border-white border-top py-3">
-                {% for framework in skills.frameworks %}
-                    {% if framework.level > 0 %}
-                        <strong>{{ framework.title }}</strong>
-                        <div class="progress" style="height: 5px;">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: {{ framework.level }}%" aria-valuenow="{{ framework.level }}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
+                <div class="row pb-1">
+                    <div class="col text-right">{{ base.address }}</div>
+                    <div class="col-2"><i class="fas fa-map-marker-alt fa-lg"></i></div>
+                </div>
+                <div class="row pb-1">
+                    <div class="col text-right">{{ base.website }}</div>
+                    <div class="col-2"><i class="fas fa-laptop"></i></div>
+                </div>
+                <div class="row pb-1">
+                    <div class="col text-right">{{ base.email }}</div>
+                    <div class="col-2"><i class="fas fa-envelope-square fa-lg"></i></div>
+                </div>
+                <div class="row pb-1">
+                    <div class="col text-right">{{ base.phone }}</div>
+                    <div class="col-2"><i class="fas fa-phone-square fa-lg"></i></div>
+                </div>
             </div>
         </div>
 
@@ -90,9 +53,66 @@
                 <em>Available upon request.</em>
             </div>
         </div>
-
     </div>
-    <div class="col">
-        {{ base.synopsis }}
+    <div class="col py-3 px-5">
+
+        <!-- Experience -->
+        <div class="pb-3">
+            <h3>
+                <i class="fas fa-briefcase p-1 float-right"></i>
+                Experience
+            </h3>
+            {% for job in experience.employment %}
+                <div class="row border-dark border-top p-2">
+                    <div class="col">
+                        <h5>{{ job.title }}</h5>
+                        <em>{{ job.company }}</em>
+                        <p>{{ job.summary }}</p>
+                    </div>
+                    <div class="col-3 text-right">
+                        <h6>[{{ job.started }}:{{ job.ended }}]</h6>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Education -->
+        <div class="pb-3">
+            <h3>
+                <i class="fas fa-graduation-cap p-1 float-right"></i>
+                Education
+            </h3>
+            {% for school in education.schools %}
+                <div class="row border-dark border-top py-2">
+                    <div class="col">
+                        <h5>{{ school.program }}</h5>
+                        <em>{{ school.title }}</em>
+                    </div>
+                    <div class="col-3 text-right">
+                        <h6>[{{ school.enrolled }} - {{ school.graduated }}]</h6>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% for skill in skills %}
+            <div class="pb-3">
+                <h3>{{ skill.title }}</h3>
+                <div class="border-dark border-top py-2">
+                    {% for item in skill.items %}
+                        {% if item.level > 0 %}
+                            <div class="row">
+                                <div class="col"><strong>{{ item.title }}</strong></div>
+                                <div class="col">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: {{ item.level }}%" aria-valuenow="{{ item.level }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
     </div>
 </div>

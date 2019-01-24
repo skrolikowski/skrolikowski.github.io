@@ -11,12 +11,12 @@
                 <div class="row py-3">
                     <div class="col-sm-12 col-md">
                         <h5>Languages</h5>
-                        {% for language in skills.languages %}
+                        {% for item in skills[0].items %}
                             <div class="row py-1">
-                                <div class="col-5 font-weight-bold text-right">{{ language.title }}</div>
+                                <div class="col-5 font-weight-bold text-right">{{ item.title }}</div>
                                 <div class="col-6">
                                     <div class="progress">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: {{ language.level }}%" aria-valuenow="{{ language.level }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: {{ item.level }}%" aria-valuenow="{{ item.level }}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>

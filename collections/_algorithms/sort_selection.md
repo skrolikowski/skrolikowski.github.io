@@ -2,9 +2,9 @@
 layout: page
 title: Selection Sort
 excerpt: Solving selection sort.
-cover: /assets/covers/manhole.jpg
+cover: donuts
 categories: sort
 tags: sort, collections
 ---
 
-## Hello!
+#### Sorry for the tease.. still working on this article :o

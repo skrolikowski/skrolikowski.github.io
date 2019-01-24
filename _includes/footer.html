@@ -3,13 +3,9 @@
         <div class="col">
             <span class="float-right">
                 {% assign social = site.data.social %}
-                <a class="pr-2 social-icons" href="{{ social.steam.link }}" title="{{ social.steam.title }}" target="_blank"><i class="{{ social.steam.icon }}"></i></a>
-                <a class="pr-2 social-icons" href="{{ social.spotify.link }}" title="{{ social.spotify.title }}" target="_blank"><i class="{{ social.spotify.icon }}"></i></a>
-                <a class="pr-2 social-icons" href="{{ social.catstagram.link }}" title="{{ social.catstagram.title }}" target="_blank"><i class="{{ social.catstagram.icon }}"></i></a>
-
-                {% for item in site.data.social.footer %}
-                    <a class="pr-2 social-icons" href="{{ item.link }}" title="{{ item.title }}" target="_blank"><i class="{{ item.icon }}"></i></a>
-                {% endfor %}
+                <a class="pr-2 social-icons" href="{{ social.steam.link }}" title="{{ social.steam.title }}" target="_blank"><i class="{{ social.steam.icon }} fa-lg"></i></a>
+                <a class="pr-2 social-icons" href="{{ social.spotify.link }}" title="{{ social.spotify.title }}" target="_blank"><i class="{{ social.spotify.icon }} fa-lg"></i></a>
+                <a class="pr-2 social-icons" href="{{ social.catstagram.link }}" title="{{ social.catstagram.title }}" target="_blank"><i class="{{ social.catstagram.icon }} fa-lg"></i></a>
             </span>
             <small>You have reached the end of the page.</small>
         </div>

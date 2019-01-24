@@ -76,8 +76,8 @@ questions:
         Halloween, Black Christmas, Night of the Living Dead, Return of the Living Dead, Feast.
     image: /assets/favorites/halloween.jpg
   -
-    title: Favorite hobby
-    slug: favorite-hobby
+    title: Side hobby
+    slug: side-hobby
     answer: Art/Drawing
     text:
       - >
