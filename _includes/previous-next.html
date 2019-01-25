@@ -1,19 +1,41 @@
-<!-- Use if you want to show previous and next for all posts. -->
-
-<div class="row my-3">
-    <div class="col">
-
+<div class="row my-3 d-print-none">
+    <div class="col-sm-12 offset-md-1 col-md-5">
         {% if page.previous.url %}
-            <a class="btn btn-info btn-sm" href="{{ page.previous.url | prepend: site.baseurl }}">
-                <i class="fas fa-arrow-left"></i> {{ page.previous.title }}
-            </a>
+            <div class="card">
+                <img src="{{ site.data.images[page.previous.cover].src }}" class="card-img" alt="{{ site.data.images[page.previous.cover].alt }}" />
+                <a href="{{ page.previous.url | prepend: site.baseurl }}" title="{{ page.previous.title }}">
+                    <div class="card-img-overlay d-flex">
+                        <div class="w-100 my-auto text-center">
+                            <h3 style="opacity: 0.80;">
+                                <span class="text-uppercase badge badge-info">
+                                    <i class="fas fa-caret-left ml-1"></i>
+                                    {{ page.previous.title }}
+                                </span>
+                            </h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
         {% endif %}
+    </div>
 
+    <div class="col-sm-12 col-md-5 my-3">
         {% if page.next.url %}
-            <a class="btn btn-info btn-sm" href="{{ page.next.url | prepend: site.baseurl }}">
-                {{ page.next.title }} <i class="fas fa-arrow-right"></i>
-            </a>
+            <div class="card">
+                <img src="{{ site.data.images[page.next.cover].src }}" class="card-img" alt="{{ site.data.images[page.next.cover].alt }}" />
+                <a href="{{ page.next.url | prepend: site.baseurl }}" title="{{ page.next.title }}">
+                    <div class="card-img-overlay d-flex">
+                        <div class="w-100 my-auto text-center">
+                            <h3 style="opacity: 0.80;">
+                                <span class="text-uppercase badge badge-info">
+                                    {{ page.next.title }}
+                                    <i class="fas fa-caret-right ml-1"></i>
+                                </span>
+                            </h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
         {% endif %}
-
     </div>
 </div>

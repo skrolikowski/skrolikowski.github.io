@@ -3,13 +3,42 @@ layout: default
 ---
 
 <div class="container py-5">
-    <h1>{{ page.title }}</h1>
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="float-right d-none d-md-block">
+            {% include tags.html %}
+        </div>
+        <h1 itemprop="name headline mb-1">{{ page.title }}</h1>
 
-    <div class="border-top border-dark py-5">
-        {{ content }}
+        <div class="border-top border-dark text-muted py-3">
+            {% if page.difficulty %}
+                <h4 class="float-right">
+                    {% if page.difficulty == "easy" %}
+                        <span class="badge badge-success">Easy</span>
+                    {% elsif  page.difficulty == "medium" %}
+                        <span class="badge badge-warning">Normal</span>
+                    {% elsif  page.difficulty == "hard" %}
+                        <span class="badge badge-danger">Hard</span>
+                    {% elsif  page.difficulty == "example" %}
+                        <span class="badge badge-secondary">Example</span>
+                    {% endif %}
+                </h4>
+            {% else %}
+                <span class="float-right">
+                    <i class="fas fa-square fa-2x pr-2 text-info"></i>
+                    <i class="fas fa-square fa-2x pr-2 text-info"></i>
+                    <i class="fas fa-square fa-2x pr-2 text-info"></i>
+                </span>
+            {% endif %}
+        </div>
 
-        <p class="mt-5 text-right">
-            <i class="fas fa-square fa-2x pr-2 text-muted"></i>
-        </p>
-    </div>
+        <div class="py-3">
+            {{ content }}
+        </div>
+
+        {% include scroll-to-top.html %}
+    </article>
+</div>
+
+<div class="container border-top border-dark">
+    {% include previous-next.html %}
 </div>

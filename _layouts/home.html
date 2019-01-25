@@ -20,9 +20,7 @@ layout: default
 </div>
 
 <div class="container py-5">
-    <div class="row">
-        {% for post in site.posts %}
-            {% include post-block.html %}
-        {% endfor %}
-    </div>
+    {% for post in site.posts %}
+        {% include post-block.html images=false %}
+    {% endfor %}
 </div>

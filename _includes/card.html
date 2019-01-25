@@ -1,12 +1,12 @@
-<div class="col-sm-12 col-md-6 my-3">
+<div class="col-sm-12 col-md-6 col-lg-4 my-3">
     <div class="card">
         <img src="{{ images[page.cover].src }}" class="card-img" alt="{{ images[page.cover].alt }}" />
-        <a href="{{page.url}}" title="{{ page.title }}">
+        <a href="{{ page.url }}" title="{{ page.title }}">
             <div class="card-img-overlay d-flex">
                 <div class="w-100 my-auto text-center">
-                    <h2 style="opacity: 0.75;">
-                        <span class="text-uppercase badge badge-dark">{{ page.title }}</span>
-                    </h2>
+                    <h3 style="font-size:3vh; opacity: 0.80;">
+                        <span class="text-uppercase badge badge-info">{{ page.title }}</span>
+                    </h3>
                 </div>
             </div>
         </a>

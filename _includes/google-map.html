@@ -1,12 +1,15 @@
 <script>
     var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('google-map'), {
-            center: {lat: 47.637, lng: -122.375},
-            zoom: 14,
-            draggable: false,
-            disableDefaultUI: true
-        });
+    function initMap(id) {
+        if (document.getElementById('google-map') != null)
+        {
+            map = new google.maps.Map(document.getElementById('google-map'), {
+                center: {lat: 47.637, lng: -122.375},
+                zoom: 14,
+                draggable: false,
+                disableDefaultUI: true
+            });
+        }
     }
 </script>
 <script async defer

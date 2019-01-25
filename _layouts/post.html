@@ -3,27 +3,33 @@ layout: default
 ---
 
 <div class="container py-5">
-    <div class="row mb-2">
-        <article class="col" itemscope itemtype="http://schema.org/BlogPosting">
-            <h1 itemprop="name headline">{{ page.title }}</h1>
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="float-right d-none d-md-block">
+            {% include tags.html %}
+        </div>
+        <h1 itemprop="name headline mb-1">{{ page.title }}</h1>
 
-            <p class="border-top border-dark text-muted py-2">
-                <span class="float-right">
-                    <i class="fas fa-square fa-2x pr-2 text-info"></i>
-                    <i class="fas fa-square fa-2x pr-2 text-info"></i>
-                    <i class="fas fa-square fa-2x pr-2 text-info"></i>
-                </span>
-                <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
-            </p>
+        <div class="border-top border-dark text-muted py-3">
+            <span class="float-right">
+                <i class="fas fa-square fa-2x pr-2 text-info"></i>
+                <i class="fas fa-square fa-2x pr-2 text-info"></i>
+                <i class="fas fa-square fa-2x pr-2 text-info"></i>
+            </span>
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+        </div>
 
+        <div class="py-3">
             {{ content }}
+        </div>
 
-            <p class="mt-5 text-right">
-                <i class="fas fa-square fa-2x pr-2 text-muted"></i>
-            </p>
-        </article>
-    </div>
+        {% include scroll-to-top.html %}
+    </article>
+</div>
 
+<div class="container py-3">
     {% include previous-next.html %}
+</div>
+
+<div class="container py-3">
     {% include related-posts.html %}
 </div>

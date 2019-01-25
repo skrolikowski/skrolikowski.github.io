@@ -2,10 +2,13 @@
 layout: default
 ---
 
-<div class="container py-5">
-    <h1>{{ page.title }}</h1>
-
-    <div class="border-top border-dark py-5">
-        {{ content }}
+<div class="jumbotron jumbotron-fluid border-top border-white py-1">
+    <div class="container-fluid text-light">
+        <h3 class="text-center d-md-none">{{ page.title }}</h3>
+        <h2 class="d-none d-md-block">{{ page.title }}</h2>
     </div>
+</div>
+
+<div class="container-fluid pt-3 pb-5">
+    {{ content }}
 </div>

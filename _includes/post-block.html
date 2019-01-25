@@ -1,15 +1,24 @@
-<div class="card col-12 text-dark bg-white border-light mb-3">
-    <div class="card-body">
-        <span class="float-right text-muted">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <h3 class="card-title">
-            <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" class="card-link">{{ post.title }}</a>
-        </h3>
-        <p class="card-text">{{ post.excerpt }}</p>
-        <p class="card-text">
+<div class="row media">
+    {% if include.images %}
+        <div class="col-xs-12 col-md-3 py-3">
+            <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+                <img class="align-self-start rounded w-100 mr-3" src="{{ site.data.images[post.cover].src }}" alt="{{ site.data.images[post.cover].alt }}">
+            </a>
+        </div>
+    {% endif %}
+    <div class="col media-body py-3">
+        <h5>
+            <small class="float-right text-muted">{{ post.date | date: "%b %-d, %Y" }}</small>
+            <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
+        </h5>
+        <p>
+            {{ post.excerpt }}
+            <br />
             {% for tag in post.tags %}
-                <span class="badge badge-dark badge-pill">{{ tag | remove: "," }}</span>
+                <small>
+                    <span class="badge badge-dark">{{ tag }}</span>
+                </small>
             {% endfor %}
-            <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" class="card-link float-right">Read more</a>
         </p>
     </div>
 </div>

@@ -1,0 +1,14 @@
+---
+layout: collection
+title: Computer Science
+excerpt: Sorting and searching algorithms, data structures, and other stuff.
+---
+
+{% assign pages = site.science | sort: "title" %}
+{% assign images = site.data.images %}
+
+<div class="card-deck">
+    {% for page in pages %}
+        {% include card.html %}
+    {% endfor %}
+</div>
