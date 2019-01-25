@@ -32,3 +32,26 @@ a.text-primary:hover,
 li.nav-item a.nav-link.text-secondary.active {
     color: #17a2b8 !important;
 }
+
+.highlighter-rouge {
+    width: 80vw;
+    max-width: 125%;
+}
+
+.rouge-code {
+    border-top: 2px solid #d0d0d0;
+    border-left: 2px solid #d0d0d0;
+    font-weight: bold;
+    padding: 15px 0 0 15px;
+}
+
+pre.highlight {
+    padding: 20px 0 0 15px;
+}
+
+pre.lineno {
+    text-align: right;
+    padding-right: 5px;
+    font-weight: bold;
+    color: #d0d0d0;
+}

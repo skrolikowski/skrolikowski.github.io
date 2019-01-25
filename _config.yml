@@ -2,12 +2,7 @@
 title: Shane Krolikowski
 description: This is my personal website. I am a programmer from Seattle.
 author: skrolikowski
-logo: /assets/me.png
 location: Seattle, WA - 98119
-
-# Theme
-# theme: jekyll-swiss
-# theme_color: black
 
 # GitHub
 github_username: skrolikowski
@@ -27,7 +22,15 @@ url: shanekrolikowski.com
 base_url: /
 permalink: pretty
 paginate_path: /page:num
-# timezone: America/Los_Angeles
+markdown: kramdown
+kramdown:
+  input: GFM
+  highlighter: rouge
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
 
 # Blogs
 show_drafts: false                # Process and render draft posts.
@@ -39,6 +42,9 @@ limit_posts: 0                    # Limit the number of posts to parse and publi
 # Collections
 collections_dir: collections
 collections:
+  projects:
+    output: true
+    permalink: /:collection/:categories/:title
   science:
     output: true
     permalink: /:collection/:title
@@ -55,6 +61,7 @@ strict_front_matter: true  # Cause a build to fail if there is a YAML syntax err
 # Plugins
 plugins:
   - jemoji
+  - rouge
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap

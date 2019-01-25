@@ -1,0 +1,14 @@
+---
+layout: collection
+title: Projects
+excerpt: Join me in my project-creation adventures as I learn from my mistakes.
+---
+
+{% assign pages = site.projects | sort: "title" %}
+{% assign images = site.data.images %}
+
+<div class="card-deck">
+    {% for page in pages %}
+        {% include card.html %}
+    {% endfor %}
+</div>

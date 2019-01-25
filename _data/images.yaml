@@ -7,12 +7,3 @@ keyboard:
 donuts:
   src: /assets/covers/pexels-photo-1407346.jpeg
   alt: Donuts - Pexels
-logging:
-  src: /assets/covers/pexels-photo-1112048.jpeg
-  alt: Logging - Pexels
-planning:
-  src: /assets/covers/pexels-photo-1537008.jpeg
-  alt: Planning - Pexels
-eggs:
-  src: /assets/covers/egg-white-food-protein-162712.jpeg
-  alt: Eggs in a Bowl - Pexels

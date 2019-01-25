@@ -5,7 +5,9 @@ layout: default
 <div class="container py-5">
     <article itemscope itemtype="http://schema.org/BlogPosting">
         <div class="float-right d-none d-md-block">
-            {% include tags.html %}
+            {% for tag in page.tags %}
+                <span class="badge badge-dark">{{ tag }}</span>
+            {% endfor %}
         </div>
         <h1 itemprop="name headline mb-1">{{ page.title }}</h1>
 

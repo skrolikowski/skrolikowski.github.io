@@ -2,7 +2,7 @@
 layout: page
 title: Selection Sort
 excerpt: Solving selection sort.
-cover: donuts
+cover: /assets/covers/achievement-bar-business-chart-40140.jpeg
 categories: sort
 tags: sort, collections
 ---

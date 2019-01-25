@@ -2,7 +2,7 @@
 layout: post
 title: Lorem Ipsum
 excerpt: Lorem markdownum adversum aut scilicet palude.
-cover: eggs
+cover: /assets/covers/egg-white-food-protein-162712.jpeg
 categories: [game-dev]
 tags: [game-dev, beginner]
 ---
