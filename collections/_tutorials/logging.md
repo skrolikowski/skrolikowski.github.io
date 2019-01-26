@@ -2,7 +2,7 @@
 layout: page
 title: Logging w/log4net
 excerpt: This article will detail how to setup log4net within your Visual Studio's project.
-cover: /assets/covers/pexels-photo-1112048.jpeg
+image: /assets/covers/pexels-photo-1112048.jpeg
 categories: [tutorials]
 tags: [logging, visual-studios, pragmatic, programming]
 difficulty: easy

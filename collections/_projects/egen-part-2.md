@@ -3,7 +3,7 @@ layout: page
 title: D/Generation - Part 2
 slug: d-generation-part-2
 excerpt: D/Generation game clone development journal - part 2.
-cover: /assets/collections/dgen-03.png
+image: /assets/collections/dgen-03.png
 series: dgen
 categories: [game-clones, series]
 tags: [game-dev, programming]

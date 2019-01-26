@@ -1,8 +1,9 @@
+
 ---
 layout: page
 title: Selection Sort
 excerpt: Solving selection sort.
-cover: /assets/covers/achievement-bar-business-chart-40140.jpeg
+image: /assets/covers/achievement-bar-business-chart-40140.jpeg
 categories: sort
 tags: sort, collections
 ---

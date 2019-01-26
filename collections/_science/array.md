@@ -2,7 +2,7 @@
 layout: page
 title: Array Data Structure
 excerpt: All about the array data structure.
-cover: /assets/covers/fashion-red-yellow-designer-5872.jpg
+image: /assets/covers/fashion-red-yellow-designer-5872.jpg
 categories: data-structures
 tags: array, collections, big-o, sorting
 ---

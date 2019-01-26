@@ -2,7 +2,7 @@
 layout: page
 title: Array Questions
 excerpt: A selection of questions regarding the usage and knowhow of the array data structure.
-cover: /assets/covers/egg-white-food-protein-162712.jpeg
+image: /assets/covers/egg-white-food-protein-162712.jpeg
 categories: data-structures
 tags: [programming, indexing, array, data-structure, computer-science]
 ---

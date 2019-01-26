@@ -2,7 +2,7 @@
 layout: post
 title: How To Get Started
 excerpt: Getting started in game development can be hard. This article tries to eliminate some of the anxiety and provide tips on getting started.
-cover: /assets/covers/pexels-photo-394377.jpeg
+image: /assets/covers/pexels-photo-394377.jpeg
 categories: [game-dev]
 tags: [game-dev, beginner]
 ---

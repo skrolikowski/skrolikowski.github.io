@@ -38,9 +38,9 @@ layout: default
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         {% for item in series %}
                             {% if item.title == page.title %}
-                                <a class="dropdown-item disabled" href="{{ item.url | prepend: baseurl }}">{{ item.title }}</a>
+                                <a class="dropdown-item disabled" href="{{ item.url }}">{{ item.title }}</a>
                             {% else %}
-                                <a class="dropdown-item" href="{{ item.url | prepend: baseurl }}">{{ item.title }}</a>
+                                <a class="dropdown-item" href="{{ item.url }}">{{ item.title }}</a>
                             {% endif %}
                         {% endfor %}
                     </div>
