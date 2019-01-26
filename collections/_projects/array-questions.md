@@ -73,7 +73,7 @@ def duplicateNumbers(nums):
     return list(duplicates.keys())
 ```
 
-> **Notice**: I chose to use a dictionary over a list for a quicker lookup.
+> **Tip**: I'm using a `bool` dictionary to store recorded duplicates. The reason being, using Python's `in` operator is more costly for lists.
 >
 > **More information**: [Performance of Python Types](https://bradfieldcs.com/algos/analysis/performance-of-python-types/)
 

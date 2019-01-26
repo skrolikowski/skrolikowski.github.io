@@ -1,0 +1,50 @@
+{% for thumb in page.thumbnails.thumbs %}
+    <div class="p-1 w-50 float-left" data-toggle="modal" data-target="#thumb-modal">
+        <a href="#thumb-carousel" data-slide-to="{{ forloop.index | minus: 1 }}">
+            <img class="img-thumbnail img-rounded" src="{{ thumb }}" />
+        </a>
+    </div>
+{% endfor %}
+
+<div class="modal fade" id="thumb-modal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+
+                <div id="thumb-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for thumb in page.thumbnails.thumbs %}
+                            {% if forloop.index == 1 %}
+                                <div class="carousel-item active" data-interval="false">
+                                    <img class="d-block w-100" src="{{ thumb }}">
+                                </div>
+                            {% else %}
+                                <div class="carousel-item" data-interval="false">
+                                    <img class="d-block w-100" src="{{ thumb }}">
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#thumb-carousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#thumb-carousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+            </div>
+
+            {% if page.thumbnails.footer %}
+                <div class="model-footer">
+                    <p class="text-muted">
+                        {{ page.thumbnails.footer }}
+                    </p>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>

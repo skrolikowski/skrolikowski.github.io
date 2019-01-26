@@ -22,13 +22,14 @@ ul li {
     color: $dark;
 }
 
-.page-content {
-    font-size: 1.125rem;
-}
-
 a.social-icons i {
     color: $white;
 }
+
+.page-content    { font-size: 1.125rem; }
+.page-content h3 { margin-left: 0.5rem; }
+.page-content h4 { margin-left: 1rem; }
+.page-content p  { margin-left: 1rem; }
 
 .media-body a,
 article a,
@@ -52,8 +53,6 @@ li.nav-item a.nav-link.text-secondary.active {
 
 div.highlighter-rouge {
     margin: 1rem 0 2.5rem 1.5rem;
-    width: 80vw;
-    max-width: 100%;
 }
 
 .rouge-code {
@@ -73,19 +72,46 @@ pre.lineno {
     color: $light;
 }
 
-blockquote {
-    margin: 1rem 0 2.5rem 1.5rem;
-    padding: 1.25rem;
-    width: 70vw;
-    max-width: 85%;
-    color: $grey;
-    background-color: $light;
-    border: 1px solid $muted;
-    border-right: 3px solid $blue;
-    border-left: 3px solid $blue;
-    border-radius: 0.25rem;
-}
-
 table:not(.rouge-table) {
     margin: 1rem 0 2rem;
+}
+
+blockquote{
+    display: flex;
+    position: relative;
+    background: $light;
+    padding: 1.25rem 2rem;
+    margin: 2rem 3rem 3rem;
+    color: $grey;
+    border-left: 0.5rem solid $blue;
+    -moz-box-shadow: 2px 2px 15px #ccc;
+    -webkit-box-shadow: 2px 2px 15px #ccc;
+    box-shadow: 2px 2px 15px #ccc;
+}
+
+blockquote.quote::before {
+    content: "\201C";
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    font-weight: bold;
+    color: $blue;
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+}
+
+blockquote:not(.quote)::before {
+    content: "*";
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    font-weight: bold;
+    color: $blue;
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+
+}
+
+blockquote::after {
+    content: "";
 }

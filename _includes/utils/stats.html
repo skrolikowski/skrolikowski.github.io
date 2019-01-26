@@ -1,0 +1,17 @@
+{% if page.stats %}
+    <table class="table table-striped" style="font-size: 1rem;">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="2">Specifications</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in page.stats %}
+                <tr>
+                    <td class="font-weight-bold">{{ item.label }}</td>
+                    <td>{{ item.value }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
