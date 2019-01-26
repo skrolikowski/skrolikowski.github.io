@@ -103,7 +103,7 @@ namespace Project
 | INFO  | Informational message.                               |
 | DEBUG | Used strictly for debugging purposes.                |
 | ALL   | Log everything regardless of level.                  |
-{: .table }
+{: .table .table-striped }
 
 #### Layout - ConversionPattern
 
@@ -118,7 +118,7 @@ These patterns are used to format the log output.
 | `%level`   | Level specified for event.                             |
 | `%message` | Message passed through the log event.                  |
 | `%newline` | Newline character.                                     |
-{: .table }
+{: .table .table-striped }
 
 > You can reference the list below or see a full listing [here](https://logging.apache.org/log4net/release/sdk/html/T_log4net_Layout_PatternLayout.htm).
 
@@ -130,7 +130,7 @@ These patterns are used to format the log output.
 | FileAppender        | Writes log events to a file you specify.                     |
 | RollingFileAppender | Writes log events to a file you specify, while performing archived file cleanup. |
 | TraceAppender       | Writes log events to **Visual Studio**'s Output interface.   |
-{: .table }
+{: .table .table-striped }
 
 > For a full list of Appenders [check here](https://logging.apache.org/log4net/release/manual/introduction.html#appenders).
 

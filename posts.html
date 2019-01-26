@@ -4,8 +4,6 @@ title: Articles
 excerpt: Ramblings of a confused Seattle programmer.
 ---
 
-{% assign posts = site['posts'] | sort: "date" %}
-
-{% for post in posts %}
+{% for post in site.posts %}
     {% include post-block.html images=true %}
 {% endfor %}

@@ -2,18 +2,23 @@
 layout: default
 ---
 
-<div class="container py-5">
-    <article itemscope itemtype="http://schema.org/BlogPosting">
+<div class="jumbotron jumbotron-fluid border-top border-white py-1">
+    <div class="container-fluid text-light">
         <div class="float-right d-none d-md-block">
             {% for tag in page.tags %}
-                <span class="badge badge-dark">{{ tag }}</span>
+                <span class="badge badge-light">{{ tag }}</span>
             {% endfor %}
         </div>
-        <h1 itemprop="name headline mb-1">{{ page.title }}</h1>
+        <h3 class="text-center d-md-none" itemprop="name headline">{{ page.title }}</h3>
+        <h2 class="d-none d-md-block">{{ page.title }}</h2>
+    </div>
+</div>
 
-        <div class="border-top border-dark text-muted py-3">
+<div class="container py-3">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="float-right">
             {% if page.difficulty %}
-                <h4 class="float-right">
+                <h3>
                     {% if page.difficulty == "easy" %}
                         <span class="badge badge-success">Easy</span>
                     {% elsif  page.difficulty == "medium" %}
@@ -23,17 +28,27 @@ layout: default
                     {% elsif  page.difficulty == "example" %}
                         <span class="badge badge-secondary">Example</span>
                     {% endif %}
-                </h4>
+                </h3>
+            {% elsif page.series %}
+                <div class="dropdown">
+                    <button class="btn btn-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Part of a Series
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <strong class="dropdown-header">{{ page.series | upcase }}</strong>
+                        {% for item in series %}
+                            <a class="dropdown-item" href="{{ item.url | prepend: baseurl }}">{{ item.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
             {% else %}
-                <span class="float-right">
-                    <i class="fas fa-square fa-2x pr-2 text-info"></i>
-                    <i class="fas fa-square fa-2x pr-2 text-info"></i>
-                    <i class="fas fa-square fa-2x pr-2 text-info"></i>
-                </span>
+                <i class="fas fa-square fa-2x pr-2 text-info"></i>
+                <i class="fas fa-square fa-2x pr-2 text-info"></i>
+                <i class="fas fa-square fa-2x pr-2 text-info"></i>
             {% endif %}
         </div>
 
-        <div class="py-3">
+        <div class="py-3 page-content">
             {{ content }}
         </div>
 

@@ -16,31 +16,33 @@ Lorem markdownum adversum aut scilicet palude, divumque Hesperiae parva, nunc
 uberrima militis, sed irae, quae quin quod. Ad fert caelum formosae dicebat
 hostibus [miseram senex comitum](http://et-illo.net/) tellus.
 
-    if (unfriend_graphic.newbie(bespoke_ruby, bar) + bespoke_boot -
-            adware_active_api + dlc_compression_core) {
-        artificial(page_access);
-        bandwidthTelecommunications *= power_pmu_page;
-        subdirectory_boot -= real.ram(pci(framePinterestUser, 2));
-    }
-    if (rawArchitecture) {
-        cssTrash.bootImpactClean -= sample_hexadecimal_data + noc;
-        downloadFrequencyUddi *= 3;
-        memory_prebinding += torrent(1, sample_system_smishing);
-    } else {
-        c(tigerBlogPetaflops);
-    }
-    if (printerSolidDisk <= gammaLanguage.topology_video(system_mp_hit, dvd)) {
-        macWidget /= search_rosetta(apiWebIct);
-        smartphoneCdfsMeta(blacklistAspCrossplatform(gatewayParityBig), bash,
-                cookie_thermistor);
-    } else {
-        cell -= 2;
-        dock(disk, isdn);
-        installSmartphoneDesktop(1 + smartphone);
-    }
-    megapixelBrouterXmp += mashup_drive.faq.station_bloatware(-2 +
-            resources_ole_tablet(mainframeSidebar, plug_voip,
-            hypermedia_pdf_dos));
+```js
+if (unfriend_graphic.newbie(bespoke_ruby, bar) + bespoke_boot -
+        adware_active_api + dlc_compression_core) {
+    artificial(page_access);
+    bandwidthTelecommunications *= power_pmu_page;
+    subdirectory_boot -= real.ram(pci(framePinterestUser, 2));
+}
+if (rawArchitecture) {
+    cssTrash.bootImpactClean -= sample_hexadecimal_data + noc;
+    downloadFrequencyUddi *= 3;
+    memory_prebinding += torrent(1, sample_system_smishing);
+} else {
+    c(tigerBlogPetaflops);
+}
+if (printerSolidDisk <= gammaLanguage.topology_video(system_mp_hit, dvd)) {
+    macWidget /= search_rosetta(apiWebIct);
+    smartphoneCdfsMeta(blacklistAspCrossplatform(gatewayParityBig), bash,
+            cookie_thermistor);
+} else {
+    cell -= 2;
+    dock(disk, isdn);
+    installSmartphoneDesktop(1 + smartphone);
+}
+megapixelBrouterXmp += mashup_drive.faq.station_bloatware(-2 +
+        resources_ole_tablet(mainframeSidebar, plug_voip,
+        hypermedia_pdf_dos));
+```
 
 ## Ruinam in ademptam regisque flammaeque commune passis
 

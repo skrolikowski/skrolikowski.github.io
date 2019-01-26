@@ -1,57 +1,91 @@
 ---
 ---
 
+$white: #ffffff;
+$black: #181818;
+$grey:  #6c757d;
+$light: #f8f9fa;
+$blue:  #17a2b8;
+$dark:  #343a40;
+$muted: #818182;
+
 .jumbotron {
-    background-color: #181818;
+    background-color: $black;
     margin-bottom: 0;
 }
 
-a.social-icons i {
-    color: #fff;
+body {
+    color: $black;
 }
 
-a.social-icons i:hover {
-    color: #17a2b8;
+ul li {
+    color: $dark;
+}
+
+.page-content {
+    font-size: 1.125rem;
+}
+
+a.social-icons i {
+    color: $white;
 }
 
 .media-body a,
 article a,
 a.text-primary,
+a.social-icons i:hover,
 .card-link {
-    color: #17a2b8;
+    color: $blue;
 }
 
 .media-body a:hover,
 article a:hover,
 a.text-primary:hover,
 .card-link:hover {
-    color: #181818;
+    color: $dark;
     text-decoration: none;
 }
 
 li.nav-item a.nav-link.text-secondary.active {
-    color: #17a2b8 !important;
+    color: $blue !important;
 }
 
-.highlighter-rouge {
+div.highlighter-rouge {
+    margin: 1rem 0 2.5rem 1.5rem;
     width: 80vw;
-    max-width: 125%;
+    max-width: 100%;
 }
 
 .rouge-code {
-    border-top: 2px solid #d0d0d0;
-    border-left: 2px solid #d0d0d0;
+    border-left: 2px solid $light;
     font-weight: bold;
-    padding: 15px 0 0 15px;
+    padding-left: 15px;
 }
 
 pre.highlight {
-    padding: 20px 0 0 15px;
+    padding: 1rem;
 }
 
 pre.lineno {
     text-align: right;
     padding-right: 5px;
     font-weight: bold;
-    color: #d0d0d0;
+    color: $light;
+}
+
+blockquote {
+    margin: 1rem 0 2.5rem 1.5rem;
+    padding: 1.25rem;
+    width: 70vw;
+    max-width: 85%;
+    color: $grey;
+    background-color: $light;
+    border: 1px solid $muted;
+    border-right: 3px solid $blue;
+    border-left: 3px solid $blue;
+    border-radius: 0.25rem;
+}
+
+table:not(.rouge-table) {
+    margin: 1rem 0 2rem;
 }
