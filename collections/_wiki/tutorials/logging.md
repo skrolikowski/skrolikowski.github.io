@@ -1,14 +1,14 @@
 ---
-layout: page
+layout: wiki
 title: Logging w/log4net
 excerpt: This article will detail how to setup log4net within your Visual Studio's project.
 image: /assets/covers/pexels-photo-1112048.jpeg
-categories: [tutorials]
-tags: [logging, visual-studios, pragmatic, programming]
+categories: ['tutorials']
+tags: ['logging', 'visual-studios', 'pragmatic', 'programming']
 difficulty: easy
 ---
 
-# Introduction
+## Introduction
 
 This article will detail how to setup log4net within your Visual Studio - C# .Net project. The [log4net manual](https://logging.apache.org/log4net/release/manual/introduction.html)  can be a bit wordy, so I'll try to break it down into three steps: Installation, Configuration, and Usage.
 
@@ -19,8 +19,17 @@ This article will detail how to setup log4net within your Visual Studio - C# .Ne
 * Create or open an existing project.
 * Right-click the project root from within the **Solution Explorer** tab.
 * Select *Manage NuGet Packages...* from the drop-down menu.
+
+{: .text-center .p-3 }
+
+![](/assets/collections/VS2017_SolutionExplorer.PNG){: .rounded }
+
 * Search for *"log4net"* in the **Browse** tab.
 * Select log4net from the list and *Install*.
+
+{: .text-center .p-3 }
+
+![](/assets/collections/VS2017_NuGet.PNG){: .rounded }
 
 NuGet will now download and install the library files so that you project can access them at runtime.
 
@@ -145,3 +154,5 @@ You should now have log4net setup and working. Check out the further reading bel
 * [log4net - List of Appenders](https://logging.apache.org/log4net/release/manual/introduction.html#appenders)
 * [log4net Tutorial - by Tim Corey](https://www.codeproject.com/Articles/140911/log-net-Tutorial)
 * [The Art of Logging by Colin Eberhardt](https://www.codeproject.com/Articles/42354/The-Art-of-Logging)
+
+{% include wiki-footer.html %}

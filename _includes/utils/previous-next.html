@@ -1,17 +1,15 @@
-<div class="row my-3 d-print-none">
-    <div class="col-sm-12 offset-md-1 col-md-5 my-3">
+<div class="row py-3 d-print-none">
+    <div class="col-xs-12 col-sm-6 my-3">
         {% if page.previous.url %}
             <div class="card">
                 <img src="{{ page.previous.image }}" class="card-img" alt="{{ page.previous.title }}" />
                 <a href="{{ page.previous.url | prepend: site.baseurl }}" title="{{ page.previous.title }}">
                     <div class="card-img-overlay d-flex">
-                        <div class="w-100 my-auto text-center">
-                            <h3 style="opacity: 0.80;">
-                                <span class="text-uppercase badge badge-info">
-                                    <i class="fas fa-caret-left ml-1"></i>
-                                    {{ page.previous.title }}
-                                </span>
-                            </h3>
+                        <div class="w-75 my-auto mx-auto text-center bg-light rounded p-1" style="opacity: 0.65">
+                            <h5 class="text-uppercase text-dark font-weight-bold">
+                                <i class="fas fa-caret-left ml-1"></i>
+                                {{ page.previous.title }}
+                            </h5>
                         </div>
                     </div>
                 </a>
@@ -19,19 +17,17 @@
         {% endif %}
     </div>
 
-    <div class="col-sm-12 col-md-5 my-3">
+    <div class="col-xs-12 col-sm-6 my-3">
         {% if page.next.url %}
             <div class="card">
                 <img src="{{ page.next.image }}" class="card-img" alt="{{ page.next.title }}" />
                 <a href="{{ page.next.url | prepend: site.baseurl }}" title="{{ page.next.title }}">
                     <div class="card-img-overlay d-flex">
-                        <div class="w-100 my-auto text-center">
-                            <h3 style="opacity: 0.80;">
-                                <span class="text-uppercase badge badge-info">
-                                    {{ page.next.title }}
-                                    <i class="fas fa-caret-right ml-1"></i>
-                                </span>
-                            </h3>
+                        <div class="w-75 my-auto mx-auto text-center bg-light rounded p-1" style="opacity: 0.65">
+                            <h5 class="text-uppercase text-dark font-weight-bold">
+                                {{ page.next.title }}
+                                <i class="fas fa-caret-right ml-1"></i>
+                            </h5>
                         </div>
                     </div>
                 </a>

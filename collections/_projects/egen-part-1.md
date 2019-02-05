@@ -1,6 +1,6 @@
 ---
-layout: page
-title: D/Generation - Part 1
+layout: post
+title: D/Generation - Introduction
 slug: d-generation-part-1
 excerpt: D/Generation game clone development journal - Part 1.
 image: /assets/collections/dgen-03.png
@@ -63,10 +63,7 @@ I want the game to be able to have a title screen, menu screen, game screen, pau
 * **Game** - this will be where the player spends most of their time playing the game.
 * **Pause/Settings** - this screen can only be accessed from the *Game* screen. We can make use of MonoGame.Extended's GUI module to create a character/game settings interface.
 
-{: .text-center .p-3 }
-
-![](/assets/collections/DGen Screens.svg){: .w-75}
-
+{% include utils/image.html src="/assets/collections/DGen Screens.svg" %}
 
 
 #### Physics
@@ -88,9 +85,7 @@ We'll need a way to manage all the game entities in our world. The world will be
 
 During the game you'll come across friendly NPCs, which you will have dialogues with where they will provide you with useful information like revealing parts of the story or giving you a password to access a locked room. We will be using [MonoGame.Extended]'s GUI module for this.
 
-{: .text-center .p-3 }
-
-![](/assets/collections/dgen-04.png){: .w-75 .rounded }
+{% include utils/image.html src="/assets/collections/dgen-04.png" %}
 
 ### Assets
 
@@ -110,9 +105,10 @@ I hope you gain something from this series. Enjoy!
 * [Collision Detection for Solid Objects](https://www.toptal.com/game/video-game-physics-part-ii-collision-detection-for-solid-objects){:target="_blank"} - detailed article discussing narrow vs broad phase collision detection and different strategies.
 * [Collision Detection](http://www.jeffreythompson.org/collision-detection/table_of_contents.php){:target="_blank"} - cool article with examples and visuals.
 
-*[GUI]: Graphical User Interface
 
+*[GUI]: Graphical User Interface
 *[FCL]: Framework Class Library
+
 
 [D/Generation]: https://en.wikipedia.org/wiki/D/Generation)
 [.Net Framework]: https://docs.microsoft.com/en-us/dotnet/framework/ ".Net Framework"

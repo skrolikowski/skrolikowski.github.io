@@ -1,0 +1,13 @@
+---
+layout: collection
+title: Wiki
+excerpt: Never stop learning.
+---
+
+{% assign portals = site.wiki | where: "portal", "true" %}
+
+<div class="card-deck">
+    {% for page in portals %}
+        {% include card.html %}
+    {% endfor %}
+</div>

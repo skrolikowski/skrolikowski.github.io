@@ -25,7 +25,7 @@ paginate_path: /page:num
 markdown: kramdown
 kramdown:
   input: GFM
-  parse_block_html: true
+  parse_block_html: false
   highlighter: rouge
   syntax_highlighter_opts:
     span:
@@ -46,12 +46,9 @@ collections:
   projects:
     output: true
     permalink: /:collection/:categories/:title
-  science:
+  wiki:
     output: true
-    permalink: /:collection/:title
-  tutorials:
-    output: true
-    permalink: /:collection/:title
+    permalink: /:collection/:categories/:title
 
 
 # Performance

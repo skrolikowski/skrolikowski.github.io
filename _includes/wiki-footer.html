@@ -1,0 +1,11 @@
+{% for topic in site.wiki %}
+[{{ topic.title | downcase  }}]: {{ topic.url }} "{{ topic.title }}"
+{% endfor %}
+
+{% for item in site.data.links %}
+[{{ item[1].title }}]: {{ item[1].link }} "{{ item[1].title }}"
+{% endfor %}
+
+{% for abbr in site.data.abbreviations %}
+*[{{ abbr.name }}]: {{ abbr.value }}
+{% endfor %}

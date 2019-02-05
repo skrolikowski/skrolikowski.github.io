@@ -23,18 +23,12 @@ layout: default
         <div class="d-xs-block d-md-none clearfix"></div>
     {% endif %}
 
-    <article itemscope itemtype="http://schema.org/BlogPosting">
-        <div class="page-content py-3">
-            {% if page.collection == "posts" %}
-                {% include utils/datetime.html %}
-            {% endif %}
-            {% include utils/crown.html %}
+    <div class="page-content py-3">
+        {% include utils/breadcrumbs.html %}
+        {% include utils/crown.html %}
 
-            {{ content }}
+        {{ content }}
 
-            {% include utils/scroll-to-top.html %}
-        </div>
-
-        {% include utils/previous-next.html %}
-    </article>
+        <div class="clearfix"></div>
+    </div>
 </div>

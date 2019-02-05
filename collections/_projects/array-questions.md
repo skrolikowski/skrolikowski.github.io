@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Array Questions
 excerpt: A selection of questions regarding the usage and knowhow of the array data structure.
 image: /assets/covers/egg-white-food-protein-162712.jpeg

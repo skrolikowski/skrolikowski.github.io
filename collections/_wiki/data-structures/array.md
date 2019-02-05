@@ -1,13 +1,13 @@
 ---
-layout: page
-title: Array Data Structure
+layout: wiki
+title: Array
 excerpt: All about the array data structure.
 image: /assets/covers/fashion-red-yellow-designer-5872.jpg
-categories: data-structures
-tags: array, collections, big-o, sorting
+categories: ['data-structures']
+tags: ['array', 'collections', 'big-o', 'sorting']
 ---
 
-# Array Data Structure
+# Array
 
 An array is a simple data structure consisting of one or more elements usually of one data type (depending on the language). It is stored as a contiguous block of memory, and thus is commonly pictured as such:
 

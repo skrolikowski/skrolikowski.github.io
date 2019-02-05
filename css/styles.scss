@@ -26,22 +26,32 @@ a.social-icons i {
     color: $white;
 }
 
-.page-content    { font-size: 1.125rem; }
-.page-content h3 { margin-left: 0.5rem; }
-.page-content h4 { margin-left: 1rem; }
-.page-content p  { margin-left: 1rem; }
+article {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-content       { font-size: 1.125rem; }
+.page-content h3    { margin-left: 1rem;   }
+.page-content h4    { margin-left: 1.5rem; }
+.page-content p     { margin-left: 2rem;   }
+.page-content .gist { margin-left: 2rem;   }
 
 .media-body a,
-article a,
+.page-content a,
+a.nav-link,
 a.text-primary,
 a.social-icons i:hover,
+.breadcrumb-item a,
 .card-link {
     color: $blue;
 }
 
 .media-body a:hover,
-article a:hover,
+.page-content a:hover,
+a.nav-link:hover,
 a.text-primary:hover,
+.breadcrumb-item a:hover,
 .card-link:hover {
     color: $dark;
     text-decoration: none;
@@ -73,7 +83,7 @@ pre.lineno {
 }
 
 table:not(.rouge-table) {
-    margin: 1rem 0 2rem;
+    margin: 0 0 2rem;
 }
 
 blockquote{
