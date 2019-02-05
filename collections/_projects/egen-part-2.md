@@ -138,7 +138,7 @@ And finally, the result is an 8x8 IsoGrid:
 
 {: .text-center .p-3 }
 
-<img src="/assets/collections/IsoGrid.png" width="75%">
+<img src="/assets/collections/IsoGrid.PNG" width="75%">
 
 ## Conclusion
 

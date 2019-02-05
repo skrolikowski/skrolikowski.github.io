@@ -1,3 +1,4 @@
+
 layout: post
 title: D/Generation - Entities
 slug: d-generation-part-3
@@ -8,18 +9,19 @@ categories: ['game-clones', 'series']
 tags: ['game-dev', 'programming']
 stats:
 
-  - label: Title
-    value: E/Generation
-  - label: Language
-    value: C#
-  - label: Frameworks
-    value: ".Net Framework, MonoGame, MonoGame.Extended"
+- label: Title
+  value: E/Generation
+- label: Language
+  value: C#
+- label: Frameworks
+  value: ".Net Framework, MonoGame, MonoGame.Extended"
 
-____
+
+## Introduction
 
 Last article we setup the game world, which was essentially just a grid.
 
-## Entity Component System
+### Entity Component System
 
 An [Entity Component System] (ECS) is the design pattern I plan on using for the game. The basic idea behind Entity-Components is to sidestep class hierarchies and build our game entities buffet-style; adding only the necessary attributes (i.e. Components). Some entities will move, while others will be stationary. Some entities will have AI, while others won't. The ECS approach attempts to un-bloating every entity with functionality it may or may not need.
 
