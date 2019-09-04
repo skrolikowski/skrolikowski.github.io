@@ -2,14 +2,14 @@
     <table class="table table-striped" style="font-size: 1rem;">
         <thead class="thead-dark">
             <tr>
-                <th colspan="2">Specifications</th>
+                <th colspan="2">{{ page.stats.title | default: "More Information" }}</th>
             </tr>
         </thead>
         <tbody>
-            {% for item in page.stats %}
+            {% for item in page.stats.items %}
                 <tr>
                     <td class="font-weight-bold">{{ item.label }}</td>
-                    <td>{{ item.value }}</td>
+                    <td>{{ item.value | markdownify  }}</td>
                 </tr>
             {% endfor %}
         </tbody>

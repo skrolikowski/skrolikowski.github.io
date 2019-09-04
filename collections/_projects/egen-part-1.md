@@ -8,8 +8,8 @@ series: dgen
 categories: [game-clone, series]
 tags: [game-dev, programming]
 stats:
-  - label: Title
-    value: E/Generation
+  title: Specifications
+  items:
   - label: Language
     value: C#
   - label: Frameworks

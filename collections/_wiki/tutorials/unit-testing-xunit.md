@@ -25,7 +25,7 @@ Interested in learning more about the [benefits of unit testing]?
 {% include utils/image.html src="/assets/collections/VS2017_AddProject.PNG" %}
 
 * Look for *xUnit Test Project (.Net Core)* under the Visual C# language menu.
-* Create a new project and name your new project. I'm using the xUnit+"project name" naming convention.
+* Create a new project and name your new project (use whatever naming convention suites you).
 
 {% include utils/image.html src="/assets/collections/VS2017_xUnit.PNG" %}
 

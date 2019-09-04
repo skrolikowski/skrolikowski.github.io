@@ -15,3 +15,6 @@ gameclones:
 dgeneration:
   title: D/Generation
   link: https://en.wikipedia.org/wiki/D/Generation
+monogame.extended:
+  title: MonoGame.Extended
+  link: http://docs.monogameextended.net/

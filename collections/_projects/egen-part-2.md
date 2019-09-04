@@ -8,12 +8,9 @@ series: dgen
 categories: ['game-clones', 'series']
 tags: ['game-dev', 'programming']
 stats:
-  - label: Title
-    value: E/Generation
-  - label: Language
-    value: C#
-  - label: Frameworks
-    value: ".Net Framework, MonoGame, MonoGame.Extended"
+  items:
+  - label: Code
+    value: "[Release - v0.1.0](https://github.com/skrolikowski/Genoq/releases/tag/v0.1.0)"
 ---
 
 ### Before we start...

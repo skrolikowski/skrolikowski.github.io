@@ -89,7 +89,9 @@ namespace Project
 {
     public static class Program
     {
-    	private static readonly ILog _logger = LogManager.GetLogger(typeof(Screen));
+    	private static readonly ILog _logger = LogManager.GetLogger(
+        System.Reflection.MethodBase.GetCurrentMethod().DeclaringType
+      );
 
         static void Main()
         {

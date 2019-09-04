@@ -4,6 +4,7 @@
 
 {% for item in site.data.links %}
 [{{ item[1].title }}]: {{ item[1].link }} "{{ item[1].title }}"
+{:target="_blank"}
 {% endfor %}
 
 {% for abbr in site.data.abbreviations %}
