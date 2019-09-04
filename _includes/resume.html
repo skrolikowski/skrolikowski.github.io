@@ -1,18 +1,26 @@
-{% assign base = site.data.about.base %}
-{% assign images = site.data.images %}
-{% assign social = site.data.social %}
-{% assign education = site.data.about.education %}
+{% assign base       = site.data.about.base %}
+{% assign images     = site.data.images %}
+{% assign social     = site.data.social %}
+{% assign education  = site.data.about.education %}
 {% assign experience = site.data.about.experience %}
-{% assign skills = site.data.skills %}
+{% assign skills     = site.data.skills %}
+{% assign keywords   = site.data.keywords %}
+{% assign projects   = site.data.projects %}
 
 <div class="row">
     <div class="col-4 bg-dark text-white">
 
         <!-- Avatar -->
-        <div class="py-5 text-center">
+        <div class="pt-5 pb-3 text-center">
             <p><img src="{{ images.avatar.src }}" class="img-fluid rounded-circle" /></p>
             <h3>Shane Krolikowski</h3>
             <em>Seattle Programmer</em>
+
+            <div class="align-center pt-3">
+                {% for keyword in keywords %}
+                    <span class="badge badge-info">{{ keyword }}</span>
+                {% endfor %}
+            </div>
         </div>
 
         <!-- Information -->
@@ -46,6 +54,25 @@
             </div>
         </div>
 
+        <!-- Skills -->
+        <div class="py-3">
+            <h4 class="text-right">Skills</h4>
+            <div class="border-white border-top py-3">
+                {% for item in skills[0].items %}
+                    {% if item.level > 0 %}
+                        <div class="row">
+                            <div class="col"><strong>{{ item.title }}</strong></div>
+                            <div class="col">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: {{ item.level }}%" aria-valuenow="{{ item.level }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
         <!-- References -->
         <div class="pb-3">
             <h4 class="text-right">References</h4>
@@ -63,7 +90,7 @@
                 Experience
             </h3>
             {% for job in experience.employment %}
-                <div class="row border-dark border-top p-2">
+                <div class="row border-dark border-top px-2 pt-2">
                     <div class="col">
                         <h5>{{ job.title }}</h5>
                         <em>{{ job.company }}</em>
@@ -71,6 +98,17 @@
                     </div>
                     <div class="col-3 text-right">
                         <h6>[{{ job.started }}:{{ job.ended }}]</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        {% if job.bullets %}
+                            <ul>
+                                {% for item in job.bullets %}
+                                    <li>{{ item }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
@@ -95,24 +133,35 @@
             {% endfor %}
         </div>
 
-        {% for skill in skills %}
-            <div class="pb-3">
-                <h3>{{ skill.title }}</h3>
-                <div class="border-dark border-top py-2">
-                    {% for item in skill.items %}
-                        {% if item.level > 0 %}
-                            <div class="row">
-                                <div class="col"><strong>{{ item.title }}</strong></div>
-                                <div class="col">
-                                    <div class="progress">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: {{ item.level }}%" aria-valuenow="{{ item.level }}" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+        <!-- Projects -->
+        <div class="pb-3">
+            <h3>
+                <i class="fas fa-tasks p-1 float-right"></i>
+                Projects
+            </h3>
+            {% for project in projects %}
+                <div class="row border-dark border-top py-2">
+                     <div class="col">
+                        <h5>{{ project.title }}</h5>
+                    </div>
+                    <div class="col-3 text-right">
+                        <h6 class="text-muted"><i class="fab fa-github"></i> {{ project.title }}</h6>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+                <div class="row">
+                    <div class="col">
+                        {{ project.text }}
+                    </div>
+                    <div class="col-4">
+                        <ul>
+                            {% for technology in project.technologies %}
+                                <li>{{ technology }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
     </div>
 </div>

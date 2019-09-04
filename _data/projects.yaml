@@ -62,7 +62,7 @@
     <a href="https://en.wikipedia.org/wiki/D/Generation" target="_blank" class="card-link">D/Generation</a>
     game clone started a couple months ago. The game is an isometric, room-by-room progression with varying
     enemies in each room that must be cleared out. Each floor offers a more difficult challenge to the player.
-    Still a WIP; decided to port it to C# .Net + MonoGame.
+    WIP; written in Lua/Love2D
   technologies:
     - Enemy AI
     - Collision detection/response
