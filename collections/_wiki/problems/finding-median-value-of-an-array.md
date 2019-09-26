@@ -1,10 +1,11 @@
 ---
 layout: wiki
 title: Finding Median Value of an Array
-excerpt: This article will examine the Median Value in an Array problem.
+excerpt: Ever wonder how to find the Median Value of an Array? We'll read this!!
 image: /assets/covers/pexels-photo-1112048.jpeg
 categories: ['problems']
 tags: ['algorithm', 'array', 'programming']
+date: 2019-09-23
 ---
 
 # Finding Median Value of an Array

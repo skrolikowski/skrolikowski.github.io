@@ -1,10 +1,11 @@
 ---
 layout: wiki
 title: Knapsack Problem
-excerpt: This article will examine the Knapsack Problem problem.
+excerpt: You are a great hero tasked with looting bandits you have taken down. Find the correct items to take maximizing your profits.
 image: /assets/covers/pexels-photo-1537008.jpeg
 categories: ['problems']
 tags: ['algorithm', 'recursion', 'dynamic programming', 'programming']
+date: 2019-09-26
 ---
 
 # Knapsack Problem

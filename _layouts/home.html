@@ -20,7 +20,17 @@ layout: default
 </div>
 
 <div class="container py-5">
-    {% for post in site.posts %}
-        {% include post-block.html images=false %}
-    {% endfor %}
+    <div class="row my-4 justify-content-around">
+        <div class="col py-3">
+            {% for post in site.posts limit: 3 %}
+                {% include post-block.html images=true %}
+            {% endfor %}
+        </div>
+        <div class="col py-3">
+            {% assign problems = site.wiki | where: "categories", "problems" | sort: 'date' | reverse %}
+            {% for post in problems limit: 3 %}
+                {% include post-block.html images=true %}
+            {% endfor %}
+        </div>
+    </div>
 </div>
