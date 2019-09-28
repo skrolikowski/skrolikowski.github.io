@@ -95,7 +95,7 @@ This is a viable approach that will work with any array with a length greater th
 
 What would happen if we used a divide & conquer approach? In other words, dividing the array in half then searching for the 3rd largest value in our array. Writing it out we get:
 
-{% include utils/image.html src="/assets/collections/Merge Sort.png" %}
+{% include utils/image.html src="/assets/collections/data-algorithms/Merge Sort.png" %}
 
 But now what? It looks like the first steps of **Merge Sort**, doesn't it? Since we know having a sorted array will help us, let's continue with this approach in implementing **Merge Sort** in order to access the **median** value.
 
@@ -178,11 +178,11 @@ Let's take a look at another sorting algorithm and exploit a feature that it has
 
 Here's a diagram showing the first paritioning:
 
-{% include utils/image.html src="/assets/collections/Finding Median -_ QuickSort - Part I.png" %}
+{% include utils/image.html src="/assets/collections/problems/Finding Median -_ QuickSort - Part I.png" %}
 
 The next step in **QuickSort** is to divide the array into two smaller arrays (left and right ends, excluding the pivot). However since we only care about the target position we only have to consider the right half and continue until the pivot equals the target. Let's continue with our example:
 
-{% include utils/image.html src="/assets/collections/Finding Median -_ QuickSort - Part II.png" %}
+{% include utils/image.html src="/assets/collections/problems/Finding Median -_ QuickSort - Part II.png" %}
 
 And we're finished! Try it yourself with our original example `[3, -1, 2, 4, 1, -4, 6, 5]` and see if you get `2` as the answer.
 

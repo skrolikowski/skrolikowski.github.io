@@ -1,4 +1,4 @@
----
+
 layout: wiki
 title: Linked List
 excerpt: A data structure.
@@ -11,7 +11,7 @@ stats:
     value: C#
   - label: Frameworks
     value: ".Net Framework, MonoGame, MonoGame.Extended"
----
+
 
 ## Linked List Data Structure
 

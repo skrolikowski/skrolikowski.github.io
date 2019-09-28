@@ -10,15 +10,15 @@ date: 2019-09-26
 
 # Knapsack Problem
 
-Consider for a moment you have just taken down a group of bandits. It wasn't your fault. Those pesky bandits wouldn't let you cross their bridge without a toll and you just spent all your [Spetim](https://elderscrolls.fandom.com/wiki/Septim_(Coin)) on a powerful great sword. Now comes the hard part: looting the bodies of the bandits for profit. The problem is you are near emcumbrance and unfortunately you don't have a [Fortify Carry Weight](https://elderscrolls.fandom.com/wiki/Fortify_Carry_Weight) potion. Maybe you should have bought a math book instead..
+Consider for a moment you have just taken down a group of bandits. It wasn't your fault. Those pesky bandits wouldn't let you cross their bridge without a toll and you just spent all your [Septim](https://elderscrolls.fandom.com/wiki/Septim_(Coin)) on a powerful great sword. Now comes the hard part: looting the bodies of the bandits for profit. The problem is you are near emcumbrance and unfortunately you don't have a [Fortify Carry Weight](https://elderscrolls.fandom.com/wiki/Fortify_Carry_Weight) potion. Maybe you should have bought a math book instead..
 
-{% include utils/image.html src="/assets/collections/I_O Knapsack Problem  - Drawing I.jpeg" %}
+{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem  - Drawing I.jpeg" %}
 
 ## What's Being Asked?
 
 Okay, so you've fully looted the bandits and spread out everything of worth on the ground:
 
-{% include utils/image.html src="/assets/collections/I_O Knapsack Problem  - Drawing II.jpeg" %}
+{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem  - Drawing II.jpeg" %}
 
 |       | Item Name            | Weight (units) | Value (Septim) |
 | ----- | -------------------- | -------------- | -------------- |
@@ -61,7 +61,7 @@ Provided your character's intelligence is high enough so that his/her head doesn
 
 Let's examine a visual representation of what our decision tree would look like. When we take an item we move left down the tree and right when we don't take an item. Notice that some boxes have matching colors. These colors represents duplicate combinations, and also shows why taking a top-down approach is not so efficient (combined with the fact that you might overflow your stack if the input size is very large).
 
-{% include utils/image.html src="/assets/collections/I_O Knapsack Problem - Top-Down.png" %}
+{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem - Top-Down.png" %}
 
 > Visual representation of I/O Knapsack recursive tree.
 
@@ -115,33 +115,33 @@ Therefore, we'll start with a similar scenario of having **0** extra inventory s
 
 For this example, we'll be using the following information (for brevity sake):
 
-{% include utils/image.html src="/assets/collections/I_O Knapsack Problem - Bottom Up - Part I.png" %}
+{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem - Bottom Up - Part I.png" %}
 
 Let's start by increasing the capacity by 1 until we get to the max capacity of 8, still with 0 items:
 
-{% include utils/image.html src="/assets/collections/I_O Knapsack Problem - Bottom Up - Part II.png" %}
+{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem - Bottom Up - Part II.png" %}
 
 Pretty simple. Since there are no items to add, obviously the value won't increase. Now we add **Item A** to the chart:
 
-{% include utils/image.html src="/assets/collections/I_O Knapsack Problem - Bottom Up - Part III.png" %}
+{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem - Bottom Up - Part III.png" %}
 
 Starting at **2kg** we finally have available space to take **Item A** (at a weight of 2kg). This continues for the rest of the row. Now things start to get interesting when we add **Item B** to the mix:
 
-{% include utils/image.html src="/assets/collections/I_O Knapsack Problem - Bottom Up - Part IV.png" %}
+{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem - Bottom Up - Part IV.png" %}
 
 When we arrive at **3kg** and **7kg** we are tasked with finding an optimal solution of either taking **Item B** or not taking **Item B**. We can visually represent both decision pictured above by the following diagram:
 
-{% include utils/image.html src="/assets/collections/I_O Knapsack Problem - Bottom Up - Part V.png" %}
+{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem - Bottom Up - Part V.png" %}
 
 Starting with **3kg**, the decision to take **Item B** leaves no room in the sack for **Item A** and thefore the total value comes to **\$4**. Not taking **Item B** will leave **3kg** in the sack leaving us with the previous optimal solution of **\$3** (directly up one row). Moving on to **5kg**, we are faced with the same decision. We obviously want to take both **Item A** & **B** as they add up to **5kg**.
 
 Finally, we now add **Item C** to the diagram:
 
-{% include utils/image.html src="/assets/collections/I_O Knapsack Problem - Bottom Up - Part VI.png" %}
+{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem - Bottom Up - Part VI.png" %}
 
 Again, we can visiually show the pertinent decisions in the table above in the diagram below:
 
-{% include utils/image.html src="/assets/collections/I_O Knapsack Problem - Bottom Up - Part VII.png" %}
+{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem - Bottom Up - Part VII.png" %}
 
 We're done! The optimal value for an **8kg** sack with **Items A**, **B**, & **C** is **\$10**. It's finally time to write some code:
 
@@ -190,7 +190,7 @@ print(
 
 Voila! We have the optimal value and also which items have been added to our sack. Try it yourself with our original example and see if you can get the correct answer. After all, our brave and nobel hero would love to get back to town to sell some loot.
 
-{% include utils/image.html src="/assets/collections/I_O Knapsack Problem  - Drawing III.jpeg" %}
+{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem  - Drawing III.jpeg" %}
 
 ## Conclusion
 
