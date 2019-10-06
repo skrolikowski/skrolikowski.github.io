@@ -1,6 +1,6 @@
 <div class="row media">
     {% if include.images %}
-        <div class="col-xs-12 col-md-3 py-3">
+        <div class="col-md-3 py-3 d-none d-lg-block d-xl-block">
             <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
                 <img class="align-self-start rounded w-100 mr-3" src="{{ post.image }}" alt="{{ post.title }}">
             </a>
