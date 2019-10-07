@@ -1,4 +1,43 @@
 -
+  title: Modern
+  link: https://github.com/skrolikowski/modern
+  text: >
+    A module/mixin system written in the Lua programming language.
+    The idea is to add a simple interface for introducing inheritance to native Lua, as well as,
+    including the ability for adding mixins to your modules. The result is a cross between OOP and
+    ECS (Entity-Component-System) methodologies.
+  technologies:
+    - Module
+    - Class
+    - Mixins
+    - Entity-Component-System
+  software:
+    - Sublime Text 3
+    - Lua
+  tags: ['lua', 'module', 'mixins', 'api', 'programming']
+-
+  title: Lua-Lander
+  link: https://shanekrolikowski.com/Lua-Lander/
+  text: >
+    Lua-Lander is a modern utility library for the Lua programming language that supplements the native API
+    adding tons of new helper methods to prevent you from reinventing the wheel and focusing on what you
+    want to do as a programmer. The idea is based off of lodash for JavaScript.
+  technologies:
+    - array
+    - assert
+    - color
+    - event
+    - func
+    - lang
+    - math
+    - number
+    - string
+    - table
+  software:
+    - Sublime Text 3
+    - Lua
+  tags: ['lua', 'api', 'library', 'programming']
+-
   title: Lua-Tools
   link: https://github.com/skrolikowski/Lua-Tools
   text: >

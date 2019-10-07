@@ -100,3 +100,22 @@ questions:
         <strong>A few I'm playing regularly:</strong>
         7 Days to Die, Fallout 4, TIS-100, Axiom Verge, Poly Bridge, Orcs Must Die, Stardew Valley
     image: /assets/favorites/doom.png
+  -
+    title: Favorite Pizza Toppings
+    slug: favorite-pizza-toppings
+    answer: Canadian Bacon & Pineapple
+    link: https://en.wikipedia.org/wiki/Hawaiian_pizza
+    text:
+      - >
+        Yes, I know it's highly unpopular, but that doesn't stop me. :p
+    image: /assets/favorites/pexels-photo-1653877.jpeg
+  -
+    title: Favorite Book
+    slug: favorite-book
+    answer: The Sword of Shannara
+    link: https://en.wikipedia.org/wiki/The_Sword_of_Shannara
+    text:
+      - >
+        Most of the books on my shelf are either graphic novels or non-fiction, but this book as stuck with me
+        ever since I first read it in Middle School, and probably a few more times..
+    image: /assets/favorites/pexels-photo-1374891.jpeg
