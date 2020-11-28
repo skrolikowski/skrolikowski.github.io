@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Learning how to find the maximum contiguous sum of integers within an array.">
+
+        <meta property="og:title" content="Finding Maximum Subarray | Shane Krolikowski"/>
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://skrolikowski.github.io/blog/finding-max-subarray"/>
+        <meta property="og:description" content="Learning how to find the maximum contiguous sum of integers within an array." />
+
+        <title>Finding Maximum Subarray | Shane Krolikowski</title>
+
+        <link rel="home" href="http://skrolikowski.github.io/">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
+
+                    <!-- Insert analytics code here -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=ba4316c6b4d6a80c6bc6">
+    </head>
+
+    <body class="min-h-screen px-4">
+        <header class="flex justify-between items-center">
+            <h1>
+                <a href="/" title="Shane Krolikowski" class="text-base">Shane Krolikowski</a></h1>
+            </h1>
+
+            <div id="vue-search" class="w-1/3">
+                <search></search>
+            </div>
+        </header>
+<main role="main" class="container-full">
+    <div class="flex flex-wrap items-start">
+        <div class="w-full sm:w-64" aria-label="Sidebar">
+                    </div>
+
+        <div class="w-full sm:w-auto" aria-label="Contents">
+                <h1 class="text-center">Finding Maximum Subarray</h1>
+
+    <div class="mx-auto md:mx-32 lg:mx-48">
+        <div class="border-b border-blue-200 mb-10 pb-6" v-pre>
+            <p>We are given an array of integers and are asked to find the maximum contiguous sum of values within the array, returning it's sum.</p>
+
+<h2>What's Being Asked?</h2>
+
+<p>Let's say we are given an array of integers: <code>[1, -1, 3, -1, 0, 2, -3, 1]</code>. Integers are non-floating point values that can be either positive or negative (including zero). What makes this problem difficult is our array includes negative numbers. Consider for a moment if we were asked to find the <strong>maximum subarray</strong> of positive numbers only. This could easily be answered by summing the entire array, however this is not the case (and would make for a boring problem).</p>
+
+<p>We can visually see the <strong>maximum subarray</strong> is equal to <code>4</code> (the subarray being <code>[3, -1, 0, 2]</code>), but how would we solve this programmatically? You may have came to this conclusion the same way I did by scanning the array for larger positive numbers or maybe groupings of positive numbers and scanning it's neighbors until coming to an answer.</p>
+
+<h2>Naive Approach</h2>
+
+<p>Let's start with a <strong>naive approach</strong> first, and then consider a more optimized solution. The first idea that comes to mind is testing for every single combination. This may sound daunting, but remember that we are only looking for the maximum sum of contiguous values. Observe:</p>
+
+<p><img src="/assets/img/posts/problems/Maximum%20Subarray%20-%20Part%20I.png" alt="" /></p>
+
+<p>This approach requires two <code>for</code> loops: one starting at the beginning and one at the end, shrinking the array with each pass and updating the <code>maxVal</code>.</p>
+
+<p>Here's the code following the diagram above:</p>
+
+<pre><code class="language-python">def maxSubArray(nums: list) -&gt; int:
+  maxVal = 0
+
+  for i in range(len(nums)):
+    for j in range(len(nums), i, -1):
+      maxVal = max(maxVal, sum(nums[i:j]))
+
+  return maxVal
+</code></pre>
+
+<h2>Linear Approach</h2>
+
+<p>Next, let's move on to a more optimized approach where we move from left to right, maintaining the maximum value as we go. This approach is very similar to <a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane%27s_algorithm">Kandane's Algorithm</a>, except we'll store the maximum value in a separate array as we go. Observe:</p>
+
+<p><img src="/assets/img/posts/problems/Maximum%20Subarray%20-%20Part%20II.png" alt="" /></p>
+
+<p>Finally, we take the maximum value of our auxiliary array to get our answer of <code>4</code>.</p>
+
+<p>Here's the code:</p>
+
+<pre><code class="language-python">def maxSubArray(nums: list) -&gt; int:
+  arr = [0] * len(nums)
+
+  for i in range(len(nums)):
+    arr[i] = max(nums[i], nums[i] + arr[i-1])
+
+  return max(arr)
+</code></pre>
+
+<h2>Analysis</h2>
+
+<p>The following graph shows the time comparisons vs input of both approaches described above. It may not look it, but the optimized approach appears to look constant (<code>O(1)</code>) however it's actually linear (<code>O(n)</code>).</p>
+
+<p><img src="/assets/img/posts/problems/Maximum%20Subarray%20-%20Part%20III.png" alt="" /></p>
+
+<p>Below is the optimized approach graphed separately, showing it's linear (<code>O(n)</code>) nature.</p>
+
+<p><img src="/assets/img/posts/problems/Maximum%20Subarray%20-%20Part%20IV.png" alt="" /></p>
+
+<h2>Conclusion</h2>
+
+<p>This article touches on two different approaches to solving the <strong>Maximum Subarray Problem</strong>. There is also a divide &amp; conquer approach that I hope to include in a second part to this post.</p>
+
+<h2>Further Reading</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem">Maximum Subarray Problem</a> - Wikipedia article.</p>
+        </div>
+
+        <nav class="flex justify-between text-sm md:text-base">
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/knapsack-problem" title="Older Post: Knapsack Problem">
+                &LeftArrow; Knapsack Problem
+            </a>
+            </div>
+
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/insertion-sort" title="Newer Post: Insertion Sort">
+                Insertion Sort &RightArrow;
+            </a>
+            </div>
+</nav>
+    </div>
+        </div>
+    </div>
+</main>
+    
+<footer class="bg-white w-full fixed bottom-0">
+                    </footer>
+
+
+        <script src="/assets/build/js/main.js?id=5c1d02a8934c6df244e2"></script>
+
+            </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Unit tests allow for making sure the functional logic of your program is guaranteed to be in place and working.">
+
+        <meta property="og:title" content="Benefits of Unit Testing | Shane Krolikowski"/>
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://skrolikowski.github.io/blog/benefits-of-unit-testing"/>
+        <meta property="og:description" content="Unit tests allow for making sure the functional logic of your program is guaranteed to be in place and working." />
+
+        <title>Benefits of Unit Testing | Shane Krolikowski</title>
+
+        <link rel="home" href="http://skrolikowski.github.io/">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
+
+                    <!-- Insert analytics code here -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=ba4316c6b4d6a80c6bc6">
+    </head>
+
+    <body class="min-h-screen px-4">
+        <header class="flex justify-between items-center">
+            <h1>
+                <a href="/" title="Shane Krolikowski" class="text-base">Shane Krolikowski</a></h1>
+            </h1>
+
+            <div id="vue-search" class="w-1/3">
+                <search></search>
+            </div>
+        </header>
+<main role="main" class="container-full">
+    <div class="flex flex-wrap items-start">
+        <div class="w-full sm:w-64" aria-label="Sidebar">
+                    </div>
+
+        <div class="w-full sm:w-auto" aria-label="Contents">
+                <h1 class="text-center">Benefits of Unit Testing</h1>
+
+    <div class="mx-auto md:mx-32 lg:mx-48">
+        <div class="border-b border-blue-200 mb-10 pb-6" v-pre>
+            <p>Unit Testing is just one or many approaches to testing your software. The term <em>unit</em> can be thought of as a function or a code block that represents a single idea. They allow for making sure the functional logic of your program is guaranteed to be in place and working.</p>
+
+<h2>Benefits of Unit Testing</h2>
+
+<h3>Faster Development</h3>
+
+<p>Investing the time upfront will save you in the long run. If you write good tests you will write code that performs to your expectation. And that can go a long way when trying to track down unexpected behavior in your program.</p>
+
+<h3>Refactor Allowance</h3>
+
+<p>There will often be times when you have several classes that rely on other utility classes (e.g. <strong>Vec2</strong>, <strong>AABB</strong>) Now let's say you want to make an update to your <strong>Vec2</strong> class (or you simply want to refactor it). How do you know the changes you make won't cause several new bugs to appear?</p>
+
+<p>Building a set of tests for your utility classes allow their initial integrity to remain in tact, through any minor edits or refactors. You can quickly make the changes and run the tests. If something breaks, then you've just saved yourself a headache down the road.</p>
+
+<p>Of course if you're making actual functional changes to the utility class itself, then you must remember to update the test(s) as well. But now the <a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle" title="Open/Close Principle">Open/Close Principle</a> has just been broken.</p>
+
+<h3>Test Driven Development</h3>
+
+<p>It happens that you can get so carried away writing code that you forget about testing your code. Going back after the fact to write code is doable, but it isn't as fun and may leave for lazy tests. In other words, it might feel like homework and be treated as such.</p>
+
+<p>Writing your tests first will force you to stop and think about what you're actually try to do; in other words, you are planning. It will also assist you in writing the classes themselves; going back-and-forth between implementing methods and running tests. This is referred to as <a href="https://en.wikipedia.org/wiki/Test-driven_development" title="TDD">Test Driven Development</a>.</p>
+
+<h2>Further Reading</h2>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Unit_testing">Unit Testing</a>{: target="_blank"}</li>
+</ul>
+        </div>
+
+        <nav class="flex justify-between text-sm md:text-base">
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/how-to-get-started" title="Older Post: How To Get Started">
+                &LeftArrow; How To Get Started
+            </a>
+            </div>
+
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/array-questions" title="Newer Post: Array Questions">
+                Array Questions &RightArrow;
+            </a>
+            </div>
+</nav>
+    </div>
+        </div>
+    </div>
+</main>
+    
+<footer class="bg-white w-full fixed bottom-0">
+                    </footer>
+
+
+        <script src="/assets/build/js/main.js?id=5c1d02a8934c6df244e2"></script>
+
+            </body>
+</html>

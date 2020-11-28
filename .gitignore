@@ -1,5 +1,9 @@
-_site/
 .DS_Store
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+/_tmp/
+/cache/
+/build_local/
+/node_modules/
+/vendor/
+.phpunit.result.cache
+.php_cs.cache
+.idea

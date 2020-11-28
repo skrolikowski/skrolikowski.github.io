@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="This article will detail how to setup log4net within your Visual Studio&#039;s project.">
+
+        <meta property="og:title" content="Logging w/log4net | Shane Krolikowski"/>
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://skrolikowski.github.io/blog/loggin_with_log4net"/>
+        <meta property="og:description" content="This article will detail how to setup log4net within your Visual Studio&#039;s project." />
+
+        <title>Logging w/log4net | Shane Krolikowski</title>
+
+        <link rel="home" href="http://skrolikowski.github.io/">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
+
+                    <!-- Insert analytics code here -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=ba4316c6b4d6a80c6bc6">
+    </head>
+
+    <body class="min-h-screen px-4">
+        <header class="flex justify-between items-center">
+            <h1>
+                <a href="/" title="Shane Krolikowski" class="text-base">Shane Krolikowski</a></h1>
+            </h1>
+
+            <div id="vue-search" class="w-1/3">
+                <search></search>
+            </div>
+        </header>
+<main role="main" class="container-full">
+    <div class="flex flex-wrap items-start">
+        <div class="w-full sm:w-64" aria-label="Sidebar">
+                    </div>
+
+        <div class="w-full sm:w-auto" aria-label="Contents">
+                <h1 class="text-center">Logging w/log4net</h1>
+
+    <div class="mx-auto md:mx-32 lg:mx-48">
+        <div class="border-b border-blue-200 mb-10 pb-6" v-pre>
+            <h2>Introduction</h2>
+
+<p>This article will detail how to setup log4net within your Visual Studio - C# .Net project. The <a href="https://logging.apache.org/log4net/release/manual/introduction.html">log4net manual</a>  can be a bit wordy, so I'll try to break it down into three steps: Installation, Configuration, and Usage.</p>
+
+<h2>Setup</h2>
+
+<h4>Installation</h4>
+
+<ul>
+<li>Create or open an existing project.</li>
+<li>Right-click the project root from within the <strong>Solution Explorer</strong> tab.</li>
+<li>Select <em>Manage NuGet Packages...</em> from the drop-down menu.</li>
+</ul>
+
+<p><img src="/assets/img/posts/VS2017_SolutionExplorer.PNG" alt="" /></p>
+
+<ul>
+<li>Search for <em>"log4net"</em> in the <strong>Browse</strong> tab.</li>
+<li>Select log4net from the list and <em>Install</em>.</li>
+</ul>
+
+<p><img src="/assets/img/posts/VS2017_NuGet.PNG" alt="" /></p>
+
+<p>NuGet will now download and install the library files so that you project can access them at runtime.</p>
+
+<h4>Configuration</h4>
+
+<p>Add the following to the bottom of your <code>Properties/AssemblyInfo.cs</code> file. This will tell log4net to parse the <code>App.config</code> (or <code>Web.config</code>) file.</p>
+
+<pre><code class="language-csharp">[assembly: log4net.Config.XmlConfigurator(Watch = true)]
+</code></pre>
+
+<p>Next, open the <code>App.config</code> file.</p>
+
+<blockquote>
+  <p>Note: You may need to create the <code>App.config</code> file if it doesn't already exist.</p>
+</blockquote>
+
+<p>You must first register the <code>&lt;log4net&gt;</code> otherwise  config file parser won't know how to process it.</p>
+
+<pre><code class="language-xml">&lt;configSections&gt;
+    &lt;section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" /&gt;
+  &lt;/configSections&gt;
+</code></pre>
+
+<p>Now, start another root <code>&lt;log4net&gt;</code> (now that it's been registered from above). In order for log4net to know where to log to (i.e. output destination) we'll first need to set up at least one <code>&lt;appender&gt;</code>. Appenders can be thought of as output destinations.</p>
+
+<pre><code class="language-xml">&lt;log4net&gt;
+    &lt;appender name="TraceAppender" type="log4net.Appender.TraceAppender"&gt;
+      &lt;layout type="log4net.Layout.PatternLayout"&gt;
+        &lt;conversionPattern value="[%date] %level (%logger:%line) - %message%newline" /&gt;
+      &lt;/layout&gt;
+    &lt;/appender&gt;
+    ...
+    &lt;root&gt;
+      &lt;level value="INFO" /&gt;
+      &lt;appender-ref ref="TraceAppender" /&gt;
+    &lt;/root&gt;
+&lt;/log4net&gt;
+</code></pre>
+
+<p>The <code>&lt;root&gt;</code> element is optional. You can use it to set sets configurations for the default logging level.</p>
+
+<p>For more information regarding configurations see [More On Configurations](#More On Configurations).</p>
+
+<h4>Usage</h4>
+
+<p>Use the code snippet below as reference for using logging in your own project.</p>
+
+<ul>
+<li>It's recommended that every class gets it's own logger.</li>
+<li><code>_logger</code> has several methods to call varying log levels (i.e. <code>info</code>, <code>debug</code>).</li>
+</ul>
+
+<pre><code class="language-csharp">using System;
+using log4net;
+
+namespace Project
+{
+    public static class Program
+    {
+        private static readonly ILog _logger = LogManager.GetLogger(
+        System.Reflection.MethodBase.GetCurrentMethod().DeclaringType
+      );
+
+        static void Main()
+        {
+            _logger.Info("Testing!!");
+        }
+    }
+}
+</code></pre>
+
+<h2>More On Configurations</h2>
+
+<h4>Logging Levels</h4>
+
+<table>
+<thead>
+<tr>
+  <th>Level</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>OFF</td>
+  <td>Log nothing; essentially used to disable an Appender</td>
+</tr>
+<tr>
+  <td>FATAL</td>
+  <td>Issue caused the program to crashed.</td>
+</tr>
+<tr>
+  <td>ERROR</td>
+  <td>Problem occurred, but didn't yet crash the program.</td>
+</tr>
+<tr>
+  <td>WARN</td>
+  <td>Potential problem.</td>
+</tr>
+<tr>
+  <td>INFO</td>
+  <td>Informational message.</td>
+</tr>
+<tr>
+  <td>DEBUG</td>
+  <td>Used strictly for debugging purposes.</td>
+</tr>
+<tr>
+  <td>ALL</td>
+  <td>Log everything regardless of level.</td>
+</tr>
+</tbody>
+</table>
+
+<h4>Layout - ConversionPattern</h4>
+
+<p>These patterns are used to format the log output.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Pattern</th>
+  <th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>%date</code></td>
+  <td>Logs date of logging event in the local time zone.</td>
+</tr>
+<tr>
+  <td><code>%file</code></td>
+  <td>Logs the file name of where the logging event occured.</td>
+</tr>
+<tr>
+  <td><code>%line</code></td>
+  <td>Logs the line number where the logging event occurred.</td>
+</tr>
+<tr>
+  <td><code>%method</code></td>
+  <td>Logs the method  where the logging event occurred.</td>
+</tr>
+<tr>
+  <td><code>%level</code></td>
+  <td>Level specified for event.</td>
+</tr>
+<tr>
+  <td><code>%message</code></td>
+  <td>Message passed through the log event.</td>
+</tr>
+<tr>
+  <td><code>%newline</code></td>
+  <td>Newline character.</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+  <p>You can reference the list below or see a full listing <a href="https://logging.apache.org/log4net/release/sdk/html/T_log4net_Layout_PatternLayout.htm">here</a>.</p>
+</blockquote>
+
+<h4>Appenders</h4>
+
+<table>
+<thead>
+<tr>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>AdoNetAppender</td>
+  <td>Writes log events to a database.</td>
+</tr>
+<tr>
+  <td>FileAppender</td>
+  <td>Writes log events to a file you specify.</td>
+</tr>
+<tr>
+  <td>RollingFileAppender</td>
+  <td>Writes log events to a file you specify, while performing archived file cleanup.</td>
+</tr>
+<tr>
+  <td>TraceAppender</td>
+  <td>Writes log events to <strong>Visual Studio</strong>'s Output interface.</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+  <p>For a full list of Appenders <a href="https://logging.apache.org/log4net/release/manual/introduction.html#appenders">check here</a>.</p>
+</blockquote>
+
+<h2>Conclusion</h2>
+
+<p>You should now have log4net setup and working. Check out the further reading below for more in-depth reading on the topic.</p>
+
+<h2>Further Reading</h2>
+
+<ul>
+<li><a href="https://logging.apache.org/log4net/release/manual/introduction.html">log4net Online Manual</a></li>
+<li><a href="https://logging.apache.org/log4net/release/sdk/html/T_log4net_Layout_PatternLayout.htm">log4net - PatternLayout Class</a></li>
+<li><a href="https://logging.apache.org/log4net/release/manual/introduction.html#appenders">log4net - List of Appenders</a></li>
+<li><a href="https://www.codeproject.com/Articles/140911/log-net-Tutorial">log4net Tutorial - by Tim Corey</a></li>
+<li><a href="https://www.codeproject.com/Articles/42354/The-Art-of-Logging">The Art of Logging by Colin Eberhardt</a></li>
+</ul>
+        </div>
+
+        <nav class="flex justify-between text-sm md:text-base">
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/array-questions" title="Older Post: Array Questions">
+                &LeftArrow; Array Questions
+            </a>
+            </div>
+
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/unit-testing-with-xunit" title="Newer Post: Unit Testing with xUnit and Visual Studios">
+                Unit Testing with xUnit and Visual Studios &RightArrow;
+            </a>
+            </div>
+</nav>
+    </div>
+        </div>
+    </div>
+</main>
+    
+<footer class="bg-white w-full fixed bottom-0">
+                    </footer>
+
+
+        <script src="/assets/build/js/main.js?id=5c1d02a8934c6df244e2"></script>
+
+            </body>
+</html>

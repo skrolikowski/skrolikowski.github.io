@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="This article will detail how to setup xUnit within your Visual Studio&#039;s project.">
+
+        <meta property="og:title" content="Unit Testing with xUnit and Visual Studios | Shane Krolikowski"/>
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://skrolikowski.github.io/blog/unit-testing-with-xunit"/>
+        <meta property="og:description" content="This article will detail how to setup xUnit within your Visual Studio&#039;s project." />
+
+        <title>Unit Testing with xUnit and Visual Studios | Shane Krolikowski</title>
+
+        <link rel="home" href="http://skrolikowski.github.io/">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
+
+                    <!-- Insert analytics code here -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=ba4316c6b4d6a80c6bc6">
+    </head>
+
+    <body class="min-h-screen px-4">
+        <header class="flex justify-between items-center">
+            <h1>
+                <a href="/" title="Shane Krolikowski" class="text-base">Shane Krolikowski</a></h1>
+            </h1>
+
+            <div id="vue-search" class="w-1/3">
+                <search></search>
+            </div>
+        </header>
+<main role="main" class="container-full">
+    <div class="flex flex-wrap items-start">
+        <div class="w-full sm:w-64" aria-label="Sidebar">
+                    </div>
+
+        <div class="w-full sm:w-auto" aria-label="Contents">
+                <h1 class="text-center">Unit Testing with xUnit and Visual Studios</h1>
+
+    <div class="mx-auto md:mx-32 lg:mx-48">
+        <div class="border-b border-blue-200 mb-10 pb-6" v-pre>
+            <h2>Introduction</h2>
+
+<p>This article explains how to setup <a href="https://xunit.github.io/">xUnit</a> to use in your <a href="https://visualstudio.microsoft.com/">Visual Studio</a>'s project and create the two main different unit test types in <a href="https://xunit.github.io/">xUnit</a>. Also, we'll set it up so we can run our tests within <a href="https://visualstudio.microsoft.com/">Visual Studio</a>'s Test Explorer.</p>
+
+<p>Unit Testing is just one or many approaches to testing your software. The term <em>unit</em> can be thought of as a function or a code block that represents a single idea. These tests are good for making sure the fundamental logic is guaranteed to be in place and working.</p>
+
+<p>Interested in learning more about the [benefits of unit testing]?</p>
+
+<h2>Setup</h2>
+
+<ul>
+<li>Create or open an existing project.</li>
+<li>Right-click the project root from within the <strong>Solution Explorer</strong> tab.</li>
+<li>Select <em>Add > New Project...</em></li>
+</ul>
+
+<p><img src="/assets/img/posts/VS2017_AddProject.PNG" alt="" /></p>
+
+<ul>
+<li>Look for <em>xUnit Test Project (.Net Core)</em> under the Visual C# language menu.</li>
+<li>Create a new project and name your new project (use whatever naming convention suites you).</li>
+</ul>
+
+<p><img src="/assets/img/posts/VS2017_xUnit.PNG" alt="" /></p>
+
+<ul>
+<li>So now you should have a regular project and an xUnit project under one solution.</li>
+</ul>
+
+<p><img src="/assets/img/posts/VS2017_SolutionExplorer_xUnit.PNG" alt="" /></p>
+
+<blockquote>
+  <p><strong>Note</strong>: By selecting <em>xUnit Test Project (.Net Core)</em> when creating a new tests project all the NuGet packages were automatically installed and linked up. If you ever create a regular console project you can always go back and add the xUnit packages manually.</p>
+</blockquote>
+
+<h2>Writing Unit Tests</h2>
+
+<p>...</p>
+
+<h2>Terminology</h2>
+
+<ul>
+<li><strong>Project</strong> - with regards to Visual Studio, a folder containing a single <code>.csproj</code> file.</li>
+<li><strong>Solution</strong> - with regards to Visual Studio, a folder containing a single <code>.sln</code> file, plus one or more project  folders.</li>
+</ul>
+
+<h2>Further Reading</h2>
+
+<ul>
+<li><a href="https://xunit.github.io/docs/getting-started/netfx/visual-studio#write-first-theory">Getting Started with xUnit.net</a>{: target="_blank"}</li>
+<li>[Benefits of Unit Testing]</li>
+</ul>
+
+<p>[benefits of unit testing]: {% link _posts/2019-01-30-benefits-of-unit-testing.md %}</p>
+        </div>
+
+        <nav class="flex justify-between text-sm md:text-base">
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/loggin_with_log4net" title="Older Post: Logging w/log4net">
+                &LeftArrow; Logging w/log4net
+            </a>
+            </div>
+
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/finding-median-value-of-an-array" title="Newer Post: Finding Median Value of an Array">
+                Finding Median Value of an Array &RightArrow;
+            </a>
+            </div>
+</nav>
+    </div>
+        </div>
+    </div>
+</main>
+    
+<footer class="bg-white w-full fixed bottom-0">
+                    </footer>
+
+
+        <script src="/assets/build/js/main.js?id=5c1d02a8934c6df244e2"></script>
+
+            </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="A selection of questions regarding the usage and knowhow of the array data structure.">
+
+        <meta property="og:title" content="Array Questions | Shane Krolikowski"/>
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://skrolikowski.github.io/blog/array-questions"/>
+        <meta property="og:description" content="A selection of questions regarding the usage and knowhow of the array data structure." />
+
+        <title>Array Questions | Shane Krolikowski</title>
+
+        <link rel="home" href="http://skrolikowski.github.io/">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
+
+                    <!-- Insert analytics code here -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=ba4316c6b4d6a80c6bc6">
+    </head>
+
+    <body class="min-h-screen px-4">
+        <header class="flex justify-between items-center">
+            <h1>
+                <a href="/" title="Shane Krolikowski" class="text-base">Shane Krolikowski</a></h1>
+            </h1>
+
+            <div id="vue-search" class="w-1/3">
+                <search></search>
+            </div>
+        </header>
+<main role="main" class="container-full">
+    <div class="flex flex-wrap items-start">
+        <div class="w-full sm:w-64" aria-label="Sidebar">
+                    </div>
+
+        <div class="w-full sm:w-auto" aria-label="Contents">
+                <h1 class="text-center">Array Questions</h1>
+
+    <div class="mx-auto md:mx-32 lg:mx-48">
+        <div class="border-b border-blue-200 mb-10 pb-6" v-pre>
+            <h3>Missing Numbers.</h3>
+
+<p>Finding the missing number(s) in an array of integers with expected length.</p>
+
+<ul>
+<li>The given array can contain integers between 1 and 100.</li>
+<li>The given array is sorted in ascending order starting at 1.</li>
+<li>The given array can never exceed a length of 100.</li>
+<li>The given array does not contain duplicate values.</li>
+</ul>
+
+<h4>Examples</h4>
+
+<pre><code class="language-python"># python
+missingNumbers([1, 2, 3, 4, 6], 6)       # Expected: [5]
+missingNumbers([1, 2, 3, 4, 6, 8], 10)   # Expected: [5, 7, 9, 10]
+</code></pre>
+
+<h4>Solution</h4>
+
+<pre><code class="language-python"># python
+def missingNumbers(nums, length):
+    missing = []
+    index   = 0
+
+    for n in range(1, length + 1):
+        if index &lt; len(nums) and nums[index] == n:
+            index += 1
+        else:
+            missing.append(n)
+
+    return missing
+</code></pre>
+
+<h3>Duplicate Numbers.</h3>
+
+<p>Find the duplicate number(s) in an array of integers.</p>
+
+<ul>
+<li>The given array can contain integers between 1 and 100.</li>
+<li>The given array is sorted in ascending order starting at 1.</li>
+</ul>
+
+<h4>Examples</h4>
+
+<pre><code class="language-python"># python
+duplicateNumbers([1, 2, 2, 3, 3])   # Expected: [2, 3]
+duplicateNumbers([1, 1, 1, 2, 3])   # Expected: [1]
+</code></pre>
+
+<h4>Solution</h4>
+
+<pre><code class="language-python"># python
+def duplicateNumbers(nums):
+    duplicates = {}
+    previous   = None
+
+    for n in nums:
+        if previous == n and not n in duplicates:
+            duplicates[n] = True
+
+        previous = n
+
+    return list(duplicates.keys())
+</code></pre>
+
+<blockquote>
+  <p><strong>Tip</strong>: I'm using a <code>bool</code> dictionary to store recorded duplicates. The reason being, using Python's <code>in</code> operator is more costly for lists.</p>
+  
+  <p><strong>More information</strong>: <a href="https://bradfieldcs.com/algos/analysis/performance-of-python-types/">Performance of Python Types</a></p>
+</blockquote>
+        </div>
+
+        <nav class="flex justify-between text-sm md:text-base">
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/benefits-of-unit-testing" title="Older Post: Benefits of Unit Testing">
+                &LeftArrow; Benefits of Unit Testing
+            </a>
+            </div>
+
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/loggin_with_log4net" title="Newer Post: Logging w/log4net">
+                Logging w/log4net &RightArrow;
+            </a>
+            </div>
+</nav>
+    </div>
+        </div>
+    </div>
+</main>
+    
+<footer class="bg-white w-full fixed bottom-0">
+                    </footer>
+
+
+        <script src="/assets/build/js/main.js?id=5c1d02a8934c6df244e2"></script>
+
+            </body>
+</html>

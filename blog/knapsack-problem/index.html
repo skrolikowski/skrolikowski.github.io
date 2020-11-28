@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="You are a great hero tasked with looting bandits you have taken down. Find the correct items to take maximizing your profits.">
+
+        <meta property="og:title" content="Knapsack Problem | Shane Krolikowski"/>
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://skrolikowski.github.io/blog/knapsack-problem"/>
+        <meta property="og:description" content="You are a great hero tasked with looting bandits you have taken down. Find the correct items to take maximizing your profits." />
+
+        <title>Knapsack Problem | Shane Krolikowski</title>
+
+        <link rel="home" href="http://skrolikowski.github.io/">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
+
+                    <!-- Insert analytics code here -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=ba4316c6b4d6a80c6bc6">
+    </head>
+
+    <body class="min-h-screen px-4">
+        <header class="flex justify-between items-center">
+            <h1>
+                <a href="/" title="Shane Krolikowski" class="text-base">Shane Krolikowski</a></h1>
+            </h1>
+
+            <div id="vue-search" class="w-1/3">
+                <search></search>
+            </div>
+        </header>
+<main role="main" class="container-full">
+    <div class="flex flex-wrap items-start">
+        <div class="w-full sm:w-64" aria-label="Sidebar">
+                    </div>
+
+        <div class="w-full sm:w-auto" aria-label="Contents">
+                <h1 class="text-center">Knapsack Problem</h1>
+
+    <div class="mx-auto md:mx-32 lg:mx-48">
+        <div class="border-b border-blue-200 mb-10 pb-6" v-pre>
+            <p>Consider for a moment you have just taken down a group of bandits. It wasn't your fault. Those pesky bandits wouldn't let you cross their bridge without a toll and you just spent all your <a href="https://elderscrolls.fandom.com/wiki/Septim_(Coin)">Septim</a> on a powerful great sword. Now comes the hard part: looting the bodies of the bandits for profit. The problem is you are near emcumbrance and unfortunately you don't have a <a href="https://elderscrolls.fandom.com/wiki/Fortify_Carry_Weight">Fortify Carry Weight</a> potion. Maybe you should have bought a math book instead..</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20%20-%20Drawing%20I.jpeg" alt="" /></p>
+
+<h2>What's Being Asked?</h2>
+
+<p>Okay, so you've fully looted the bandits and spread out everything of worth on the ground:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20%20-%20Drawing%20II.jpeg" alt="" /></p>
+
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>Item Name</th>
+  <th>Weight (units)</th>
+  <th>Value (Septim)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>A</strong></td>
+  <td>Long Bow</td>
+  <td>5</td>
+  <td>30</td>
+</tr>
+<tr>
+  <td><strong>B</strong></td>
+  <td>Dwarven Sword</td>
+  <td>12</td>
+  <td>135</td>
+</tr>
+<tr>
+  <td><strong>C</strong></td>
+  <td>Nord Hero Greatsword</td>
+  <td>16</td>
+  <td>250</td>
+</tr>
+<tr>
+  <td><strong>D</strong></td>
+  <td>Dwarven Greatsword</td>
+  <td>19</td>
+  <td>270</td>
+</tr>
+<tr>
+  <td><strong>E</strong></td>
+  <td>Dwarven Warhammer</td>
+  <td>27</td>
+  <td>325</td>
+</tr>
+</tbody>
+</table>
+
+<p>You'd love to carry everything, but you only have room to carry another 40 units of weight. By the Nine!!</p>
+
+<h2>Let's Get Greedy</h2>
+
+<p>You immediately grab the <strong>Dwarves Warhammer</strong> cause you know it will fetch the highest price at <strong>325 Septim</strong>. That leaves you with <strong>13 units</strong> of weight so you grab the <strong>Dwarven Sword</strong>. You now are nearly encumbered and hold <strong>325 + 135 = 460</strong> for profit. But then you suddenly notice the two greatswords would fetch a good value as well. You have taken a greedy approach and failed to find an optimal solution.</p>
+
+<p>Greedy algorithms is an approach to solving a problem by taking the optimal choice at each stage, while attempting to find an overall optimal value. Our great hero tried this approach, but it's possible to spot the correct optimal solution. Can you spot it?</p>
+
+<blockquote>
+  <p><strong>Answer:</strong> Take the two greatswords and the Log Bow, which will give you a weight of 40 and value of 550. Proving that there are times when actually want to pick up a boring old Long Bow.</p>
+</blockquote>
+
+<p>Greedy algorithms are useful (see <a href="https://en.wikipedia.org/wiki/Activity_selection_problem">Activity Selection Problem</a>), however we just proved that it doesn't work for our immediate problem. So where do we go from here?</p>
+
+<h2>Counting Combinations</h2>
+
+<p>The Knapsack Problem is considered a <a href="https://en.wikipedia.org/wiki/Combinatorial_optimization">combinatorial optimization</a> problem, therefore the immediate thought would be to start counting all the combinations possible. Before we start doing this, we should consider how much work we are actually going to have to do (computer cycles) given our input. Let's consider our 5 input items. We can either <strong>take</strong> or <strong>not take</strong> an item, therefore we should consider 2<sup>n</sup>, or 2<sup>5</sup> = 32 combinations. Our hero may spend the afternoon finding the right combination, however imagine looting 10 items. That's a total of 1,024 combinations!! Let's hope our hero packed some camping supplies.</p>
+
+<blockquote>
+  <p><strong>Warning:</strong> Be sure not problem to confuse this problem with as a permutation problem. Permutations are combinations while considering order. In other worsd, Red-Green-Blue does not equal Blue-Green-Red. When counting permutations use <code>n!</code>, so <code>5! = 120</code> permutations.</p>
+</blockquote>
+
+<h2>Top-Down Approach</h2>
+
+<p>Let's consider for a moment you haven't taken any loot yet and you have a total of 40 units of weight available. Starting with the Long Bow (Item A), you naturally have two options:</p>
+
+<ol>
+<li>Take the Long Bow adding 5W / 30V to your knapsack.</li>
+<li>Do not take the Long Bow, and continue on to the second item.</li>
+</ol>
+
+<p>Provided your character's intelligence is high enough so that his/her head doesn't explode, realize that you have essentially created two path from which to follow. This pattern continues until:</p>
+
+<ol>
+<li>You inventory is full capacity (encumbered).</li>
+<li>You have exhausted all items to add.</li>
+</ol>
+
+<p>Let's examine a visual representation of what our decision tree would look like. When we take an item we move left down the tree and right when we don't take an item. Notice that some boxes have matching colors. These colors represents duplicate combinations, and also shows why taking a top-down approach is not so efficient (combined with the fact that you might overflow your stack if the input size is very large).</p>
+
+<p>{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem - Top-Down.png" %}</p>
+
+<blockquote>
+  <p>Visual representation of I/O Knapsack recursive tree.</p>
+</blockquote>
+
+<p>Here is the code for this approach:</p>
+
+<pre><code class="language-python">def knapsack(w: list, v: list, wt: int, idx: int = 0) -&gt; int:
+  if wt == 0 or idx == len(w):
+    """
+    Base Case 1: Weight capacity reached
+    Base Case 2: No more items to add
+    """
+    return 0
+
+  if w[idx] &gt; wt:
+    """
+    Weight of item in question too heavy to take..
+    """
+    return knapsack(w, v, wt, idx + 1)
+
+  """
+  Finally, compare the decision of taking or not taking..
+  """
+  take  = v[idx] + knapsack(w, v, wt - w[idx], idx + 1)
+  leave = knapsack(w, v, wt, idx + 1)
+
+  return max(take, leave)
+
+print(
+  knapsack(
+    [5, 12, 16, 19, 27],       # Item weights
+    [30, 135, 250, 270, 325],  # Item values
+    40                         # Available capacity
+  )
+)
+# =&gt; 550
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> our <code>knapsack</code> function only returns the optimal value, and not which items make up this value.</p>
+</blockquote>
+
+<h2>Bottom-Up Approach</h2>
+
+<p>Unfortunately our hero doesn't have the computing power (intelligence) available to solve the problem using the top-down approach. Let's examine a more elegant approach that doesn't involve recursion.</p>
+
+<p>Remember the base case from above was one of either two scenarios:</p>
+
+<ol>
+<li>You inventory is full capacity (encumbered).</li>
+<li>You have exhausted all items to add.</li>
+</ol>
+
+<p>Therefore, we'll start with a similar scenario of having <strong>0</strong> extra inventory space and <strong>0</strong> items to pick up. Yes, this sounds strange at first. Why consider such a scenario when we know the optimal solution is <strong>0</strong> (i.e. no items to carry and no inventory space)?  Let's make things a bit more interesting by slowly increasing one (of two possible) inputs (e.g. increasing weight capacity by 1 unit). By doing this we introduce subproblems that are easier to solve than the whole.</p>
+
+<p>For this example, we'll be using the following information (for brevity sake):</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20I.png" alt="" /></p>
+
+<p>Let's start by increasing the capacity by 1 until we get to the max capacity of 8, still with 0 items:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20II.png" alt="" /></p>
+
+<p>Pretty simple. Since there are no items to add, obviously the value won't increase. Now we add <strong>Item A</strong> to the chart:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20III.png" alt="" /></p>
+
+<p>Starting at <strong>2kg</strong> we finally have available space to take <strong>Item A</strong> (at a weight of 2kg). This continues for the rest of the row. Now things start to get interesting when we add <strong>Item B</strong> to the mix:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20IV.png" alt="" /></p>
+
+<p>When we arrive at <strong>3kg</strong> and <strong>7kg</strong> we are tasked with finding an optimal solution of either taking <strong>Item B</strong> or not taking <strong>Item B</strong>. We can visually represent both decision pictured above by the following diagram:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20V.png" alt="" /></p>
+
+<p>Starting with <strong>3kg</strong>, the decision to take <strong>Item B</strong> leaves no room in the sack for <strong>Item A</strong> and thefore the total value comes to <strong>\$4</strong>. Not taking <strong>Item B</strong> will leave <strong>3kg</strong> in the sack leaving us with the previous optimal solution of <strong>\$3</strong> (directly up one row). Moving on to <strong>5kg</strong>, we are faced with the same decision. We obviously want to take both <strong>Item A</strong> &amp; <strong>B</strong> as they add up to <strong>5kg</strong>.</p>
+
+<p>Finally, we now add <strong>Item C</strong> to the diagram:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20VI.png" alt="" /></p>
+
+<p>Again, we can visiually show the pertinent decisions in the table above in the diagram below:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20VII.png" alt="" /></p>
+
+<p>We're done! The optimal value for an <strong>8kg</strong> sack with <strong>Items A</strong>, <strong>B</strong>, &amp; <strong>C</strong> is <strong>\$10</strong>. It's finally time to write some code:</p>
+
+<pre><code class="language-python">def knapsack(w: list, v: list, wt: int, n: int) -&gt; int:
+  # pre-generate 2D array upfront..
+  arr   = [[0 for i in range(wt + 1)] for j in range(n + 1)]
+  items = []
+
+  # Genrate optimized 2D array.
+  def optimized2DArray():
+    for i in range(1, n + 1):                # Adding items  (i)
+      for j in range(wt + 1):                # Adding weight (j)
+        value    = v[i - 1]                  # Current item's value
+        weight   = w[i - 1]                  # Current item's weight
+        previous = arr[i - 1][j]             # Previous optimal value
+
+        if weight &gt; j:                       # Item too heavy!
+          arr[i][j] = previous               # Copy cell immediatly above.
+        else:                                # ...else...
+                                                       # Compare take vs not take
+                                                       #   and take max value.
+          arr[i][j] = max(value + arr[i - 1][j - weight], previous)
+
+  # Determine items selected from optimized 2D array.
+  def findItems():
+    j = wt
+
+    for i in range(n, 0, -1):
+      if arr[i][j] &gt; arr[i - 1][j]:
+        items.append(i)
+        j -= w[i - 1]
+
+    return items
+
+  optimized2DArray()
+  findItems()
+
+  return items, arr[n][wt]
+
+print(
+  knapsack([2, 3, 5], [3, 4, 6], 8, 3)
+)
+# =&gt; ([3, 2], 10)
+</code></pre>
+
+<p>Voila! We have the optimal value and also which items have been added to our sack. Try it yourself with our original example and see if you can get the correct answer. After all, our brave and nobel hero would love to get back to town to sell some loot.</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20%20-%20Drawing%20III.jpeg" alt="" /></p>
+
+<h2>Conclusion</h2>
+
+<p>Dynamic Programming is a powerful approach when solving optimization problems. The trick is to start small (e.g. one or more base cases) and adjust your input to find the global optimized solution. The optimal solution at each point in time can be determined using the <a href="https://en.wikipedia.org/wiki/Bellman_equation">functional equation</a>. The functional equation in our example above was:</p>
+
+<p><code>arr[i][j] = max(value + arr[i - 1][j - weight], previous)</code></p>
+
+<p>In this line of code we considered two options: taking an item and not taking an item using previous knowledge we uncovered.</p>
+
+<h2>Reference</h2>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=P0_VC8_uaXw">Algorithm Lecture 18: Dynamic Programming, 0-1 Knapsack Problem</a> - Guided walkthrough of the Factorial and I/O Knapsack problem.</li>
+<li><a href="https://en.wikipedia.org/wiki/Dynamic_programming#Examples:_Computer_algorithms">Dynamic Programming - Examples: Computer Algorithms</a> - Some problems to try using the Dynamic Programming approach.</li>
+</ul>
+        </div>
+
+        <nav class="flex justify-between text-sm md:text-base">
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/finding-median-value-of-an-array" title="Older Post: Finding Median Value of an Array">
+                &LeftArrow; Finding Median Value of an Array
+            </a>
+            </div>
+
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/finding-max-subarray" title="Newer Post: Finding Maximum Subarray">
+                Finding Maximum Subarray &RightArrow;
+            </a>
+            </div>
+</nav>
+    </div>
+        </div>
+    </div>
+</main>
+    
+<footer class="bg-white w-full fixed bottom-0">
+                    </footer>
+
+
+        <script src="/assets/build/js/main.js?id=5c1d02a8934c6df244e2"></script>
+
+            </body>
+</html>

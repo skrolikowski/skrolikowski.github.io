@@ -1,0 +1,1592 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Shane Krolikowski</title>
+    <link href="http://skrolikowski.github.io/blog" />
+    <link type="application/atom+xml" rel="self" href="http://skrolikowski.github.io/blog/feed.atom" />
+    <updated>2020-11-28T00:12:45+00:00</updated>
+    <id>http://skrolikowski.github.io/blog/feed.atom</id>
+    <author>
+        <name>Shane Krolikowski</name>
+    </author>
+                <entry>
+    <id>http://skrolikowski.github.io/blog/entity-component-system</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/entity-component-system" />
+    <title>Entity Component System</title>
+    <published>2020-01-03T00:00:00+00:00</published>
+    <updated>2020-01-03T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">The world is what ties it all together, with the following jobs:
+
+
+Creating Entities.
+Attaching/detaching Components from Entities.
+Telling the System&#039;s to update/draw.
+Filtering out Entities based on Component ownership.
+
+
+
+
+When it comes time to act......</summary>
+    <content type="html"><![CDATA[
+        <h2>Design</h2>
+
+<h3>World</h3>
+
+<p>The world is what ties it all together, with the following jobs:</p>
+
+<ul>
+<li>Creating Entities.</li>
+<li>Attaching/detaching Components from Entities.</li>
+<li>Telling the System's to update/draw.</li>
+<li>Filtering out Entities based on Component ownership.</li>
+</ul>
+
+<h4>Filtering Entities</h4>
+
+<p>When it comes time to act upon a System, the System will require a list of Entities to act upon. Whether it be to draw an Entity or update it's Component information, we only need the Entities that the current System is responsible for. An example of this is a <em>MoveSystem</em>. This System will only need Entities with <em>Transform</em> and <em>Body</em> Components.</p>
+
+<h3>Entities</h3>
+
+<p>Entities on their own are usually just an ID. The World is responsible for tying Entities and Components together. Your framework may have an actually Entity class, which acts as a query into if a Component is associated with the Entity or not.</p>
+
+<h3>Components</h3>
+
+<p>A Component is nothing more than zero or more attributes with a common relation.  You can think of it as a state machine for individual attributes. For example, a <em>HealthComponent</em> can have <code>_health</code> and <code>_maxHealth</code> variables. The System responsible for maintaining Entity health will receive input from other Components (i.e. PhysicsComponent) whether an Entity's health values should be updated and updates accordingly. If the <code>_health</code> value reaches 0 then we can trigger the Entity's death state.</p>
+
+<p>It's also important to note that Components can be left empty, and thus act as a tag for the System. An example of this would be a <em>PlayerComponent</em>. This component has no viable attributes, but can act as an identifier for finding the player Entity within a System.</p>
+
+<p>It's possible to add private helper functions to a Component, but it's usually just variables and/or enums.</p>
+
+<h4>List of Useful Component</h4>
+
+<p>{: .table .table-striped .w-75 .mx-auto }</p>
+
+<table>
+<thead>
+<tr>
+  <th>Component</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>HealthComponent</strong></td>
+  <td>_<code>health</code> &amp; <code>_maxHealth</code> attributes, delimiter values for incrementing/decrementing health based on a status effect.</td>
+</tr>
+<tr>
+  <td><strong>StatusEffectComponent</strong></td>
+  <td>You may have status effects Entities can contract. This can be a bit array of status the Entity currently has.</td>
+</tr>
+<tr>
+  <td><strong>PlayerComponent</strong></td>
+  <td>Variable-less Component used for tagging the Player Entity.</td>
+</tr>
+<tr>
+  <td><strong>TransformComponent</strong></td>
+  <td><code>_position</code>, <code>_rotation</code>, and <code>_scale</code></td>
+</tr>
+<tr>
+  <td><strong>TrackingComponent</strong></td>
+  <td>Is an Entity within range of tracking? What are it's tracking behaviors?</td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+</tr>
+</tbody>
+</table>
+
+<h3>Systems</h3>
+
+<p>When it comes time to act upon a set of Entities, the System will request only the Entities it is capable of updating, based on Component criteria. For example, a MovementSystem (the system responsible for moving entities) will only need to act upon Entities that can move. Stationary entities will be ignored, thus eliminating unnecessary processing time.</p>
+
+<p>Different Systems will usually conform to an interface to detail a System's main processing responsibilities.</p>
+
+<ul>
+<li><strong>DrawSystem</strong> - System for loading content and drawing.</li>
+<li><strong>UpdateSystem</strong> - System for initializing data and updating Component attributes.</li>
+</ul>
+
+<h4>List of Useful Systems</h4>
+
+<p>{: .table .table-striped .w-75 .mx-auto }</p>
+
+<table>
+<thead>
+<tr>
+  <th>System</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>InputSystem</strong></td>
+  <td>Updatable System responsible for updating <strong>TransformComponent</strong> variables.</td>
+</tr>
+<tr>
+  <td><strong>RenderSystem</strong></td>
+  <td>Drawable System responsible for drawing Entities.</td>
+</tr>
+<tr>
+  <td><strong>MovementSystem</strong></td>
+  <td>Updatable System responsible for transforming Entity's position, scale, and rotation.</td>
+</tr>
+<tr>
+  <td><strong>CollisionSystem</strong></td>
+  <td>Updatable System responsible for checking collision information and triggering a response.</td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+</tr>
+</tbody>
+</table>
+
+<h2>Advantages</h2>
+
+<h4>Data Locality</h4>
+
+<p>When your CPU is processing thousands of lines of code, the time it takes to request data from memory vs it's own cache can be vast. To our perspective one [cache miss] vs [cache hit] is unnoticeable, but when there are many cache misses it can lead to noticeable differences. This topic has lead to more optimized coding practices, including what can be called <em>data locality</em> or <em>data-oriented design</em>.</p>
+
+<p>Organizing data in a way that the CPU can access it more affectively (in it's local cache vs RAM) can minimize cache misses.</p>
+
+<h4>Usability</h4>
+
+<p>There is an argument for expandability when it comes to using Entity-Components over the traditional class hierarchy approach. For example, you may need to add additional functionality that could directly or indirectly affect another class in the hierarchy, with Entity-Component you can easily add or remove fun  [example needed].</p>
+
+<p>Another example involves altering Entities mid-game. For example, say your game has introduced several power-ups. It integrate this into a class hierarchy could become a challenge depending on the size and complexity of the code. With Entity-Components, it's possible to add (and remove) Entity attributes with a new Component class and attachment to that Entity.</p>
+
+<h2>Disadvantages</h2>
+
+<p>It can be difficult to know where to get started coming from a traditional class hierarchy background. Fortunately there are many examples online to get you started:</p>
+
+<ul>
+<li><a href="https://github.com/craftworkgames/MonoGame.Extended/tree/develop/Source/MonoGame.Extended.Entities">MonoGame.Extended.Entities - C#</a></li>
+<li><a href="https://github.com/junkdog/artemis-odb/wiki">Artemis ODB - Java</a></li>
+</ul>
+
+<p>The idea of [data encapsulation] can disregarded since all Entities can share one or many Components with other Entities. It is still possible to use inheritance, but not recommended.</p>
+
+<h2>Further Reading</h2>
+
+<ul>
+<li><a href="http://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/">Evolve Your Hierarchy</a> - Refactoring Game Entities with Components.</li>
+<li><a href="http://gamesfromwithin.com/data-oriented-design">Data-Oriented Design</a> - why you should considering organizing your data.</li>
+<li><a href="http://gameprogrammingpatterns.com/data-locality.html">Data Locality</a> - more on why you should consider organizing your data.</li>
+</ul>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://skrolikowski.github.io/blog/styleguide</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/styleguide" />
+    <title>Styleguide</title>
+    <published>2020-01-01T00:00:00+00:00</published>
+    <updated>2020-01-01T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">Here’s a quick preview of what some of the basic type styles will look like in this starter template:
+
+
+
+
+
+
+
+
+
+
+
+
+
+The quick brown fox jumps over the lazy dog
+
+
+The quick brown fox
+
+
+jumps over
+
+
+the lazy dog
+
+
+
+
+
+The quick brown fox
+
+
+jumps over
+
+
+the......</summary>
+    <content type="html"><![CDATA[
+        <h2>Typography Styles</h2>
+
+<p>Here’s a quick preview of what some of the basic type styles will look like in this starter template:</p>
+
+<h1>h1 Heading</h1>
+
+<h2>h2 Heading</h2>
+
+<h3>h3 Heading</h3>
+
+<h4>h4 Heading</h4>
+
+<h5>h5 Heading</h5>
+
+<h6>h6 Heading</h6>
+
+<p>The quick brown fox jumps over the lazy dog</p>
+
+<ul>
+<li>The quick brown fox
+
+<ul>
+<li>jumps over
+
+<ul>
+<li>the lazy dog</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<ol>
+<li>The quick brown fox
+
+<ol>
+<li>jumps over
+
+<ol>
+<li>the lazy dog</li>
+</ol></li>
+</ol></li>
+</ol>
+
+<p><s>The quick brown fox jumps over the lazy dog</s></p>
+
+<p><u>The quick brown fox jumps over the lazy dog</u></p>
+
+<p><em>The quick brown fox jumps over the lazy dog</em></p>
+
+<p><strong>The quick brown fox jumps over the lazy dog</strong></p>
+
+<p><code>The quick brown fox jumps over the lazy dog</code></p>
+
+<p><small>The quick brown fox jumps over the lazy dog</small></p>
+
+<blockquote>
+  <p>The quick brown fox jumps over the lazy dog</p>
+</blockquote>
+
+<p><a href="#">The quick brown fox jumps over the lazy dog</a></p>
+
+<pre><code class="language-php">class Foo extends bar
+{
+    public function fooBar()
+    {
+        //
+    }
+}
+</code></pre>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://skrolikowski.github.io/blog/what-is-a-cache-miss</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/what-is-a-cache-miss" />
+    <title>What is a Cache Miss?</title>
+    <published>2019-12-31T00:00:00+00:00</published>
+    <updated>2019-12-31T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">A cache miss is when the CPU attempts to access memory in it&#039;s local cache and fails.
+The CPU must then wait for it&#039;s local cache to be refreshed before processing again.
+
+The opposite is a [cache hit] when the CPU finds what it needs.
+It should be noted......</summary>
+    <content type="html"><![CDATA[
+        <p>A cache miss is when the CPU attempts to access memory in it's local cache and fails.
+The CPU must then wait for it's local cache to be refreshed before processing again.</p>
+
+<p>The opposite is a [cache hit] when the CPU finds what it needs.
+It should be noted that the arrangement of your data (e.g. data locality) may directly affect the frequency of cache misses over cache hits.</p>
+
+<h2>Further Reading</h2>
+
+<ul>
+<li><a href="https://gist.github.com/hellerbarde/2843375">Latency Numbers Every Programmer Should Know</a></li>
+</ul>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://skrolikowski.github.io/blog/selection-sort</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/selection-sort" />
+    <title>Selection Sort</title>
+    <published>2019-12-29T00:00:00+00:00</published>
+    <updated>2019-12-29T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">Selection Sort is an in-place sorting algorithm that succeeds in sorting smaller arrays of values, but suffers with larger arrays.
+
+
+
+Selection Sort works in-place, meaning it doesn&#039;t require a separate array for storing the sorted values. Instead we......</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Selection Sort</strong> is an in-place sorting algorithm that succeeds in sorting smaller arrays of values, but suffers with larger arrays.</p>
+
+<h2>How It Works?</h2>
+
+<p><strong>Selection Sort</strong> works in-place, meaning it doesn't require a separate array for storing the sorted values. Instead we perform a series of swaps, finding lowest value (usually indicated by index <code>j</code>) to index <code>i</code>. Index <code>i</code> moves from left to right, shrinking the array at each pass.</p>
+
+<h2>Implementation</h2>
+
+<p>Below is a more traditional implementation where only one swap occurs, if and only if, a value is found to be smaller than <code>nums[i]</code>:</p>
+
+<pre><code class="language-python">def traditionalSelectionSort(nums: list) -&gt; list:
+  for i in range(len(nums) - 1):
+    minIndex = i
+
+    for j in range(i, len(nums)):
+      if nums[j] &lt; nums[minIndex]:
+        minIndex = j
+
+    if minIndex != i:
+      nums[i], nums[minIndex] = nums[minIndex], nums[i]
+
+  return nums
+
+print(selectionSort([3, 8, 2, 5, 7, 4]))
+# =&gt; [2, 3, 4, 5, 7, 8]
+</code></pre>
+
+<p>Below is a modified version of implementation that will swap <em>every</em> value (<code>nums[j]</code>) less than <code>nums[i]</code>. I prefer this approach since it's more condensed and swapping values in an array is a constant operation (e.g. <code>O(1)</code>):</p>
+
+<pre><code class="language-python">def modifiedSelectionSort(nums: list) -&gt; list:
+  for i in range(len(nums) - 1):    # i = receiving min value
+    for j in range(i, len(nums)):   # j = searches for min values
+      if nums[j] &lt; nums[i]:         # swap with values &lt; nums[i]
+        nums[i], nums[j] = nums[j], nums[i]
+
+  return nums
+
+print(selectionSort([3, 8, 2, 5, 7, 4]))
+# =&gt; [2, 3, 4, 5, 7, 8]
+</code></pre>
+
+<h2>Visual Representation</h2>
+
+<p><img src="/assets/img/posts/Sort_Selection.png" alt="" /></p>
+
+<h2>Analysis</h2>
+
+<p><strong>Selection Sort</strong> is similar to <a href="/wiki/data-algorithms/sort-selection">Insertion Sort</a> (except for when comparing best-case performances, in which <strong>Insertion Sort</strong> is better).</p>
+
+<pre><code class="language-python">Time:
+  Worst:   O(n^2)
+  Best:    O(n^2)
+  Average: O(n^2)
+
+Space: O(1) - swapping in place
+</code></pre>
+
+<h2>Further Reading</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Selection_sort">Selection Sort</a> - Wikipedia article on <strong>Selection Sort</strong>.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://skrolikowski.github.io/blog/insertion-sort</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/insertion-sort" />
+    <title>Insertion Sort</title>
+    <published>2019-12-29T00:00:00+00:00</published>
+    <updated>2019-12-29T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">Insertion Sort is an in-place sorting algorithm that succeeds in sorting smaller arrays of values, but suffers with larger arrays. Insertion Sort has a linear (&lt;code&gt;O(n)&lt;/code&gt;) best-case permormance, which makes it useful for adding additional items a......</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Insertion Sort</strong> is an in-place sorting algorithm that succeeds in sorting smaller arrays of values, but suffers with larger arrays. <strong>Insertion Sort</strong> has a linear (<code>O(n)</code>) best-case permormance, which makes it useful for adding additional items a sorted array that's already sorted.</p>
+
+<h2>How it works?</h2>
+
+<p>When you want to sort an existing, unsorted array use <strong>Insertion Sort</strong> by traversing the array starting at index 0 (marked by <code>i</code>) and then selecting a pivot (<code>p = i + 1</code>). You then traverse backwards from the pivot (<code>p</code>) either until reaching index 0 or a value larger than the pivot, swapping adjacent values in the process.</p>
+
+<h2>Implementation</h2>
+
+<pre><code class="language-python">def insertionSort(nums: list) -&gt; list:
+  for i in range(len(nums) - 1):
+    p = i + 1  # pivot
+
+    while p &gt; 0 and nums[p-1] &gt; nums[p]:
+      nums[p-1], nums[p] = nums[p], nums[p-1]
+      p -= 1
+
+  return nums
+
+print(insertionSort([5, 2, 3, 6, 1, 4]))
+# =&gt; [1, 2, 3, 4, 5, 6]
+</code></pre>
+
+<h2>Visual Representation</h2>
+
+<p><img src="/assets/img/posts/Sort_Insertion.png" alt="" /></p>
+
+<h2>Analysis</h2>
+
+<p><strong>Insertion Sort</strong> works well for small datasets or when introducing new values into an already sorted array. It also benefits from being an in-place sorting algorithm, with minimal memory used.</p>
+
+<pre><code class="language-python">Time:
+  Worst:   O(n^2)
+  Best:    O(n)   - when array is already sorted
+  Average: O(n^2)
+
+Space: O(1) - swapping in place
+</code></pre>
+
+<h2>Further Reading</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Insertion_sort">Insertion Sort</a> - Wikipedia article on <strong>Insertion Sort</strong>.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://skrolikowski.github.io/blog/finding-max-subarray</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/finding-max-subarray" />
+    <title>Finding Maximum Subarray</title>
+    <published>2019-10-02T00:00:00+00:00</published>
+    <updated>2019-10-02T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">We are given an array of integers and are asked to find the maximum contiguous sum of values within the array, returning it&#039;s sum.
+
+
+
+Let&#039;s say we are given an array of integers: &lt;code&gt;[1, -1, 3, -1, 0, 2, -3, 1]&lt;/code&gt;. Integers are non-floating point......</summary>
+    <content type="html"><![CDATA[
+        <p>We are given an array of integers and are asked to find the maximum contiguous sum of values within the array, returning it's sum.</p>
+
+<h2>What's Being Asked?</h2>
+
+<p>Let's say we are given an array of integers: <code>[1, -1, 3, -1, 0, 2, -3, 1]</code>. Integers are non-floating point values that can be either positive or negative (including zero). What makes this problem difficult is our array includes negative numbers. Consider for a moment if we were asked to find the <strong>maximum subarray</strong> of positive numbers only. This could easily be answered by summing the entire array, however this is not the case (and would make for a boring problem).</p>
+
+<p>We can visually see the <strong>maximum subarray</strong> is equal to <code>4</code> (the subarray being <code>[3, -1, 0, 2]</code>), but how would we solve this programmatically? You may have came to this conclusion the same way I did by scanning the array for larger positive numbers or maybe groupings of positive numbers and scanning it's neighbors until coming to an answer.</p>
+
+<h2>Naive Approach</h2>
+
+<p>Let's start with a <strong>naive approach</strong> first, and then consider a more optimized solution. The first idea that comes to mind is testing for every single combination. This may sound daunting, but remember that we are only looking for the maximum sum of contiguous values. Observe:</p>
+
+<p><img src="/assets/img/posts/problems/Maximum%20Subarray%20-%20Part%20I.png" alt="" /></p>
+
+<p>This approach requires two <code>for</code> loops: one starting at the beginning and one at the end, shrinking the array with each pass and updating the <code>maxVal</code>.</p>
+
+<p>Here's the code following the diagram above:</p>
+
+<pre><code class="language-python">def maxSubArray(nums: list) -&gt; int:
+  maxVal = 0
+
+  for i in range(len(nums)):
+    for j in range(len(nums), i, -1):
+      maxVal = max(maxVal, sum(nums[i:j]))
+
+  return maxVal
+</code></pre>
+
+<h2>Linear Approach</h2>
+
+<p>Next, let's move on to a more optimized approach where we move from left to right, maintaining the maximum value as we go. This approach is very similar to <a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane%27s_algorithm">Kandane's Algorithm</a>, except we'll store the maximum value in a separate array as we go. Observe:</p>
+
+<p><img src="/assets/img/posts/problems/Maximum%20Subarray%20-%20Part%20II.png" alt="" /></p>
+
+<p>Finally, we take the maximum value of our auxiliary array to get our answer of <code>4</code>.</p>
+
+<p>Here's the code:</p>
+
+<pre><code class="language-python">def maxSubArray(nums: list) -&gt; int:
+  arr = [0] * len(nums)
+
+  for i in range(len(nums)):
+    arr[i] = max(nums[i], nums[i] + arr[i-1])
+
+  return max(arr)
+</code></pre>
+
+<h2>Analysis</h2>
+
+<p>The following graph shows the time comparisons vs input of both approaches described above. It may not look it, but the optimized approach appears to look constant (<code>O(1)</code>) however it's actually linear (<code>O(n)</code>).</p>
+
+<p><img src="/assets/img/posts/problems/Maximum%20Subarray%20-%20Part%20III.png" alt="" /></p>
+
+<p>Below is the optimized approach graphed separately, showing it's linear (<code>O(n)</code>) nature.</p>
+
+<p><img src="/assets/img/posts/problems/Maximum%20Subarray%20-%20Part%20IV.png" alt="" /></p>
+
+<h2>Conclusion</h2>
+
+<p>This article touches on two different approaches to solving the <strong>Maximum Subarray Problem</strong>. There is also a divide &amp; conquer approach that I hope to include in a second part to this post.</p>
+
+<h2>Further Reading</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem">Maximum Subarray Problem</a> - Wikipedia article.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://skrolikowski.github.io/blog/knapsack-problem</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/knapsack-problem" />
+    <title>Knapsack Problem</title>
+    <published>2019-09-26T00:00:00+00:00</published>
+    <updated>2019-09-26T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">Consider for a moment you have just taken down a group of bandits. It wasn&#039;t your fault. Those pesky bandits wouldn&#039;t let you cross their bridge without a toll and you just spent all your Septim on a powerful great sword. Now comes the hard part: looting......</summary>
+    <content type="html"><![CDATA[
+        <p>Consider for a moment you have just taken down a group of bandits. It wasn't your fault. Those pesky bandits wouldn't let you cross their bridge without a toll and you just spent all your <a href="https://elderscrolls.fandom.com/wiki/Septim_(Coin)">Septim</a> on a powerful great sword. Now comes the hard part: looting the bodies of the bandits for profit. The problem is you are near emcumbrance and unfortunately you don't have a <a href="https://elderscrolls.fandom.com/wiki/Fortify_Carry_Weight">Fortify Carry Weight</a> potion. Maybe you should have bought a math book instead..</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20%20-%20Drawing%20I.jpeg" alt="" /></p>
+
+<h2>What's Being Asked?</h2>
+
+<p>Okay, so you've fully looted the bandits and spread out everything of worth on the ground:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20%20-%20Drawing%20II.jpeg" alt="" /></p>
+
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>Item Name</th>
+  <th>Weight (units)</th>
+  <th>Value (Septim)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>A</strong></td>
+  <td>Long Bow</td>
+  <td>5</td>
+  <td>30</td>
+</tr>
+<tr>
+  <td><strong>B</strong></td>
+  <td>Dwarven Sword</td>
+  <td>12</td>
+  <td>135</td>
+</tr>
+<tr>
+  <td><strong>C</strong></td>
+  <td>Nord Hero Greatsword</td>
+  <td>16</td>
+  <td>250</td>
+</tr>
+<tr>
+  <td><strong>D</strong></td>
+  <td>Dwarven Greatsword</td>
+  <td>19</td>
+  <td>270</td>
+</tr>
+<tr>
+  <td><strong>E</strong></td>
+  <td>Dwarven Warhammer</td>
+  <td>27</td>
+  <td>325</td>
+</tr>
+</tbody>
+</table>
+
+<p>You'd love to carry everything, but you only have room to carry another 40 units of weight. By the Nine!!</p>
+
+<h2>Let's Get Greedy</h2>
+
+<p>You immediately grab the <strong>Dwarves Warhammer</strong> cause you know it will fetch the highest price at <strong>325 Septim</strong>. That leaves you with <strong>13 units</strong> of weight so you grab the <strong>Dwarven Sword</strong>. You now are nearly encumbered and hold <strong>325 + 135 = 460</strong> for profit. But then you suddenly notice the two greatswords would fetch a good value as well. You have taken a greedy approach and failed to find an optimal solution.</p>
+
+<p>Greedy algorithms is an approach to solving a problem by taking the optimal choice at each stage, while attempting to find an overall optimal value. Our great hero tried this approach, but it's possible to spot the correct optimal solution. Can you spot it?</p>
+
+<blockquote>
+  <p><strong>Answer:</strong> Take the two greatswords and the Log Bow, which will give you a weight of 40 and value of 550. Proving that there are times when actually want to pick up a boring old Long Bow.</p>
+</blockquote>
+
+<p>Greedy algorithms are useful (see <a href="https://en.wikipedia.org/wiki/Activity_selection_problem">Activity Selection Problem</a>), however we just proved that it doesn't work for our immediate problem. So where do we go from here?</p>
+
+<h2>Counting Combinations</h2>
+
+<p>The Knapsack Problem is considered a <a href="https://en.wikipedia.org/wiki/Combinatorial_optimization">combinatorial optimization</a> problem, therefore the immediate thought would be to start counting all the combinations possible. Before we start doing this, we should consider how much work we are actually going to have to do (computer cycles) given our input. Let's consider our 5 input items. We can either <strong>take</strong> or <strong>not take</strong> an item, therefore we should consider 2<sup>n</sup>, or 2<sup>5</sup> = 32 combinations. Our hero may spend the afternoon finding the right combination, however imagine looting 10 items. That's a total of 1,024 combinations!! Let's hope our hero packed some camping supplies.</p>
+
+<blockquote>
+  <p><strong>Warning:</strong> Be sure not problem to confuse this problem with as a permutation problem. Permutations are combinations while considering order. In other worsd, Red-Green-Blue does not equal Blue-Green-Red. When counting permutations use <code>n!</code>, so <code>5! = 120</code> permutations.</p>
+</blockquote>
+
+<h2>Top-Down Approach</h2>
+
+<p>Let's consider for a moment you haven't taken any loot yet and you have a total of 40 units of weight available. Starting with the Long Bow (Item A), you naturally have two options:</p>
+
+<ol>
+<li>Take the Long Bow adding 5W / 30V to your knapsack.</li>
+<li>Do not take the Long Bow, and continue on to the second item.</li>
+</ol>
+
+<p>Provided your character's intelligence is high enough so that his/her head doesn't explode, realize that you have essentially created two path from which to follow. This pattern continues until:</p>
+
+<ol>
+<li>You inventory is full capacity (encumbered).</li>
+<li>You have exhausted all items to add.</li>
+</ol>
+
+<p>Let's examine a visual representation of what our decision tree would look like. When we take an item we move left down the tree and right when we don't take an item. Notice that some boxes have matching colors. These colors represents duplicate combinations, and also shows why taking a top-down approach is not so efficient (combined with the fact that you might overflow your stack if the input size is very large).</p>
+
+<p>{% include utils/image.html src="/assets/collections/problems/I_O Knapsack Problem - Top-Down.png" %}</p>
+
+<blockquote>
+  <p>Visual representation of I/O Knapsack recursive tree.</p>
+</blockquote>
+
+<p>Here is the code for this approach:</p>
+
+<pre><code class="language-python">def knapsack(w: list, v: list, wt: int, idx: int = 0) -&gt; int:
+  if wt == 0 or idx == len(w):
+    """
+    Base Case 1: Weight capacity reached
+    Base Case 2: No more items to add
+    """
+    return 0
+
+  if w[idx] &gt; wt:
+    """
+    Weight of item in question too heavy to take..
+    """
+    return knapsack(w, v, wt, idx + 1)
+
+  """
+  Finally, compare the decision of taking or not taking..
+  """
+  take  = v[idx] + knapsack(w, v, wt - w[idx], idx + 1)
+  leave = knapsack(w, v, wt, idx + 1)
+
+  return max(take, leave)
+
+print(
+  knapsack(
+    [5, 12, 16, 19, 27],       # Item weights
+    [30, 135, 250, 270, 325],  # Item values
+    40                         # Available capacity
+  )
+)
+# =&gt; 550
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> our <code>knapsack</code> function only returns the optimal value, and not which items make up this value.</p>
+</blockquote>
+
+<h2>Bottom-Up Approach</h2>
+
+<p>Unfortunately our hero doesn't have the computing power (intelligence) available to solve the problem using the top-down approach. Let's examine a more elegant approach that doesn't involve recursion.</p>
+
+<p>Remember the base case from above was one of either two scenarios:</p>
+
+<ol>
+<li>You inventory is full capacity (encumbered).</li>
+<li>You have exhausted all items to add.</li>
+</ol>
+
+<p>Therefore, we'll start with a similar scenario of having <strong>0</strong> extra inventory space and <strong>0</strong> items to pick up. Yes, this sounds strange at first. Why consider such a scenario when we know the optimal solution is <strong>0</strong> (i.e. no items to carry and no inventory space)?  Let's make things a bit more interesting by slowly increasing one (of two possible) inputs (e.g. increasing weight capacity by 1 unit). By doing this we introduce subproblems that are easier to solve than the whole.</p>
+
+<p>For this example, we'll be using the following information (for brevity sake):</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20I.png" alt="" /></p>
+
+<p>Let's start by increasing the capacity by 1 until we get to the max capacity of 8, still with 0 items:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20II.png" alt="" /></p>
+
+<p>Pretty simple. Since there are no items to add, obviously the value won't increase. Now we add <strong>Item A</strong> to the chart:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20III.png" alt="" /></p>
+
+<p>Starting at <strong>2kg</strong> we finally have available space to take <strong>Item A</strong> (at a weight of 2kg). This continues for the rest of the row. Now things start to get interesting when we add <strong>Item B</strong> to the mix:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20IV.png" alt="" /></p>
+
+<p>When we arrive at <strong>3kg</strong> and <strong>7kg</strong> we are tasked with finding an optimal solution of either taking <strong>Item B</strong> or not taking <strong>Item B</strong>. We can visually represent both decision pictured above by the following diagram:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20V.png" alt="" /></p>
+
+<p>Starting with <strong>3kg</strong>, the decision to take <strong>Item B</strong> leaves no room in the sack for <strong>Item A</strong> and thefore the total value comes to <strong>\$4</strong>. Not taking <strong>Item B</strong> will leave <strong>3kg</strong> in the sack leaving us with the previous optimal solution of <strong>\$3</strong> (directly up one row). Moving on to <strong>5kg</strong>, we are faced with the same decision. We obviously want to take both <strong>Item A</strong> &amp; <strong>B</strong> as they add up to <strong>5kg</strong>.</p>
+
+<p>Finally, we now add <strong>Item C</strong> to the diagram:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20VI.png" alt="" /></p>
+
+<p>Again, we can visiually show the pertinent decisions in the table above in the diagram below:</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20-%20Bottom%20Up%20-%20Part%20VII.png" alt="" /></p>
+
+<p>We're done! The optimal value for an <strong>8kg</strong> sack with <strong>Items A</strong>, <strong>B</strong>, &amp; <strong>C</strong> is <strong>\$10</strong>. It's finally time to write some code:</p>
+
+<pre><code class="language-python">def knapsack(w: list, v: list, wt: int, n: int) -&gt; int:
+  # pre-generate 2D array upfront..
+  arr   = [[0 for i in range(wt + 1)] for j in range(n + 1)]
+  items = []
+
+  # Genrate optimized 2D array.
+  def optimized2DArray():
+    for i in range(1, n + 1):                # Adding items  (i)
+      for j in range(wt + 1):                # Adding weight (j)
+        value    = v[i - 1]                  # Current item's value
+        weight   = w[i - 1]                  # Current item's weight
+        previous = arr[i - 1][j]             # Previous optimal value
+
+        if weight &gt; j:                       # Item too heavy!
+          arr[i][j] = previous               # Copy cell immediatly above.
+        else:                                # ...else...
+                                                       # Compare take vs not take
+                                                       #   and take max value.
+          arr[i][j] = max(value + arr[i - 1][j - weight], previous)
+
+  # Determine items selected from optimized 2D array.
+  def findItems():
+    j = wt
+
+    for i in range(n, 0, -1):
+      if arr[i][j] &gt; arr[i - 1][j]:
+        items.append(i)
+        j -= w[i - 1]
+
+    return items
+
+  optimized2DArray()
+  findItems()
+
+  return items, arr[n][wt]
+
+print(
+  knapsack([2, 3, 5], [3, 4, 6], 8, 3)
+)
+# =&gt; ([3, 2], 10)
+</code></pre>
+
+<p>Voila! We have the optimal value and also which items have been added to our sack. Try it yourself with our original example and see if you can get the correct answer. After all, our brave and nobel hero would love to get back to town to sell some loot.</p>
+
+<p><img src="/assets/img/posts/problems/I_O%20Knapsack%20Problem%20%20-%20Drawing%20III.jpeg" alt="" /></p>
+
+<h2>Conclusion</h2>
+
+<p>Dynamic Programming is a powerful approach when solving optimization problems. The trick is to start small (e.g. one or more base cases) and adjust your input to find the global optimized solution. The optimal solution at each point in time can be determined using the <a href="https://en.wikipedia.org/wiki/Bellman_equation">functional equation</a>. The functional equation in our example above was:</p>
+
+<p><code>arr[i][j] = max(value + arr[i - 1][j - weight], previous)</code></p>
+
+<p>In this line of code we considered two options: taking an item and not taking an item using previous knowledge we uncovered.</p>
+
+<h2>Reference</h2>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=P0_VC8_uaXw">Algorithm Lecture 18: Dynamic Programming, 0-1 Knapsack Problem</a> - Guided walkthrough of the Factorial and I/O Knapsack problem.</li>
+<li><a href="https://en.wikipedia.org/wiki/Dynamic_programming#Examples:_Computer_algorithms">Dynamic Programming - Examples: Computer Algorithms</a> - Some problems to try using the Dynamic Programming approach.</li>
+</ul>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://skrolikowski.github.io/blog/finding-median-value-of-an-array</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/finding-median-value-of-an-array" />
+    <title>Finding Median Value of an Array</title>
+    <published>2019-09-23T00:00:00+00:00</published>
+    <updated>2019-09-23T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">We are given a problem where we are supposed to find the median value of an unsorted array of size &lt;code&gt;n&lt;/code&gt;. Let&#039;s get started.
+
+
+
+First off it&#039;s important to make clear what is being asked. The median is simply defined as the middle. This is......</summary>
+    <content type="html"><![CDATA[
+        <p>We are given a problem where we are supposed to find the <strong>median</strong> value of an <strong>unsorted</strong> array of size <code>n</code>. Let's get started.</p>
+
+<h2>What's Being Asked?</h2>
+
+<p>First off it's important to make clear what is being asked. The <strong>median</strong> is simply defined as the middle. This is different than finding the <strong>mean</strong>. To get the mean we would simply have to add up all the values and divide by the number of values in the array:</p>
+
+<pre><code class="language-python">def mean(nums: list):
+  return sum(nums) / len(nums)
+</code></pre>
+
+<p>Or written another way:</p>
+
+<pre><code class="language-python">def mean(nums: list):
+  total, length = 0, 0
+
+  for n in nums:
+    total += n
+    length += 1
+
+  return total / length
+</code></pre>
+
+<p>Both calls to <code>mean([3, -1, 2, 4, 1, -4, 6, 5])</code>, for example, will return value <code>2.0</code>.</p>
+
+<p>Another important piece of information we are given is that the array is <strong>unsorted</strong>. Why is this imporant? Well because if the array was guaranteed to be sorted we could easily obtain the <strong>median</strong> (middle value)  by:</p>
+
+<pre><code class="language-python">def median(sorted_nums: list):
+  midpoint = len(sorted_nums) // 2 - 1
+
+  return sorted_nums[midpoint]
+</code></pre>
+
+<p>Calling <code>median([-4, -1, 1, 2, 3, 4, 5, 6])</code> will give you <code>2</code>.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> when referring to the "middle" of an array of even length it's possible to consider a hi- and lo-middle, however we'll only consider the lo-middle in this article.</p>
+</blockquote>
+
+<p>We're done right? Unfortunately not, because our input array is not sorted. Does it make sense to first sort it? Maybe for a small input, but this could take some serious processing time if your input is very large. Let's discuss a few approaches we could take.</p>
+
+<h2>Naive Approach</h2>
+
+<p>To get the median value of the array <code>[3, -1, 2, 4, 1, -4, 6, 5]</code> we could use knowledge we touched upon in the previous section. We know how to find the index in the middle position. Remember:</p>
+
+<pre><code class="language-python">midpoint = len(sorted_nums) // 2 - 1
+
+print(midpoint)
+# =&gt; 3
+</code></pre>
+
+<p>So now we know the 3rd index of our array is where the <strong>median</strong> is, if and only if, our array is sorted already. But our array isn't sorted, so how does this help us? Well we know that the fourth largest value (since the index starts at 0) will be the <strong>median</strong> value.</p>
+
+<pre><code class="language-python">def median(nums: list):
+  target = len(nums) // 2 - 1
+  count  = 0
+
+  while count &lt; target:
+    # find smallest value and remove it..
+    nums.remove(min(nums))
+
+    # keep track of removals..
+    count += 1
+
+    return min(nums)
+
+print(median([3, -1, 2, 4, 1, -4, 6, 5]))
+# =&gt; 2
+</code></pre>
+
+<p>Let's walk through what we did.</p>
+
+<ol>
+<li>First, we define and set a <code>target</code> variable, which will tell us how many minimum values we will have to discard from the array before returning with the correct result.</li>
+<li>Next, we set a <code>count</code> variable to 0 to keep track of how many values we have discarded.</li>
+<li>Then we enter a while loop, removing the smallest value each time until <code>count == target</code>.</li>
+<li>Finally we return the minimum value of <code>nums</code>, which is <code>min(nums)</code>.</li>
+</ol>
+
+<p>This is a viable approach that will work with any array with a length greater than 1, but we could do better.</p>
+
+<h2>Divide &amp; Conquer Approach?</h2>
+
+<p>What would happen if we used a divide &amp; conquer approach? In other words, dividing the array in half then searching for the 3rd largest value in our array. Writing it out we get:</p>
+
+<p><img src="/assets/img/posts/Sort_Merge.png" alt="" /></p>
+
+<p>But now what? It looks like the first steps of <strong>Merge Sort</strong>, doesn't it? Since we know having a sorted array will help us, let's continue with this approach in implementing <strong>Merge Sort</strong> in order to access the <strong>median</strong> value.</p>
+
+<pre><code class="language-python">def median(nums: list):
+  sorted_nums = mergeSort(nums)
+  midpoint    = len(sorted_nums) // 2 - 1
+
+  return sorted_nums[midpoint]
+
+def mergeSort(nums: list):
+  if len(nums) == 1:
+    return nums
+
+  mid   = len(nums) // 2
+  left  = mergeSort(nums[:mid])
+  right = mergeSort(nums[mid:])
+
+  return merge(left, right)
+
+def merge(left: list, right: list):
+  lLen, rLen  = len(left), len(right)
+  sorted_nums = [0] * (lLen + rLen)
+  lIdx, rIdx  = 0, 0
+  pIdx        = 0
+
+  while lIdx &lt; lLen and rIdx &lt; rLen:
+    if left[lIdx] &lt; right[rIdx]:
+      sorted_nums[pIdx] = left[lIdx]
+      lIdx += 1
+    else:
+      sorted_nums[pIdx] = right[rIdx]
+      rIdx += 1
+
+    pIdx += 1
+
+  while lIdx &lt; lLen:
+    sorted_nums[pIdx] = left[lIdx]
+    lIdx += 1
+    pIdx += 1
+
+  while rIdx &lt; rLen:
+    sorted_nums[pIdx] = right[rIdx]
+    rIdx += 1
+    pIdx += 1
+
+  return sorted_nums
+
+print(median([3, -1, 2, 4, 1, -4, 6, 5]))
+# =&gt; 2
+</code></pre>
+
+<p>This took a lot more work, but in the end we have a sorted array and can easily obtain the <strong>median</strong> value.</p>
+
+<p><strong>Merge Sort</strong> is an efficient divide &amp; conquer algorithm with the following time/space analysis:</p>
+
+<pre><code class="language-python">Time:
+  Worst:   O(n * log n)
+  Best:    O(n * log n)
+  Average: O(n * log n)
+
+Space: O(n)
+</code></pre>
+
+<p>The additional space involved can be found in the <code>merge</code> function when we create a brand new array to hold the sorted values. However, where Merge Sort excels over Quick Sort is in how it divides the array in half for every level. The bulk of the work is in the <code>merge</code> function.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Analyzing a divide &amp; conquer algorithms isn't as straight forward as analyzing non-rescursive algorithms where everything is contained in one function. In order to analyze the time complexity you can use either <a href="https://en.wikipedia.org/wiki/Recursive_tree">Recursion Tree</a> or the <a href="https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)">Master Theorem</a>.</p>
+</blockquote>
+
+<h2>Modified QuickSort Approach</h2>
+
+<p>Let's take a look at another sorting algorithm and exploit a feature that it has over <strong>Merge Sort</strong>. This feature is the <strong>partition</strong> step, in which the <strong>pivot</strong> is moved into the correct position before we split the array to continue the algorithm. Therefore if we know what index the target is (explained above), and we know the pivots position after one partition then this should give us information on how to proceed. There are 1 of 3 cases:</p>
+
+<p>| Case                          | What this means...                         |
+| ----------------------------- | ------------------------------------------ |
+| <code>Target index == Pivot index</code> | We have found the target index!            |
+| <code>Target index &lt; Pivot index</code>  | We can partition the left-hand partition.  |
+| <code>Target index &gt; Pivot index</code>  | We can partition the right-hand partition. |
+{: .table .table-striped .w-75 .mx-auto  }</p>
+
+<p>Here's a diagram showing the first paritioning:</p>
+
+<p>{% include utils/image.html src="/assets/collections/problems/Finding Median -_ QuickSort - Part I.png" %}</p>
+
+<p>The next step in <strong>QuickSort</strong> is to divide the array into two smaller arrays (left and right ends, excluding the pivot). However since we only care about the target position we only have to consider the right half and continue until the pivot equals the target. Let's continue with our example:</p>
+
+<p>![](/assets/img/posts/problems/Finding Median -_ QuickSort - Part II.png)</p>
+
+<p>And we're finished! Try it yourself with our original example <code>[3, -1, 2, 4, 1, -4, 6, 5]</code> and see if you get <code>2</code> as the answer.</p>
+
+<p>Finally, here is the code used:</p>
+
+<pre><code class="language-python">def median(nums: list):
+  """
+  a = left-most index
+  z = right-most index
+  """
+  a, z   = 0, len(nums) - 1
+  target = z // 2
+
+  return medianQuickSort(nums, a, z, target) 
+
+def medianQuickSort(nums: list, a: int, z: int, target: int):
+  if a &lt; z:
+    pIdx = partition(nums, a, z)
+
+    if target == pIdx:
+      # pivot == target, so return value
+      return nums[pIdx]
+    elif target &lt; pIdx:
+      # target &lt; pivot; =&gt; inspect left
+      return medianQuickSort(nums, a, pIdx - 1, target)
+    else:
+      # pivot &gt; target; =&gt; inspect right
+      return medianQuickSort(nums, pIdx, z, target)
+
+def partition(nums: list, a: int, z: int):
+  i = a - 1
+
+  for j in range(a, z):
+    if nums[j] &lt; nums[z]:
+      nums[j], nums[i + 1] = nums[i + 1], nums[j]
+      i += 1 
+
+  nums[z], nums[i + 1] = nums[i + 1], nums[z]
+
+  return i + 1
+
+print(median([3, -1, 2, 4, 1, -4, 6, 5]))
+# =&gt; 2
+</code></pre>
+
+<h2>Conclusion</h2>
+
+<p><strong>QuickSort</strong> is a divide &amp; conquer sorting algorithm, which can be considered faster than it's competitors (e.g <strong>Merge Sort</strong> or <strong>Heap Sort</strong>) provided you get lucky in pivot selection. Let's quickly compare the three:</p>
+
+<pre><code class="language-python">Merge Sort:           Heap Sort:            QuickSort:
+-------------------   -------------------   -------------------
+High:  O(n * log n)   High:  O(n * log n)   High:  O(n^2)
+Mean:  O(n * log n)   Mean:  O(n)           Mean:  O(n * log n)
+Low:   O(n * log n)   Low:   O(n * log n)   Low:   O(n * log n)
+Space: O(n)           Space: O(1)           Space: O(log n)
+</code></pre>
+
+<p>The gotcha with <strong>QuickSort</strong> is in picking a <strong>pivot</strong> efficiently. We also picked a pivot using <strong>Merge Sort</strong>. Where you may ask? The answer is right down the middle, which explains the <code>log n</code> part of the <code>O(n * log n)</code> analysis above.</p>
+
+<p>The main difference between <strong>QuickSort</strong> and <strong>Merge Sort</strong> is the stage in when you perform the sort. <strong>Merge Sort</strong> will sort during the merge stage, while <strong>QuickSort</strong> sorts during the partition stage (before the dividing). We found this to be useful as it gives us an opportunity to choose which halve to pursue when looking for the <strong>median</strong>.</p>
+
+<h2>References</h2>
+
+<ul>
+<li><a href="https://bigocheatsheet.io/">BigO Cheat Sheet</a> - Good reference for checking your work, however it's good to know why you get these results.</li>
+<li><a href="https://www.youtube.com/watch?v=oXdgED3Gdek">Algorithm Lecture 11: Median (Part 1)</a> - Guided walkthrough of finding Median using modified QuickSort - Part 1.</li>
+<li><a href="https://www.youtube.com/watch?v=vemvIEoXC8A">Algorithm Lecture 12: Median (Part 2)</a> - Guided walkthrough of finding Median using modified QuickSort - Part 2.</li>
+</ul>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://skrolikowski.github.io/blog/unit-testing-with-xunit</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/unit-testing-with-xunit" />
+    <title>Unit Testing with xUnit and Visual Studios</title>
+    <published>2019-02-06T00:00:00+00:00</published>
+    <updated>2019-02-06T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">This article explains how to setup xUnit to use in your Visual Studio&#039;s project and create the two main different unit test types in xUnit. Also, we&#039;ll set it up so we can run our tests within Visual Studio&#039;s Test Explorer.
+
+Unit Testing is just one or......</summary>
+    <content type="html"><![CDATA[
+        <h2>Introduction</h2>
+
+<p>This article explains how to setup <a href="https://xunit.github.io/">xUnit</a> to use in your <a href="https://visualstudio.microsoft.com/">Visual Studio</a>'s project and create the two main different unit test types in <a href="https://xunit.github.io/">xUnit</a>. Also, we'll set it up so we can run our tests within <a href="https://visualstudio.microsoft.com/">Visual Studio</a>'s Test Explorer.</p>
+
+<p>Unit Testing is just one or many approaches to testing your software. The term <em>unit</em> can be thought of as a function or a code block that represents a single idea. These tests are good for making sure the fundamental logic is guaranteed to be in place and working.</p>
+
+<p>Interested in learning more about the [benefits of unit testing]?</p>
+
+<h2>Setup</h2>
+
+<ul>
+<li>Create or open an existing project.</li>
+<li>Right-click the project root from within the <strong>Solution Explorer</strong> tab.</li>
+<li>Select <em>Add > New Project...</em></li>
+</ul>
+
+<p><img src="/assets/img/posts/VS2017_AddProject.PNG" alt="" /></p>
+
+<ul>
+<li>Look for <em>xUnit Test Project (.Net Core)</em> under the Visual C# language menu.</li>
+<li>Create a new project and name your new project (use whatever naming convention suites you).</li>
+</ul>
+
+<p><img src="/assets/img/posts/VS2017_xUnit.PNG" alt="" /></p>
+
+<ul>
+<li>So now you should have a regular project and an xUnit project under one solution.</li>
+</ul>
+
+<p><img src="/assets/img/posts/VS2017_SolutionExplorer_xUnit.PNG" alt="" /></p>
+
+<blockquote>
+  <p><strong>Note</strong>: By selecting <em>xUnit Test Project (.Net Core)</em> when creating a new tests project all the NuGet packages were automatically installed and linked up. If you ever create a regular console project you can always go back and add the xUnit packages manually.</p>
+</blockquote>
+
+<h2>Writing Unit Tests</h2>
+
+<p>...</p>
+
+<h2>Terminology</h2>
+
+<ul>
+<li><strong>Project</strong> - with regards to Visual Studio, a folder containing a single <code>.csproj</code> file.</li>
+<li><strong>Solution</strong> - with regards to Visual Studio, a folder containing a single <code>.sln</code> file, plus one or more project  folders.</li>
+</ul>
+
+<h2>Further Reading</h2>
+
+<ul>
+<li><a href="https://xunit.github.io/docs/getting-started/netfx/visual-studio#write-first-theory">Getting Started with xUnit.net</a>{: target="_blank"}</li>
+<li>[Benefits of Unit Testing]</li>
+</ul>
+
+<p>[benefits of unit testing]: {% link _posts/2019-01-30-benefits-of-unit-testing.md %}</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://skrolikowski.github.io/blog/loggin_with_log4net</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/loggin_with_log4net" />
+    <title>Logging w/log4net</title>
+    <published>2019-02-05T00:00:00+00:00</published>
+    <updated>2019-02-05T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">This article will detail how to setup log4net within your Visual Studio - C# .Net project. The log4net manual  can be a bit wordy, so I&#039;ll try to break it down into three steps: Installation, Configuration, and Usage.
+
+
+
+
+
+
+Create or open an existing......</summary>
+    <content type="html"><![CDATA[
+        <h2>Introduction</h2>
+
+<p>This article will detail how to setup log4net within your Visual Studio - C# .Net project. The <a href="https://logging.apache.org/log4net/release/manual/introduction.html">log4net manual</a>  can be a bit wordy, so I'll try to break it down into three steps: Installation, Configuration, and Usage.</p>
+
+<h2>Setup</h2>
+
+<h4>Installation</h4>
+
+<ul>
+<li>Create or open an existing project.</li>
+<li>Right-click the project root from within the <strong>Solution Explorer</strong> tab.</li>
+<li>Select <em>Manage NuGet Packages...</em> from the drop-down menu.</li>
+</ul>
+
+<p><img src="/assets/img/posts/VS2017_SolutionExplorer.PNG" alt="" /></p>
+
+<ul>
+<li>Search for <em>"log4net"</em> in the <strong>Browse</strong> tab.</li>
+<li>Select log4net from the list and <em>Install</em>.</li>
+</ul>
+
+<p><img src="/assets/img/posts/VS2017_NuGet.PNG" alt="" /></p>
+
+<p>NuGet will now download and install the library files so that you project can access them at runtime.</p>
+
+<h4>Configuration</h4>
+
+<p>Add the following to the bottom of your <code>Properties/AssemblyInfo.cs</code> file. This will tell log4net to parse the <code>App.config</code> (or <code>Web.config</code>) file.</p>
+
+<pre><code class="language-csharp">[assembly: log4net.Config.XmlConfigurator(Watch = true)]
+</code></pre>
+
+<p>Next, open the <code>App.config</code> file.</p>
+
+<blockquote>
+  <p>Note: You may need to create the <code>App.config</code> file if it doesn't already exist.</p>
+</blockquote>
+
+<p>You must first register the <code>&lt;log4net&gt;</code> otherwise  config file parser won't know how to process it.</p>
+
+<pre><code class="language-xml">&lt;configSections&gt;
+    &lt;section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" /&gt;
+  &lt;/configSections&gt;
+</code></pre>
+
+<p>Now, start another root <code>&lt;log4net&gt;</code> (now that it's been registered from above). In order for log4net to know where to log to (i.e. output destination) we'll first need to set up at least one <code>&lt;appender&gt;</code>. Appenders can be thought of as output destinations.</p>
+
+<pre><code class="language-xml">&lt;log4net&gt;
+    &lt;appender name="TraceAppender" type="log4net.Appender.TraceAppender"&gt;
+      &lt;layout type="log4net.Layout.PatternLayout"&gt;
+        &lt;conversionPattern value="[%date] %level (%logger:%line) - %message%newline" /&gt;
+      &lt;/layout&gt;
+    &lt;/appender&gt;
+    ...
+    &lt;root&gt;
+      &lt;level value="INFO" /&gt;
+      &lt;appender-ref ref="TraceAppender" /&gt;
+    &lt;/root&gt;
+&lt;/log4net&gt;
+</code></pre>
+
+<p>The <code>&lt;root&gt;</code> element is optional. You can use it to set sets configurations for the default logging level.</p>
+
+<p>For more information regarding configurations see [More On Configurations](#More On Configurations).</p>
+
+<h4>Usage</h4>
+
+<p>Use the code snippet below as reference for using logging in your own project.</p>
+
+<ul>
+<li>It's recommended that every class gets it's own logger.</li>
+<li><code>_logger</code> has several methods to call varying log levels (i.e. <code>info</code>, <code>debug</code>).</li>
+</ul>
+
+<pre><code class="language-csharp">using System;
+using log4net;
+
+namespace Project
+{
+    public static class Program
+    {
+        private static readonly ILog _logger = LogManager.GetLogger(
+        System.Reflection.MethodBase.GetCurrentMethod().DeclaringType
+      );
+
+        static void Main()
+        {
+            _logger.Info("Testing!!");
+        }
+    }
+}
+</code></pre>
+
+<h2>More On Configurations</h2>
+
+<h4>Logging Levels</h4>
+
+<table>
+<thead>
+<tr>
+  <th>Level</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>OFF</td>
+  <td>Log nothing; essentially used to disable an Appender</td>
+</tr>
+<tr>
+  <td>FATAL</td>
+  <td>Issue caused the program to crashed.</td>
+</tr>
+<tr>
+  <td>ERROR</td>
+  <td>Problem occurred, but didn't yet crash the program.</td>
+</tr>
+<tr>
+  <td>WARN</td>
+  <td>Potential problem.</td>
+</tr>
+<tr>
+  <td>INFO</td>
+  <td>Informational message.</td>
+</tr>
+<tr>
+  <td>DEBUG</td>
+  <td>Used strictly for debugging purposes.</td>
+</tr>
+<tr>
+  <td>ALL</td>
+  <td>Log everything regardless of level.</td>
+</tr>
+</tbody>
+</table>
+
+<h4>Layout - ConversionPattern</h4>
+
+<p>These patterns are used to format the log output.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Pattern</th>
+  <th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>%date</code></td>
+  <td>Logs date of logging event in the local time zone.</td>
+</tr>
+<tr>
+  <td><code>%file</code></td>
+  <td>Logs the file name of where the logging event occured.</td>
+</tr>
+<tr>
+  <td><code>%line</code></td>
+  <td>Logs the line number where the logging event occurred.</td>
+</tr>
+<tr>
+  <td><code>%method</code></td>
+  <td>Logs the method  where the logging event occurred.</td>
+</tr>
+<tr>
+  <td><code>%level</code></td>
+  <td>Level specified for event.</td>
+</tr>
+<tr>
+  <td><code>%message</code></td>
+  <td>Message passed through the log event.</td>
+</tr>
+<tr>
+  <td><code>%newline</code></td>
+  <td>Newline character.</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+  <p>You can reference the list below or see a full listing <a href="https://logging.apache.org/log4net/release/sdk/html/T_log4net_Layout_PatternLayout.htm">here</a>.</p>
+</blockquote>
+
+<h4>Appenders</h4>
+
+<table>
+<thead>
+<tr>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>AdoNetAppender</td>
+  <td>Writes log events to a database.</td>
+</tr>
+<tr>
+  <td>FileAppender</td>
+  <td>Writes log events to a file you specify.</td>
+</tr>
+<tr>
+  <td>RollingFileAppender</td>
+  <td>Writes log events to a file you specify, while performing archived file cleanup.</td>
+</tr>
+<tr>
+  <td>TraceAppender</td>
+  <td>Writes log events to <strong>Visual Studio</strong>'s Output interface.</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+  <p>For a full list of Appenders <a href="https://logging.apache.org/log4net/release/manual/introduction.html#appenders">check here</a>.</p>
+</blockquote>
+
+<h2>Conclusion</h2>
+
+<p>You should now have log4net setup and working. Check out the further reading below for more in-depth reading on the topic.</p>
+
+<h2>Further Reading</h2>
+
+<ul>
+<li><a href="https://logging.apache.org/log4net/release/manual/introduction.html">log4net Online Manual</a></li>
+<li><a href="https://logging.apache.org/log4net/release/sdk/html/T_log4net_Layout_PatternLayout.htm">log4net - PatternLayout Class</a></li>
+<li><a href="https://logging.apache.org/log4net/release/manual/introduction.html#appenders">log4net - List of Appenders</a></li>
+<li><a href="https://www.codeproject.com/Articles/140911/log-net-Tutorial">log4net Tutorial - by Tim Corey</a></li>
+<li><a href="https://www.codeproject.com/Articles/42354/The-Art-of-Logging">The Art of Logging by Colin Eberhardt</a></li>
+</ul>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://skrolikowski.github.io/blog/array-questions</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/array-questions" />
+    <title>Array Questions</title>
+    <published>2019-02-02T00:00:00+00:00</published>
+    <updated>2019-02-02T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">Finding the missing number(s) in an array of integers with expected length.
+
+
+The given array can contain integers between 1 and 100.
+The given array is sorted in ascending order starting at 1.
+The given array can never exceed a length of 100.
+The given......</summary>
+    <content type="html"><![CDATA[
+        <h3>Missing Numbers.</h3>
+
+<p>Finding the missing number(s) in an array of integers with expected length.</p>
+
+<ul>
+<li>The given array can contain integers between 1 and 100.</li>
+<li>The given array is sorted in ascending order starting at 1.</li>
+<li>The given array can never exceed a length of 100.</li>
+<li>The given array does not contain duplicate values.</li>
+</ul>
+
+<h4>Examples</h4>
+
+<pre><code class="language-python"># python
+missingNumbers([1, 2, 3, 4, 6], 6)       # Expected: [5]
+missingNumbers([1, 2, 3, 4, 6, 8], 10)   # Expected: [5, 7, 9, 10]
+</code></pre>
+
+<h4>Solution</h4>
+
+<pre><code class="language-python"># python
+def missingNumbers(nums, length):
+    missing = []
+    index   = 0
+
+    for n in range(1, length + 1):
+        if index &lt; len(nums) and nums[index] == n:
+            index += 1
+        else:
+            missing.append(n)
+
+    return missing
+</code></pre>
+
+<h3>Duplicate Numbers.</h3>
+
+<p>Find the duplicate number(s) in an array of integers.</p>
+
+<ul>
+<li>The given array can contain integers between 1 and 100.</li>
+<li>The given array is sorted in ascending order starting at 1.</li>
+</ul>
+
+<h4>Examples</h4>
+
+<pre><code class="language-python"># python
+duplicateNumbers([1, 2, 2, 3, 3])   # Expected: [2, 3]
+duplicateNumbers([1, 1, 1, 2, 3])   # Expected: [1]
+</code></pre>
+
+<h4>Solution</h4>
+
+<pre><code class="language-python"># python
+def duplicateNumbers(nums):
+    duplicates = {}
+    previous   = None
+
+    for n in nums:
+        if previous == n and not n in duplicates:
+            duplicates[n] = True
+
+        previous = n
+
+    return list(duplicates.keys())
+</code></pre>
+
+<blockquote>
+  <p><strong>Tip</strong>: I'm using a <code>bool</code> dictionary to store recorded duplicates. The reason being, using Python's <code>in</code> operator is more costly for lists.</p>
+  
+  <p><strong>More information</strong>: <a href="https://bradfieldcs.com/algos/analysis/performance-of-python-types/">Performance of Python Types</a></p>
+</blockquote>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://skrolikowski.github.io/blog/benefits-of-unit-testing</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/benefits-of-unit-testing" />
+    <title>Benefits of Unit Testing</title>
+    <published>2019-01-30T00:00:00+00:00</published>
+    <updated>2019-01-30T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">Unit Testing is just one or many approaches to testing your software. The term unit can be thought of as a function or a code block that represents a single idea. They allow for making sure the functional logic of your program is guaranteed to be in......</summary>
+    <content type="html"><![CDATA[
+        <p>Unit Testing is just one or many approaches to testing your software. The term <em>unit</em> can be thought of as a function or a code block that represents a single idea. They allow for making sure the functional logic of your program is guaranteed to be in place and working.</p>
+
+<h2>Benefits of Unit Testing</h2>
+
+<h3>Faster Development</h3>
+
+<p>Investing the time upfront will save you in the long run. If you write good tests you will write code that performs to your expectation. And that can go a long way when trying to track down unexpected behavior in your program.</p>
+
+<h3>Refactor Allowance</h3>
+
+<p>There will often be times when you have several classes that rely on other utility classes (e.g. <strong>Vec2</strong>, <strong>AABB</strong>) Now let's say you want to make an update to your <strong>Vec2</strong> class (or you simply want to refactor it). How do you know the changes you make won't cause several new bugs to appear?</p>
+
+<p>Building a set of tests for your utility classes allow their initial integrity to remain in tact, through any minor edits or refactors. You can quickly make the changes and run the tests. If something breaks, then you've just saved yourself a headache down the road.</p>
+
+<p>Of course if you're making actual functional changes to the utility class itself, then you must remember to update the test(s) as well. But now the <a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle" title="Open/Close Principle">Open/Close Principle</a> has just been broken.</p>
+
+<h3>Test Driven Development</h3>
+
+<p>It happens that you can get so carried away writing code that you forget about testing your code. Going back after the fact to write code is doable, but it isn't as fun and may leave for lazy tests. In other words, it might feel like homework and be treated as such.</p>
+
+<p>Writing your tests first will force you to stop and think about what you're actually try to do; in other words, you are planning. It will also assist you in writing the classes themselves; going back-and-forth between implementing methods and running tests. This is referred to as <a href="https://en.wikipedia.org/wiki/Test-driven_development" title="TDD">Test Driven Development</a>.</p>
+
+<h2>Further Reading</h2>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Unit_testing">Unit Testing</a>{: target="_blank"}</li>
+</ul>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://skrolikowski.github.io/blog/how-to-get-started</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/how-to-get-started" />
+    <title>How To Get Started</title>
+    <published>2019-01-20T00:00:00+00:00</published>
+    <updated>2019-01-20T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">It was probably about 2 years ago when I became serious about (becoming good at) game development. Prior to this I&#039;d conceptualize or read some inspiring article, but it never went past the idea. The purpose of this article (and future articles on the......</summary>
+    <content type="html"><![CDATA[
+        <h2>Where Do I Start?</h2>
+
+<p>It was probably about 2 years ago when I became serious about (becoming good at) game development. Prior to this I'd conceptualize or read some inspiring article, but it never went past the idea. The purpose of this article (and future articles on the topic) is to share my experiences as complete beginner, self-taught game developer.</p>
+
+<p>With that said, I do have 10+ years of programming experience (mainly PHP/JavaScript) and I have taken at least 2 courses on the topic. However, I don't consider homework assignments to be adequate when compared to real world experiences. Sitting down and saying, "I'm going to build a great game" is hard, even for the more experienced. For those of us that inspire to enter the field, this is especially difficult since we have no idea where to start.</p>
+
+<p>Coming from a limited background, I wanted to share a couple tips from my experiences starting out on my own.</p>
+
+<h3>Clear Your Mind</h3>
+
+<p>The first thing to do is throw out all your great game ideas. Stop thinking about the last great game you played and stop saying, "I want to make a game just like that." You'll need to think smaller. Think Pong.</p>
+
+<p>What I found helpful was to go through (this <a href="http://inventwithpython.com/blog/2012/02/20/i-need-practice-programming-49-ideas-for-game-clones-to-code/">list</a>). Try building each game, one-by-one from scratch (with the help of a game framework, of course). At first you'll have no idea what you're doing, but eventually you'll build confidence in your abilities and soon start to do it like it's second nature.</p>
+
+<h3>Picking A Language</h3>
+
+<p>I'd say this comes down to a few factors:</p>
+
+<ol>
+<li><strong>Choose what's comfortable</strong> - considering most programming languages follow similar semantics, but differ in syntax, pick a language you are comfortable with. Focusing on one won't hinder you from easily learning another later <small>(of course going from python to c++ is more difficult that the opposite)</small>.</li>
+<li><strong>Based on a framework?</strong> - I started with Lua/Love2D, then experimented with C++/OpenGL, and now trying C#/MonoGame.Extended. Bottom line is you may choose the framework, or the framework may choose you.</li>
+<li><strong>Using a game engines?</strong> - some game engines (i.e. Unity, Godot) allow you to code in several different languages, while others don't.</li>
+</ol>
+
+<h3>Framework vs From Scratch</h3>
+
+<p>If you're just getting started, you'll definitely want to choose a framework.</p>
+
+<h4>Yes, Please!</h4>
+
+<p>Your anxiety will subside and you'll become more confident. You may even find yourself exploring the library files to see what's happening behind the scenes. Then you'll venture into creating your own framework.</p>
+
+<p>Below is a list of frameworks with their corresponding language:</p>
+
+<ul>
+<li><a href="https://www.lua.org/">Lua</a>/<a href="https://love2d.org/">Love2D</a> - Love2D provides you with several modules to build a 2D game. Plus it has a large, active community.</li>
+<li><a href="https://www.python.org/">Python</a>
+
+<ul>
+<li><a href="https://pyglet.readthedocs.io/en/pyglet-1.3-maintenance/">pyglet</a></li>
+<li><a href="https://www.pygame.org/news">pygame</a></li>
+</ul></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/">C#</a>/<a href="http://www.monogame.net/">MonoGame</a><a href="https://github.com/craftworkgames/MonoGame.Extended">Extended</a></li>
+</ul>
+
+<h4>No, thank you.</h4>
+
+<p>Choosing to build a framework from scratch is a multi-faceted journey into many topics causing you to wish you would have paid attention in school. Regardless, it'll definitely push you to your limits and you will learn lots from it. Some topics include:</p>
+
+<ul>
+<li><p><strong>Physics</strong></p>
+
+<ul>
+<li><strong>Forces</strong> - Acceleration and environmental factors. Do you want gravity in your world? How will your entities interact with surfaces? In the air?</li>
+<li><strong>Collision Detection/Response</strong> - You could use brute force tactics or more efficient broad vs narrow approaches for detection. Learning how to detect collision can be grueling on the CPU, especially when you have thousands of calculations running every fraction of a second.</li>
+</ul></li>
+<li><p><strong>Input/Events</strong> - Do you want to handle just keyboard events? How about mouse or gamepad?</p></li>
+<li><p><strong>Particles</strong> - Not necessary but allows you to add cool effects (e.g. flames, explosions)</p></li>
+<li><p><strong>Math</strong></p>
+
+<ul>
+<li><strong>Vectors</strong> - Using a <a href="https://en.wikipedia.org/wiki/Euclidean_vector">Euclidian Vector</a> as opposed to individual x, y (and z) variables opens you up to the wonderful properties of <a href="https://mathinsight.org/vector_introduction">vector math</a>. For example, how do you find the direction from an <em>origin</em> to a <em>target</em>?</li>
+</ul>
+
+<p>Simple: <code>target - direction = direction vector</code></p>
+
+<ul>
+<li><strong>Matrix</strong> - When it comes to 3D, you'll want to understand what matrices are used for and how multiplication works.</li>
+</ul></li>
+</ul>
+
+<h3>Conclusion</h3>
+
+<p>This is just an introduction to my beginning journey into game development. The intent was to help ease the anxiety and to get you started in your adventure. I hope to continue on this topic and create many more articles in the future.</p>
+
+<h3>Further Reading</h3>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/List_of_game_engines">List of Game Engines</a></li>
+<li><a href="http://inventwithpython.com/blog/2012/02/20/i-need-practice-programming-49-ideas-for-game-clones-to-code/">"I Need Practice Programming": 49 Ideas for Game Clones to Code</a></li>
+<li><a href="https://github.com/mbrukman/awesome-gamedev">A list of Game Development resources to make magic happen</a>.</li>
+</ul>
+    ]]></content>
+</entry>
+    </feed>
