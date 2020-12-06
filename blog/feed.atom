@@ -3,12 +3,115 @@
     <title>Shane Krolikowski</title>
     <link href="http://skrolikowski.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="http://skrolikowski.github.io/blog/feed.atom" />
-    <updated>2020-11-28T00:12:45+00:00</updated>
+    <updated>2020-12-06T02:34:42+00:00</updated>
     <id>http://skrolikowski.github.io/blog/feed.atom</id>
     <author>
         <name>Shane Krolikowski</name>
     </author>
                 <entry>
+    <id>http://skrolikowski.github.io/blog/love2d-save-module</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/love2d-save-module" />
+    <title>Saving Game Data in Love2D</title>
+    <published>2020-12-05T00:00:00+00:00</published>
+    <updated>2020-12-05T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">If you&#039;re creating a game that will take your players multiple sessions to complete you&#039;ll more than likely want a way to persist said player&#039;s session. Not only will your player want to save his/her game state before exiting the game, but other times......</summary>
+    <content type="html"><![CDATA[
+        <p>If you're creating a game that will take your players multiple sessions to complete you'll more than likely want a way to persist said player's session. Not only will your player want to save his/her game state before exiting the game, but other times may arise where you'll want to save snippets of information (i.e. checkpoints, updates to the player's inventory, or the game unexpectedly crashes). I'd like to share my approach I've been using lately in my last <a href="https://skrolikowski.itch.io/nobody-suspects-me">couple</a> <a href="https://skrolikowski.itch.io/recycle-bros">games</a>.</p>
+
+<h2>Saving Data</h2>
+
+<p><strong>First, The Love2D Filesystem...</strong></p>
+
+<p>A common topic you'll find in <a href="">Love2D Forums</a> is confusion surrounding how to use the <code>love.filesystem</code> library (sometimes <a href="https://love2d.org/forums/viewtopic.php?t=85290">argued</a>). You aren't given much access, in fact you're only allow access to <strong>one directory</strong>. This is fine though since we're looking to save one to many <code>.txt</code> documents.</p>
+
+<p>You can read more on <a href="https://love2d.org/wiki/love.filesystem">this page</a> for your Operating System's folder location. Since <code>love.filesystem</code> can only interact with this location we aren't really concerned with it. Just know that these files exist and you can find them on your computer.</p>
+
+<p>Furthermore, setting the <code>identity</code> property of Love2D's <a href="https://love2d.org/wiki/Config_Files">conf</a> table will name the <strong>subfolder</strong> where your files will be stored. And finally we'll be giving our save files each a name (referenced as <code>{filename}</code>).</p>
+
+<p>For example, on a Mac your path may look something like this:</p>
+
+<pre><code>/Users/{username}/Library/Application Support/LOVE/{identity}/{filename}.txt
+</code></pre>
+
+<p>Now, onto actually saving this <code>{filename}.txt</code> file.</p>
+
+<h3>Save Module</h3>
+
+<p>Below is a simple module for loading and saving game data. With the help of <a href="https://github.com/bakpakin/binser">Binser</a>, a lua serializer, we can serialize our save data.</p>
+
+<script src="https://gist.github.com/skrolikowski/d74d0535ea046d9e2462f2cdf1639704.js"></script>
+
+<h2>Usage</h2>
+
+<p>Our game data will be saved within a <a href="http://lua-users.org/wiki/TablesTutorial">lua table</a>, for example:</p>
+
+<pre><code class="language-lua">{
+  player = {
+    attr = { hp = 50, hpMax = 100, ... },
+    weapons = { ... },
+    items = { ... }
+  },
+  checkpoint = { map = A1, row = 3, col = 4 },
+  ...
+}
+</code></pre>
+
+<p>Now, let's set up some convienence functions to quickly save data.</p>
+
+<pre><code>function newGame(name)
+    SAVE = Saver:save(name, {
+       -- initial data
+       player = {...},
+       checkpoint = {...},
+       ...
+    })
+end
+
+function loadGame(name)
+    if Saver:exists(name) then
+        SAVE = Saver:load(name)
+    else
+        newGame(name)
+    end
+end
+
+function saveGame(name, data)
+    SAVE = Saver:save(name, data)
+end
+</code></pre>
+
+<h3>New Game</h3>
+
+<p>Remember how we said we would be saving to a <code>{filename}.txt</code> file? You are able to save multiple files for the same game. We've included a parameter in functions to <code>name</code> each save file. For example, when you first load your game:</p>
+
+<pre><code class="language-lua">function love.load()
+    loadGame('game-a')
+end
+</code></pre>
+
+<p>The path to your save file will thus be:</p>
+
+<pre><code>/Users/{username}/Library/Application Support/LOVE/{identity}/game-a.txt
+</code></pre>
+
+<h3>Save Game</h3>
+
+<p>When you want to save data, we'll pull the entire table, edit what we need, and then call our <code>saveGame</code> function. Example, if we wanted to update our player's <code>hp</code> attribute:</p>
+
+<pre><code class="language-lua">-- save on the global variable
+SAVE.player.attr.hp = 100
+
+-- save time
+saveGame(SAVE)
+</code></pre>
+
+<p>And that's it! Next time you return the game the player's <code>hp</code> attributes will show the updated value.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>http://skrolikowski.github.io/blog/entity-component-system</id>
     <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/entity-component-system" />
     <title>Entity Component System</title>
