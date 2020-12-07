@@ -18,7 +18,7 @@
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=a457f88ec30c66fd188b">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=b0bd1fc1a4130898586e">
     </head>
 
     <body class="min-h-screen px-4">
@@ -32,27 +32,38 @@
             </div>
         </header>
 <main role="main" class="container-full">
-    <div class="flex flex-wrap items-start">
-        <div class="w-full sm:w-64" aria-label="Sidebar">
-                <img
-	class="h-8 w-8 rounded-full"
-	src="/assets/img/logo.png"
-	alt="Shane Krolikowski">
+    <div class="flex flex-col md:flex-nowrap md:flex-row items-start">
+        <div class="w-full md:w-64" aria-label="Sidebar">
+                <div class="sidebar space-x-2 md:space-x-0 md:space-y-2">
+	<img
+		class="h-8 w-8 rounded-full"
+		src="/assets/img/logo.png"
+		alt="Shane Krolikowski">
 
-<div class="flex flex-col space-y-2 pt-4">
-    		<a href="/about" class=" text-sm font-normal uppercase hover:text-blue-500">
+    		<a href="/about" class="">
 			About
 		</a>
-    		<a href="/blog" class=" text-sm font-normal uppercase hover:text-blue-500">
+    		<a href="/blog" class="">
 			Blog
 		</a>
-    		<a href="/projects" class=" text-sm font-normal uppercase hover:text-blue-500">
+    		<a href="/projects" class="">
 			Projects
 		</a>
     </div>        </div>
 
-        <div class="w-full sm:w-auto" aria-label="Contents">
+        <div class="w-full pt-8 md:w-auto md:p-0" aria-label="Contents">
+        	<h1 class="text-center text-4xl md:text-5xl">
+        		
+        	</h1>
+
                 <ol class="list-decimal">
+                    <li>
+                <a href="http://skrolikowski.github.io/blog/love2d-merge-tables" title="Read Merging Lua Tables">
+                    Merging Lua Tables
+                </a>
+
+                <span class="text-xs text-gray-600">December 6, 2020</span>
+            </li>
                     <li>
                 <a href="http://skrolikowski.github.io/blog/love2d-save-module" title="Read Saving Game Data in Love2D">
                     Saving Game Data in Love2D

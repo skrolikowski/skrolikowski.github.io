@@ -18,7 +18,7 @@
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=a457f88ec30c66fd188b">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=b0bd1fc1a4130898586e">
     </head>
 
     <body class="min-h-screen px-4">
@@ -32,14 +32,31 @@
             </div>
         </header>
 <main role="main" class="container-full">
-    <div class="flex flex-wrap items-start">
-        <div class="w-full sm:w-64" aria-label="Sidebar">
-                    </div>
+    <div class="flex flex-col md:flex-nowrap md:flex-row items-start">
+        <div class="w-full md:w-64" aria-label="Sidebar">
+                <div class="sidebar space-x-2 md:space-x-0 md:space-y-2">
+	<img
+		class="h-8 w-8 rounded-full"
+		src="/assets/img/logo.png"
+		alt="Shane Krolikowski">
 
-        <div class="w-full sm:w-auto" aria-label="Contents">
-                <h1 class="text-center">Finding Maximum Subarray</h1>
+    		<a href="/about" class="">
+			About
+		</a>
+    		<a href="/blog" class="">
+			Blog
+		</a>
+    		<a href="/projects" class="">
+			Projects
+		</a>
+    </div>        </div>
 
-    <div class="mx-auto md:mx-32 lg:mx-48">
+        <div class="w-full pt-8 md:w-auto md:p-0" aria-label="Contents">
+        	<h1 class="text-center text-4xl md:text-5xl">
+        		Finding Maximum Subarray
+        	</h1>
+
+                <div class="mx-auto md:mx-32 lg:mx-48">
         <div class="border-b border-blue-200 mb-10 pb-6" v-pre>
             <p>We are given an array of integers and are asked to find the maximum contiguous sum of values within the array, returning it's sum.</p>
 

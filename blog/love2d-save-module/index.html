@@ -18,7 +18,7 @@
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=a457f88ec30c66fd188b">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=b0bd1fc1a4130898586e">
     </head>
 
     <body class="min-h-screen px-4">
@@ -32,14 +32,31 @@
             </div>
         </header>
 <main role="main" class="container-full">
-    <div class="flex flex-wrap items-start">
-        <div class="w-full sm:w-64" aria-label="Sidebar">
-                    </div>
+    <div class="flex flex-col md:flex-nowrap md:flex-row items-start">
+        <div class="w-full md:w-64" aria-label="Sidebar">
+                <div class="sidebar space-x-2 md:space-x-0 md:space-y-2">
+	<img
+		class="h-8 w-8 rounded-full"
+		src="/assets/img/logo.png"
+		alt="Shane Krolikowski">
 
-        <div class="w-full sm:w-auto" aria-label="Contents">
-                <h1 class="text-center">Saving Game Data in Love2D</h1>
+    		<a href="/about" class="">
+			About
+		</a>
+    		<a href="/blog" class="">
+			Blog
+		</a>
+    		<a href="/projects" class="">
+			Projects
+		</a>
+    </div>        </div>
 
-    <div class="mx-auto md:mx-32 lg:mx-48">
+        <div class="w-full pt-8 md:w-auto md:p-0" aria-label="Contents">
+        	<h1 class="text-center text-4xl md:text-5xl">
+        		Saving Game Data in Love2D
+        	</h1>
+
+                <div class="mx-auto md:mx-32 lg:mx-48">
         <div class="border-b border-blue-200 mb-10 pb-6" v-pre>
             <p>If you're creating a game that will take your players multiple sessions to complete you'll more than likely want a way to persist said player's session. Not only will your player want to save his/her game state before exiting the game, but other times may arise where you'll want to save snippets of information (i.e. checkpoints, updates to the player's inventory, or the game unexpectedly crashes). I'd like to share my approach I've been using lately in my last <a href="https://skrolikowski.itch.io/nobody-suspects-me">couple</a> <a href="https://skrolikowski.itch.io/recycle-bros">games</a>.</p>
 
@@ -64,7 +81,7 @@
 
 <p>Below is a simple module for loading and saving game data. With the help of <a href="https://github.com/bakpakin/binser">Binser</a>, a lua serializer, we can serialize our save data.</p>
 
-<script src="https://gist.github.com/skrolikowski/d74d0535ea046d9e2462f2cdf1639704.js"></script>
+<script src="https://gist.github.com/skrolikowski/34a33d5fe066e06e8b51dcf28b9c84c7.js"></script>
 
 <h2>Usage</h2>
 
@@ -141,6 +158,9 @@ saveGame(SAVE)
             </div>
 
     <div>
+                    <a href="http://skrolikowski.github.io/blog/love2d-merge-tables" title="Newer Post: Merging Lua Tables">
+                Merging Lua Tables &RightArrow;
+            </a>
             </div>
 </nav>
     </div>

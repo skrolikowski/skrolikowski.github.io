@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Lua tables are a grab bag of data. In this post we look into merging one or more tables together.">
+
+        <meta property="og:title" content="Merging Lua Tables | Shane Krolikowski"/>
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://skrolikowski.github.io/blog/love2d-merge-tables"/>
+        <meta property="og:description" content="Lua tables are a grab bag of data. In this post we look into merging one or more tables together." />
+
+        <title>Merging Lua Tables | Shane Krolikowski</title>
+
+        <link rel="home" href="http://skrolikowski.github.io/">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
+
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=b0bd1fc1a4130898586e">
+    </head>
+
+    <body class="min-h-screen px-4">
+        <header class="flex justify-between items-center">
+            <h1>
+                <a href="/" title="Shane Krolikowski" class="text-base">Shane Krolikowski</a></h1>
+            </h1>
+
+            <div id="vue-search" class="w-1/3">
+                <search></search>
+            </div>
+        </header>
+<main role="main" class="container-full">
+    <div class="flex flex-col md:flex-nowrap md:flex-row items-start">
+        <div class="w-full md:w-64" aria-label="Sidebar">
+                <div class="sidebar space-x-2 md:space-x-0 md:space-y-2">
+	<img
+		class="h-8 w-8 rounded-full"
+		src="/assets/img/logo.png"
+		alt="Shane Krolikowski">
+
+    		<a href="/about" class="">
+			About
+		</a>
+    		<a href="/blog" class="">
+			Blog
+		</a>
+    		<a href="/projects" class="">
+			Projects
+		</a>
+    </div>        </div>
+
+        <div class="w-full pt-8 md:w-auto md:p-0" aria-label="Contents">
+        	<h1 class="text-center text-4xl md:text-5xl">
+        		Merging Lua Tables
+        	</h1>
+
+                <div class="mx-auto md:mx-32 lg:mx-48">
+        <div class="border-b border-blue-200 mb-10 pb-6" v-pre>
+            <p>In the previous article we discussed using a <a href="/blog/love2d-save-module/">Save Module</a> in our <a href="https://love2d.org/">Love2D</a> games. Remember how we had a potentially ginourmous <a href="http://lua-users.org/wiki/TablesTutorial">lua table</a> of game data, but would sometimes only want to update just a portion? We could (like in the last article) update the table by updating it directly like so:</p>
+
+<pre><code class="language-lua">SAVE.player.attr.hp = 100
+SAVE.checkpoint = { area ='A2', col = 3, row = 4 }
+</code></pre>
+
+<p>Then persist the entire table:</p>
+
+<pre><code class="language-lua">saveGame(SAVE)
+</code></pre>
+
+<p>This works, and really isn't so bad. It's actually pretty efficient. We are giving direct access to the index of the value we wish to update. So why should we continue? Well we are humans, and although we may not admit it, we take order over efficiency any day of the week. In other words, we'd rather spend a few extra CPU cycles to make our code readable, so when we revisit our code a couple years later we'll remember why it works the way it does.</p>
+
+<p>Here's how I'd like to save my data:</p>
+
+<pre><code class="language-lua">saveGame({
+   player = { attr = { hp = 10 }},
+   checkpoint = { area = 'A2', col = 3 },
+})
+</code></pre>
+
+<p>So now you're saying, "well that isn't <em>completely</em> different, and it's uglier!" Two things:</p>
+
+<ol>
+<li>To me it reads better, as in "please save this data for me" and the <code>saveGame</code> takes care of it.</li>
+<li>Notice how I just want to update <code>checkpoint.area</code> and <code>checkpoint.col</code> (we want <code>checkpoint.row</code> to stay the same). We simply ignore it, cause our new values will be merged in.</li>
+</ol>
+
+<h2>Merging Tables</h2>
+
+<p>For merging tables in lua we use a <code>for</code> loop. The below method will overwrite conflicting indices in <code>t1</code> with values from <code>t2</code>, plus add any new indices from <code>t2</code>.</p>
+
+<pre><code class="language-lua">-- merge two tables, in place
+function merge(t1, t2)
+        for k, v in pairs(t2) do
+                t1[k] = v
+        end
+
+        return t1
+end
+</code></pre>
+
+<p>One problem here is we are using nested tables. If we were to use this method we'd corrupt our game data! Let's update our code to handle nested tables:</p>
+
+<pre><code class="language-lua">-- merge two nested tables, in place
+function merge(t1, t2)
+        for k, v in pairs(t2) do
+                if type(v) == 'table' then
+                        t1[k] = merge(t1[k], t2[k])
+                else
+                    t1[k] = v
+                end
+        end
+
+        return t1
+end
+</code></pre>
+
+<p>This is better! Our <code>t1</code> table has been updated only with the values we've provided.</p>
+
+<h2>Our Save Module</h2>
+
+<p>Below is our <strong>Save Module</strong> and updated usage case:</p>
+
+<script src="https://gist.github.com/skrolikowski/b62d866f2edf2455dd4a340011e62298.js"></script>
+
+<h2>Conclusion</h2>
+
+<p>We talked about merging tables in Lua, and how to leverage it with saving data for our Love2D game in a more readable, intuitive approach. Thanks for reading!</p>
+        </div>
+
+        <nav class="flex justify-between text-sm md:text-base">
+    <div>
+                    <a href="http://skrolikowski.github.io/blog/love2d-save-module" title="Older Post: Saving Game Data in Love2D">
+                &LeftArrow; Saving Game Data in Love2D
+            </a>
+            </div>
+
+    <div>
+            </div>
+</nav>
+    </div>
+        </div>
+    </div>
+</main>
+    
+<footer class="bg-white w-full fixed bottom-0">
+                    </footer>
+
+        			<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141012234-1"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+
+				gtag('config', 'UA-141012234-1');
+			</script>
+		
+        <script src="/assets/build/js/main.js?id=5c1d02a8934c6df244e2"></script>
+
+            </body>
+</html>

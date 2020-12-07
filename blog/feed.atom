@@ -3,12 +3,94 @@
     <title>Shane Krolikowski</title>
     <link href="http://skrolikowski.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="http://skrolikowski.github.io/blog/feed.atom" />
-    <updated>2020-12-06T06:15:35+00:00</updated>
+    <updated>2020-12-07T00:04:14+00:00</updated>
     <id>http://skrolikowski.github.io/blog/feed.atom</id>
     <author>
         <name>Shane Krolikowski</name>
     </author>
                 <entry>
+    <id>http://skrolikowski.github.io/blog/love2d-merge-tables</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/love2d-merge-tables" />
+    <title>Merging Lua Tables</title>
+    <published>2020-12-06T00:00:00+00:00</published>
+    <updated>2020-12-06T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">In the previous article we discussed using a Save Module in our Love2D games. Remember how we had a potentially ginourmous lua table of game data, but would sometimes only want to update just a portion? We could (like in the last article) update the......</summary>
+    <content type="html"><![CDATA[
+        <p>In the previous article we discussed using a <a href="/blog/love2d-save-module/">Save Module</a> in our <a href="https://love2d.org/">Love2D</a> games. Remember how we had a potentially ginourmous <a href="http://lua-users.org/wiki/TablesTutorial">lua table</a> of game data, but would sometimes only want to update just a portion? We could (like in the last article) update the table by updating it directly like so:</p>
+
+<pre><code class="language-lua">SAVE.player.attr.hp = 100
+SAVE.checkpoint = { area ='A2', col = 3, row = 4 }
+</code></pre>
+
+<p>Then persist the entire table:</p>
+
+<pre><code class="language-lua">saveGame(SAVE)
+</code></pre>
+
+<p>This works, and really isn't so bad. It's actually pretty efficient. We are giving direct access to the index of the value we wish to update. So why should we continue? Well we are humans, and although we may not admit it, we take order over efficiency any day of the week. In other words, we'd rather spend a few extra CPU cycles to make our code readable, so when we revisit our code a couple years later we'll remember why it works the way it does.</p>
+
+<p>Here's how I'd like to save my data:</p>
+
+<pre><code class="language-lua">saveGame({
+   player = { attr = { hp = 10 }},
+   checkpoint = { area = 'A2', col = 3 },
+})
+</code></pre>
+
+<p>So now you're saying, "well that isn't <em>completely</em> different, and it's uglier!" Two things:</p>
+
+<ol>
+<li>To me it reads better, as in "please save this data for me" and the <code>saveGame</code> takes care of it.</li>
+<li>Notice how I just want to update <code>checkpoint.area</code> and <code>checkpoint.col</code> (we want <code>checkpoint.row</code> to stay the same). We simply ignore it, cause our new values will be merged in.</li>
+</ol>
+
+<h2>Merging Tables</h2>
+
+<p>For merging tables in lua we use a <code>for</code> loop. The below method will overwrite conflicting indices in <code>t1</code> with values from <code>t2</code>, plus add any new indices from <code>t2</code>.</p>
+
+<pre><code class="language-lua">-- merge two tables, in place
+function merge(t1, t2)
+        for k, v in pairs(t2) do
+                t1[k] = v
+        end
+
+        return t1
+end
+</code></pre>
+
+<p>One problem here is we are using nested tables. If we were to use this method we'd corrupt our game data! Let's update our code to handle nested tables:</p>
+
+<pre><code class="language-lua">-- merge two nested tables, in place
+function merge(t1, t2)
+        for k, v in pairs(t2) do
+                if type(v) == 'table' then
+                        t1[k] = merge(t1[k], t2[k])
+                else
+                    t1[k] = v
+                end
+        end
+
+        return t1
+end
+</code></pre>
+
+<p>This is better! Our <code>t1</code> table has been updated only with the values we've provided.</p>
+
+<h2>Our Save Module</h2>
+
+<p>Below is our <strong>Save Module</strong> and updated usage case:</p>
+
+<script src="https://gist.github.com/skrolikowski/b62d866f2edf2455dd4a340011e62298.js"></script>
+
+<h2>Conclusion</h2>
+
+<p>We talked about merging tables in Lua, and how to leverage it with saving data for our Love2D game in a more readable, intuitive approach. Thanks for reading!</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>http://skrolikowski.github.io/blog/love2d-save-module</id>
     <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/love2d-save-module" />
     <title>Saving Game Data in Love2D</title>
@@ -42,7 +124,7 @@
 
 <p>Below is a simple module for loading and saving game data. With the help of <a href="https://github.com/bakpakin/binser">Binser</a>, a lua serializer, we can serialize our save data.</p>
 
-<script src="https://gist.github.com/skrolikowski/d74d0535ea046d9e2462f2cdf1639704.js"></script>
+<script src="https://gist.github.com/skrolikowski/34a33d5fe066e06e8b51dcf28b9c84c7.js"></script>
 
 <h2>Usage</h2>
 
