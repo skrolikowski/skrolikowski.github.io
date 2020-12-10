@@ -3,12 +3,220 @@
     <title>Shane Krolikowski</title>
     <link href="http://skrolikowski.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="http://skrolikowski.github.io/blog/feed.atom" />
-    <updated>2020-12-07T00:04:14+00:00</updated>
+    <updated>2020-12-10T15:48:43+00:00</updated>
     <id>http://skrolikowski.github.io/blog/feed.atom</id>
     <author>
         <name>Shane Krolikowski</name>
     </author>
                 <entry>
+    <id>http://skrolikowski.github.io/blog/lua-collection</id>
+    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/lua-collection" />
+    <title>Lua Collections</title>
+    <published>2020-12-08T00:00:00+00:00</published>
+    <updated>2020-12-08T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">I&#039;ve been using Laravel for a couple years now. We use it at the office to build our very own open source CMS. I enjoy using it, not only because it&#039;s ease of use, extendability, tons of built-in, useful libraries, and vast ecosystem, but also it&#039;s......</summary>
+    <content type="html"><![CDATA[
+        <p>I've been using <a href="https://laravel.com/">Laravel</a> for a couple years now. We use it at the office to build our very own open source <a href="https://github.com/fusioncms/cms">CMS</a>. I enjoy using it, not only because it's ease of use, extendability, tons of built-in, useful libraries, and <a href="https://ecosystem.laravel.io/">vast ecosystem</a>, but also it's approach to writing clean, readable code.</p>
+
+<p>One particular feature is it's <a href="https://laravel.com/docs/8.x/collections">Collection</a> class, which is a wrapper around the standard <a href="https://www.php.net/manual/en/language.types.array.php">PHP Array</a> (i.e. an ordered map). Collections extend the functionality of the Array you provide it through a fluent, chainable interface.</p>
+
+<p>For example, say we only want the <code>lastName</code> values from the <code>$names</code> Array:</p>
+
+<pre><code class="language-php">$names = [
+    [ firstName = 'John', lastName = 'Smith' ],
+    [ firstName = 'Jane', lastName = 'Doe' ],
+];
+
+// ----
+// Standard
+$lastNames = [];
+
+foreach ($names as $key =&gt; $value) {
+  $lastNames[] += $value['lastName'];
+}
+
+// ----
+// Using Collections
+$lastNames = collect($names)-&gt;map(function($item) {
+    return $item['lastName'];
+});
+
+</code></pre>
+
+<p>Notice how our code immediately becomes more readable. We utilize the <strong>map</strong> helper method to update the <code>$names</code> Array with only what we want. It returns a new Array called <code>$lastNames</code>, which just holds what we need. Furthermore, you can chain it with another method (e.g. <a href="https://laravel.com/docs/8.x/collections#method-filter">filter</a>, to filter out names based on custom criteria).</p>
+
+<h2>Onward</h2>
+
+<p>As a challenge, I wanted to see if I could take the same idea and apply it to tables in <a href="https://www.lua.org/">Lua</a>. I'll be referencing the list of <a href="https://laravel.com/docs/8.x/collections#available-methods">Available Methods</a> for Collections and implementing them based on usefulness.</p>
+
+<p>The full, up-to-date code is available <a href="https://gist.github.com/skrolikowski/8f9632ca97cac80df98a18add306f53a">here</a>.</p>
+
+<h2>Setup</h2>
+
+<p>First we'll need a way to hold our table data. We'll setup a <a href="http://www.lua.org/pil/16.1.html">simple class</a> to make things neater if we wanted to export our code into a separate file to be included elsewhere.</p>
+
+<pre><code class="language-lua">Item = {}
+Item.__index = Item
+
+-- initializer
+function Item:create(items)
+    assert(type(items) == 'table', 'Item expects a table.')
+
+    self.__index = self
+
+    return setmetatable({ items = items }, Item)
+end
+
+-- pretty print
+function Item:__tostring()
+    local out = {}
+
+        for k, v in pairs(self.items) do
+                table.insert(out, string.format('%s=%s', k, v))
+        end
+
+        return '{ ' .. table.concat(out, ', ') .. ' }'
+end
+</code></pre>
+
+<blockquote>
+  <p>With this approach we defer function calls to <code>Item</code>, and also allows us to use meta methods like <code>__tostring</code> to print our output in a readable format.</p>
+</blockquote>
+
+<p>Let's also introduce a tiny helper function to serve up an instance of our <strong>Item</strong> class.</p>
+
+<pre><code class="language-lua">function Items(...)
+    return Item:create(...)
+end
+</code></pre>
+
+<h3>Available Functions</h3>
+
+<ul>
+<li><a href="#map">Map</a></li>
+<li><a href="#filter">Filter</a></li>
+<li><a href="#reject">Reject</a></li>
+<li><a href="#merge">Merge</a></li>
+</ul>
+
+<h4>Map</h4>
+
+<pre><code class="language-lua">-- iterates through each item, sending it's
+-- key and value through the given callback
+function Item:map(cb)
+    for k, v in pairs(self.items) do
+        self.items[k] = cb(v, k)
+    end
+
+    return self
+end
+</code></pre>
+
+<h5>Usage</h5>
+
+<pre><code class="language-lua">-- input
+local items = { a = 1, b = 2, c = 3, d = 4, e = 5 }
+
+-- double each value
+local newItems = Items(items):map(function(v, k)
+    return v * 2
+end)
+
+-- output
+print(newItems) -- { a=2, b=4, c=6, d=8, e=10 }
+</code></pre>
+
+<h4>Filter</h4>
+
+<pre><code class="language-lua">-- iterates though each item, filters out
+-- non-truthy values returned by given callback
+function Item:filter(cb)
+    for k, v in pairs(self.items) do
+    if not cb(v, k) then
+        return self.items[k] = nil
+    end
+  end
+end
+</code></pre>
+
+<h5>Usage</h5>
+
+<pre><code class="language-lua">-- input
+local items = { a = 1, b = 2, c = 3, d = 4, e = 5 }
+
+-- double each value
+items = Items(items):filter(function(v, k)
+    return v &gt; 3
+end)
+
+-- output
+print(items) -- { d=4, e=5 }
+</code></pre>
+
+<h4>Reject</h4>
+
+<pre><code class="language-lua">-- iterates though each item, filters out
+-- truthy values returned by given callback
+function Item:reject(cb)
+    for k, v in pairs(self.items) do
+    if cb(v, k) then
+        return self.items[k] = nil
+    end
+  end
+end
+</code></pre>
+
+<h5>Usage</h5>
+
+<pre><code class="language-lua">-- input
+local items = { a = 1, b = 2, c = 3, d = 4, e = 5 }
+
+-- double each value
+items = Items(items):reject(function(v, k)
+    return v &gt; 3
+end)
+
+-- output
+print(items) -- { a=1, b=2, c=3 }
+</code></pre>
+
+<p><strong>Merge</strong></p>
+
+<pre><code class="language-lua">-- merge new tbl into original table,
+-- overriding existing values
+function Item:merge(tbl)
+  if type(tbl) == 'table' then
+    for k, v in pairs(tbl) do
+      self.items[k] = v
+    end
+  end
+
+    return self
+end
+</code></pre>
+
+<h5>Usage</h5>
+
+<pre><code class="language-lua">-- input
+local itemsA = { a = 1, b = 2, c = 3, d = 4, e = 5 }
+local itemsB = { a = 6, f = 8 }
+
+-- double each value
+itemsA = Items(itemsA):merge(itemsB)
+
+-- output
+print(itemsA) -- { a=6, b=2, c=3, d=4, e=5, f=8  }
+</code></pre>
+
+<h3>Let's break for now...</h3>
+
+<p>This article is getting a bit lengthy, so I'll end it here. Stay tuned for further parts &amp; <a href="https://gist.github.com/skrolikowski/8f9632ca97cac80df98a18add306f53a">gist</a> for updates. Thanks for reading!</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>http://skrolikowski.github.io/blog/love2d-merge-tables</id>
     <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/love2d-merge-tables" />
     <title>Merging Lua Tables</title>
