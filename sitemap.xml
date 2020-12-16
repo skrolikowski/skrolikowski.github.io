@@ -2,117 +2,117 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
  <url>
   <loc>http://skrolikowski.github.io</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/projects</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/project/modern</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/project/lua-lander</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/love2d-merge-tables</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/knapsack-problem</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/finding-median-value-of-an-array</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/loggin_with_log4net</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/selection-sort</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/entity-component-system</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/lua-collection</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/love2d-save-module</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/unit-testing-with-xunit</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/how-to-get-started</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/benefits-of-unit-testing</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/insertion-sort</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/array-questions</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/what-is-a-cache-miss</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/finding-max-subarray</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/styleguide</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/blog/feed.atom</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>http://skrolikowski.github.io/about</loc>
-  <lastmod>2020-12-12T20:17:23+00:00</lastmod>
+  <lastmod>2020-12-16T06:12:09+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
 </urlset>
