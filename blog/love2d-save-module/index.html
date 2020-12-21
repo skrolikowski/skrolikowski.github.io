@@ -7,18 +7,17 @@
         <meta name="description" content="Have you ever wanted persistanc data between your Love2D game? Say like an RPG with frequent checkpoints?">
 
         <meta property="og:title" content="Saving Game Data in Love2D | Shane Krolikowski"/>
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="http://skrolikowski.github.io/blog/love2d-save-module"/>
+        <meta property="og:type" content="documentation" />
+        <meta property="og:url" content="http://shanekrolikowski.com/blog/love2d-save-module"/>
         <meta property="og:description" content="Have you ever wanted persistanc data between your Love2D game? Say like an RPG with frequent checkpoints?" />
 
         <title>Saving Game Data in Love2D | Shane Krolikowski</title>
 
-        <link rel="home" href="http://skrolikowski.github.io/">
+        <link rel="home" href="http://shanekrolikowski.com/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
 
-        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=9b2257add3973eaf28fd">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=598038f3b514d0542dce">
     </head>
 
     <body class="min-h-screen">
@@ -37,9 +36,9 @@
     <div class="page">
         
         <div class="w-full md:w-64" aria-label="Sidebar">
-                <div class="sidebar space-x-4 md:space-x-0 md:space-y-3">
+                <div class="sidebar md:space-y-3">
 	<img
-		class="h-6 md:h-8 w-6 md:w-8 rounded-full mb-2"
+		class="h-6 w-6 rounded-full mb-2 mr-4 md:h-8 md:w-8"
 		src="/assets/img/logo.png"
 		alt="Shane Krolikowski">
 
@@ -56,13 +55,11 @@
 
         <div class="w-full" aria-label="Contents">
             	<div class="content">
-		<div class="row flex-col md:flex-row">
-			<h1>Saving Game Data in Love2D</h1>
+		<h1>Saving Game Data in Love2D</h1>
 
-			<h2 class="date">
-				Dec. 05 2020
-			</h2>
-		</div>
+		<h2 class="date">
+			Dec. 05 2020
+		</h2>
 
         <article>
             <p>If you're creating a game that will take your players multiple sessions to complete you'll more than likely want a way to persist said player's session. Not only will your player want to save his/her game state before exiting the game, but other times may arise where you'll want to save snippets of information (i.e. checkpoints, updates to the player's inventory, or the game unexpectedly crashes). I'd like to share my approach I've been using lately in my last <a href="https://skrolikowski.itch.io/nobody-suspects-me">couple</a> <a href="https://skrolikowski.itch.io/recycle-bros">games</a>.</p>
@@ -163,15 +160,15 @@ saveGame(SAVE)
 </main>
     
 <footer>
-            	<nav class="flex justify-between text-sm sm:text-base">
+            	<nav class="row border-t border-gray-100 py-2 px-4">
     <div>
-                    <a href="http://skrolikowski.github.io/blog/entity-component-system" title="Older: Entity Component System">
+                    <a href="http://shanekrolikowski.com/blog/entity-component-system" title="Older: Entity Component System">
                 &LeftArrow; Entity Component System
             </a>
             </div>
 
     <div>
-                    <a href="http://skrolikowski.github.io/blog/love2d-merge-tables" title="Newer: Merging Lua Tables">
+                    <a href="http://shanekrolikowski.com/blog/love2d-merge-tables" title="Newer: Merging Lua Tables">
                 Merging Lua Tables &RightArrow;
             </a>
             </div>

@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Shane Krolikowski</title>
-    <link href="http://skrolikowski.github.io/blog" />
-    <link type="application/atom+xml" rel="self" href="http://skrolikowski.github.io/blog/feed.atom" />
-    <updated>2020-12-16T06:12:08+00:00</updated>
-    <id>http://skrolikowski.github.io/blog/feed.atom</id>
+    <link href="http://shanekrolikowski.com/blog" />
+    <link type="application/atom+xml" rel="self" href="http://shanekrolikowski.com/blog/feed.atom" />
+    <updated>2020-12-21T04:34:45+00:00</updated>
+    <id>http://shanekrolikowski.com/blog/feed.atom</id>
     <author>
         <name>Shane Krolikowski</name>
     </author>
                 <entry>
-    <id>http://skrolikowski.github.io/blog/lua-collection</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/lua-collection" />
+    <id>http://shanekrolikowski.com/blog/lua-collection</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/lua-collection" />
     <title>Lua Collections</title>
     <published>2020-12-08T00:00:00+00:00</published>
     <updated>2020-12-08T00:00:00+00:00</updated>
@@ -217,8 +217,8 @@ print(itemsA) -- { a=6, b=2, c=3, d=4, e=5, f=8  }
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/love2d-merge-tables</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/love2d-merge-tables" />
+    <id>http://shanekrolikowski.com/blog/love2d-merge-tables</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/love2d-merge-tables" />
     <title>Merging Lua Tables</title>
     <published>2020-12-06T00:00:00+00:00</published>
     <updated>2020-12-06T00:00:00+00:00</updated>
@@ -299,8 +299,8 @@ end
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/love2d-save-module</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/love2d-save-module" />
+    <id>http://shanekrolikowski.com/blog/love2d-save-module</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/love2d-save-module" />
     <title>Saving Game Data in Love2D</title>
     <published>2020-12-05T00:00:00+00:00</published>
     <updated>2020-12-05T00:00:00+00:00</updated>
@@ -402,8 +402,8 @@ saveGame(SAVE)
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/entity-component-system</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/entity-component-system" />
+    <id>http://shanekrolikowski.com/blog/entity-component-system</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/entity-component-system" />
     <title>Entity Component System</title>
     <published>2020-01-03T00:00:00+00:00</published>
     <updated>2020-01-03T00:00:00+00:00</updated>
@@ -572,8 +572,8 @@ When it comes time to act......</summary>
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/styleguide</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/styleguide" />
+    <id>http://shanekrolikowski.com/blog/styleguide</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/styleguide" />
     <title>Styleguide</title>
     <published>2020-01-01T00:00:00+00:00</published>
     <updated>2020-01-01T00:00:00+00:00</updated>
@@ -688,8 +688,8 @@ the......</summary>
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/what-is-a-cache-miss</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/what-is-a-cache-miss" />
+    <id>http://shanekrolikowski.com/blog/what-is-a-cache-miss</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/what-is-a-cache-miss" />
     <title>What is a Cache Miss?</title>
     <published>2019-12-31T00:00:00+00:00</published>
     <updated>2019-12-31T00:00:00+00:00</updated>
@@ -716,8 +716,8 @@ It should be noted that the arrangement of your data (e.g. data locality) may di
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/selection-sort</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/selection-sort" />
+    <id>http://shanekrolikowski.com/blog/selection-sort</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/selection-sort" />
     <title>Selection Sort</title>
     <published>2019-12-29T00:00:00+00:00</published>
     <updated>2019-12-29T00:00:00+00:00</updated>
@@ -793,8 +793,8 @@ Space: O(1) - swapping in place
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/insertion-sort</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/insertion-sort" />
+    <id>http://shanekrolikowski.com/blog/insertion-sort</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/insertion-sort" />
     <title>Insertion Sort</title>
     <published>2019-12-29T00:00:00+00:00</published>
     <updated>2019-12-29T00:00:00+00:00</updated>
@@ -847,8 +847,8 @@ Space: O(1) - swapping in place
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/finding-max-subarray</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/finding-max-subarray" />
+    <id>http://shanekrolikowski.com/blog/finding-max-subarray</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/finding-max-subarray" />
     <title>Finding Maximum Subarray</title>
     <published>2019-10-02T00:00:00+00:00</published>
     <updated>2019-10-02T00:00:00+00:00</updated>
@@ -928,8 +928,8 @@ Let&#039;s say we are given an array of integers: &lt;code&gt;[1, -1, 3, -1, 0, 
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/knapsack-problem</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/knapsack-problem" />
+    <id>http://shanekrolikowski.com/blog/knapsack-problem</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/knapsack-problem" />
     <title>Knapsack Problem</title>
     <published>2019-09-26T00:00:00+00:00</published>
     <updated>2019-09-26T00:00:00+00:00</updated>
@@ -1183,8 +1183,8 @@ print(
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/finding-median-value-of-an-array</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/finding-median-value-of-an-array" />
+    <id>http://shanekrolikowski.com/blog/finding-median-value-of-an-array</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/finding-median-value-of-an-array" />
     <title>Finding Median Value of an Array</title>
     <published>2019-09-23T00:00:00+00:00</published>
     <updated>2019-09-23T00:00:00+00:00</updated>
@@ -1440,8 +1440,8 @@ Space: O(n)           Space: O(1)           Space: O(log n)
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/unit-testing-with-xunit</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/unit-testing-with-xunit" />
+    <id>http://shanekrolikowski.com/blog/unit-testing-with-xunit</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/unit-testing-with-xunit" />
     <title>Unit Testing with xUnit and Visual Studios</title>
     <published>2019-02-06T00:00:00+00:00</published>
     <updated>2019-02-06T00:00:00+00:00</updated>
@@ -1509,8 +1509,8 @@ Unit Testing is just one or......</summary>
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/loggin_with_log4net</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/loggin_with_log4net" />
+    <id>http://shanekrolikowski.com/blog/loggin_with_log4net</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/loggin_with_log4net" />
     <title>Logging w/log4net</title>
     <published>2019-02-05T00:00:00+00:00</published>
     <updated>2019-02-05T00:00:00+00:00</updated>
@@ -1758,8 +1758,8 @@ namespace Project
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/array-questions</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/array-questions" />
+    <id>http://shanekrolikowski.com/blog/array-questions</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/array-questions" />
     <title>Array Questions</title>
     <published>2019-02-02T00:00:00+00:00</published>
     <updated>2019-02-02T00:00:00+00:00</updated>
@@ -1848,8 +1848,8 @@ def duplicateNumbers(nums):
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/benefits-of-unit-testing</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/benefits-of-unit-testing" />
+    <id>http://shanekrolikowski.com/blog/benefits-of-unit-testing</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/benefits-of-unit-testing" />
     <title>Benefits of Unit Testing</title>
     <published>2019-01-30T00:00:00+00:00</published>
     <updated>2019-01-30T00:00:00+00:00</updated>
@@ -1888,8 +1888,8 @@ def duplicateNumbers(nums):
     ]]></content>
 </entry>
             <entry>
-    <id>http://skrolikowski.github.io/blog/how-to-get-started</id>
-    <link type="text/html" rel="alternate" href="http://skrolikowski.github.io/blog/how-to-get-started" />
+    <id>http://shanekrolikowski.com/blog/how-to-get-started</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/how-to-get-started" />
     <title>How To Get Started</title>
     <published>2019-01-20T00:00:00+00:00</published>
     <updated>2019-01-20T00:00:00+00:00</updated>
