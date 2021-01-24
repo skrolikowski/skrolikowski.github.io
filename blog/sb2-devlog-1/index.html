@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Space Bum returns in an all new adventure!">
+
+        <meta property="og:title" content="Dev Log No.1 - Space Bum Returns | Shane Krolikowski"/>
+        <meta property="og:type" content="documentation" />
+        <meta property="og:url" content="http://shanekrolikowski.com/blog/sb2-devlog-1"/>
+        <meta property="og:description" content="Space Bum returns in an all new adventure!" />
+
+        <title>Dev Log No.1 - Space Bum Returns | Shane Krolikowski</title>
+
+        <link rel="home" href="http://shanekrolikowski.com/">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
+
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=ea42ba399558b15b0dd0">
+    </head>
+
+    <body class="min-h-screen">
+        <header>
+            <h1 class="text-base sm:text-lg mb-0">
+                <a href="/" title="Shane Krolikowski">Shane Krolikowski</a></h1>
+            </h1>
+
+           
+
+            <div id="vue-search" class="w-2/3">
+                <search></search>
+            </div>
+        </header>
+<main role="main" class="container-full p-4">
+    <div class="page">
+        
+        <div class="w-full md:w-64" aria-label="Sidebar">
+                <div class="sidebar md:space-y-3">
+	<img
+		class="h-8 w-8 rounded-full mb-2 mr-4 md:h-16 md:w-16"
+		src="/assets/img/logo.png"
+		alt="Shane Krolikowski">
+
+    		<a href="/about" class="">
+			About
+		</a>
+    		<a href="/projects" class="">
+			Projects
+		</a>
+    </div>        </div>
+
+        <div class="w-full" aria-label="Contents">
+            	<div class="content">
+		<h1>Dev Log No.1 - Space Bum Returns</h1>
+
+		<h2 class="date">
+			Jan. 23 2021
+		</h2>
+
+        <article>
+            <p>The ideas have been cycling through my head for the past couple weeks now. And development has started (slowly, but surely). Space Bum, our greedy neighborhood ruffian, is at it again with another adventure deep in a dangerous, and uncharted sector of The Mobius System.</p>
+
+<p>The previous title <a href="https://skrolikowski.itch.io/space-bum-for-hire">Space Bum For Hire</a> was the result of a <a href="https://itch.io/jam/not-moe-jam-9-">NotMoeJam #9</a> game jam. It was a chaotic month, building a platformer from scratch in <a href="https://love2d.org/">Love2D</a> using their native physic API, learning to have Space Bum move in a semi-realistic fashion with a combination of acceleration and friction (let's not even talk about slopes). In the end, it all came together rather nicely and ever since I've wanted to make a more in-depth character exploration. Hence, the sequel: <strong>Space Bum Returns</strong>.</p>
+
+<p><a href="https://img.itch.zone/aW1nLzI5MzI4MDAucG5n/original/Fn1MkX.png" target="_blank">
+    <img src="https://img.itch.zone/aW1nLzI5MzI4MDAucG5n/original/Fn1MkX.png" class="w-full mx-auto"/>
+</a></p>
+
+<blockquote>
+  <p><small>Art by <a href="https://szadiart.itch.io/">Szadiart</a> &amp; <a href="https://rauldiaz.itch.io/">RaulDiaz</a>.</small></p>
+</blockquote>
+
+<h2>Theme</h2>
+
+<p>The theme I'm going for is a mysterious planet with hostile lifeforms. As you progress deeper into the game humanoid-made metallic structures are unveiled the deeper you venture underground.</p>
+
+<h2>Story</h2>
+
+<p>Ever since I was able gain access to a computer, I would spend hours on <strong>Sierra</strong>'s <a href="https://en.wikipedia.org/wiki/Space_Quest">Space Quest</a> series. I loved the humor and unfortunate adventures of Roger Wilco. Therefore, my mind is always trying to associate <em>Space Bum</em> with <em>Space Quest</em> (whether I want to or not!). Although, both games differ greatly.</p>
+
+<p>Space Bum is essentially a mercenary for hire. As long as the pay is right, he will do as commanded no questions. We first meet our hero searching for his next job while venturing into a hostile, uncharted sector of space. A distress signal from a mysterious planet forcefully draws Space Bum's ship in leaving him destitute and trapped. It's time to get down to business and find some answers to escape our predicament.</p>
+
+<p><img src="/assets/img/devlogs/sb2-storyboard.jpg" alt="Storyboard" /></p>
+
+<blockquote>
+  <p><small>Intro Storyboards.</small></p>
+</blockquote>
+
+<h2>Game Mechanics</h2>
+
+<h3>Basic Movement</h3>
+
+<ul>
+<li>Space Bum is able to <strong>walk</strong> at a decent pace; double-tap triggers <strong>running</strong>.</li>
+<li>Higher than average <strong>Jump</strong> height (~3x player height).</li>
+<li><strong>Crouch</strong> (cuts hitbox size in half).</li>
+<li><strong>Lock</strong> in position to <strong>Aim</strong>.</li>
+</ul>
+
+<h3>Game World</h3>
+
+<p>Large map with multiple areas revealed through exploration. Areas will be gated until quests are completed or a key item is unlocked.</p>
+
+<h4>Friendly vs Hostile Areas</h4>
+
+<p>Friendly Areas will contain interactable NPCs to unlock more of the story and offer quests, while Hostile Areas will spawn enemies to challenge the player for passage.</p>
+
+<h3>Combat</h3>
+
+<p>Space Bum is very old fashion when it comes to equipment; never leaving home without his trusty pistol and shotgun. More weapons will be unlocked through the game.</p>
+
+<p>Being able to lock one's position and aim (7-direction; excluding down) will be crucial for firing weapons at an angle.</p>
+
+<h3>P.E.T.</h3>
+
+<p>Standard issue <strong>P</strong>ersonal <strong>E</strong>lectronic <strong>T</strong>eleportation device allows the user to teleport to previously visited locations, provided it's powered. Also, Space Bum will able able to travel short distances on screen to reach secret areas or avoid an attack.</p>
+
+<h3>Drops &amp; Ammo</h3>
+
+<p>A skilled veteran, Space Bum is able to combine raw materials to craft useable items (i.e. ammunition, health salves). Various raw materials will be dropped by hostile lifeforms.</p>
+
+<h2>Technology Stack</h2>
+
+<p><strong>Game Engine</strong>: <a href="https://unity.com/">Unity</a></p>
+
+<p><strong>Audio</strong>: GarageBand</p>
+
+<p><strong>Art</strong>: <a href="https://www.aseprite.org/">Aesprite</a>/<a href="https://pyxeledit.com/">PyxelEdit</a>/<a href="https://www.gimp.org/">GIMP</a></p>
+        </article>
+    </div>
+        </div>
+
+    </div>
+</main>
+    
+<footer>
+            	<nav class="row py-2 px-4">
+    <div>
+                    <a href="http://shanekrolikowski.com/blog/lua-collection" title="Older: Lua Collections">
+                &LeftArrow; Lua Collections
+            </a>
+            </div>
+
+    <div>
+            </div>
+</nav>
+        </footer>
+
+        			<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141012234-1"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+
+				gtag('config', 'UA-141012234-1');
+			</script>
+		
+        <script src="/assets/build/js/main.js?id=dea3ac29ca654b500103"></script>
+
+            </body>
+</html>
