@@ -3,12 +3,50 @@
     <title>Shane Krolikowski</title>
     <link href="http://shanekrolikowski.com/blog" />
     <link type="application/atom+xml" rel="self" href="http://shanekrolikowski.com/blog/feed.atom" />
-    <updated>2021-01-24T01:06:13+00:00</updated>
+    <updated>2021-02-02T02:52:18+00:00</updated>
     <id>http://shanekrolikowski.com/blog/feed.atom</id>
     <author>
         <name>Shane Krolikowski</name>
     </author>
                 <entry>
+    <id>http://shanekrolikowski.com/blog/enemy-profile-goop</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/enemy-profile-goop" />
+    <title>Enemy Profile - Goop</title>
+    <published>2021-02-01T00:00:00+00:00</published>
+    <updated>2021-02-01T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">Goop is just a nickname given by those who&#039;ve lived through an encounter with these most dangerous gelatinous lifeform. Lacking in intelligence, Goop thrive mainly due to their quick spawn rate, using their numbers to overwhelm and swarm on their prey.......</summary>
+    <content type="html"><![CDATA[
+        <h2>Backstory</h2>
+
+<p>Goop is just a nickname given by those who've lived through an encounter with these most dangerous gelatinous lifeform. Lacking in intelligence, Goop thrive mainly due to their quick spawn rate, using their numbers to overwhelm and swarm on their prey. Poisonous to the touch, they are quick to subdue their victims with a viscious lunge/chomp. Those unlucky enough to evade these abominations will be consumed out right; the Goop leaving behind unwanted materials such as bones and teeth.</p>
+
+<p><img src="/assets/img/devlogs/goop/goop-concept-art.jpg" alt="Concept art" /></p>
+
+<p>Goop can be found all over the Mobius System. Nobody really knows which planet they originated from, only that they are numerous and have been able to somehow succeed in inter-planet travel. Some hypothesize they will sneak onto cargo ships, and thus inadvertently end up on another planet. Since they can survive in space for a considerable amount of time, you can sometimes find them orbiting planets.</p>
+
+<h2>Behaviors</h2>
+
+<h3>Movement Pattern</h3>
+
+<p>Goop will travel along walls until they meet an obstacle, where they will then choose another path to pursue. Their vision isn't great and will only attack an unsuspecting passerby if they are within reasonable range.</p>
+
+<p><img src="/assets/img/devlogs/goop/goop-movement.gif" alt="Movement concept art" /></p>
+
+<h3>Attack</h3>
+
+<p>Goop will use their entire body to lunge forward upon prey. Their posionous touch can do considerable damage, as well.</p>
+
+<p><img src="/assets/img/devlogs/goop/goop-attack.gif" alt="Attack concept art" /></p>
+
+<h3>Drops</h3>
+
+<p>These creatures will normally drop some goo, which has been found to be a very useful adhesive. Those lucky enough to kill a Goop without damaging it's eyes can reap it's rare reward of an extremely mallable crystal.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>http://shanekrolikowski.com/blog/sb2-devlog-1</id>
     <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/sb2-devlog-1" />
     <title>Dev Log No.1 - Space Bum Returns</title>
@@ -797,6 +835,60 @@ It should be noted that the arrangement of your data (e.g. data locality) may di
     ]]></content>
 </entry>
             <entry>
+    <id>http://shanekrolikowski.com/blog/insertion-sort</id>
+    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/insertion-sort" />
+    <title>Insertion Sort</title>
+    <published>2019-12-29T00:00:00+00:00</published>
+    <updated>2019-12-29T00:00:00+00:00</updated>
+    <author>
+        <name></name>
+    </author>
+    <summary type="html">Insertion Sort is an in-place sorting algorithm that succeeds in sorting smaller arrays of values, but suffers with larger arrays. Insertion Sort has a linear (&lt;code&gt;O(n)&lt;/code&gt;) best-case permormance, which makes it useful for adding additional items a......</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Insertion Sort</strong> is an in-place sorting algorithm that succeeds in sorting smaller arrays of values, but suffers with larger arrays. <strong>Insertion Sort</strong> has a linear (<code>O(n)</code>) best-case permormance, which makes it useful for adding additional items a sorted array that's already sorted.</p>
+
+<h2>How it works?</h2>
+
+<p>When you want to sort an existing, unsorted array use <strong>Insertion Sort</strong> by traversing the array starting at index 0 (marked by <code>i</code>) and then selecting a pivot (<code>p = i + 1</code>). You then traverse backwards from the pivot (<code>p</code>) either until reaching index 0 or a value larger than the pivot, swapping adjacent values in the process.</p>
+
+<h2>Implementation</h2>
+
+<pre><code class="language-python">def insertionSort(nums: list) -&gt; list:
+  for i in range(len(nums) - 1):
+    p = i + 1  # pivot
+
+    while p &gt; 0 and nums[p-1] &gt; nums[p]:
+      nums[p-1], nums[p] = nums[p], nums[p-1]
+      p -= 1
+
+  return nums
+
+print(insertionSort([5, 2, 3, 6, 1, 4]))
+# =&gt; [1, 2, 3, 4, 5, 6]
+</code></pre>
+
+<h2>Visual Representation</h2>
+
+<p><img src="/assets/img/posts/Sort_Insertion.png" alt="" /></p>
+
+<h2>Analysis</h2>
+
+<p><strong>Insertion Sort</strong> works well for small datasets or when introducing new values into an already sorted array. It also benefits from being an in-place sorting algorithm, with minimal memory used.</p>
+
+<pre><code class="language-python">Time:
+  Worst:   O(n^2)
+  Best:    O(n)   - when array is already sorted
+  Average: O(n^2)
+
+Space: O(1) - swapping in place
+</code></pre>
+
+<h2>Further Reading</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Insertion_sort">Insertion Sort</a> - Wikipedia article on <strong>Insertion Sort</strong>.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>http://shanekrolikowski.com/blog/selection-sort</id>
     <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/selection-sort" />
     <title>Selection Sort</title>
@@ -871,60 +963,6 @@ Space: O(1) - swapping in place
 <h2>Further Reading</h2>
 
 <p><a href="https://en.wikipedia.org/wiki/Selection_sort">Selection Sort</a> - Wikipedia article on <strong>Selection Sort</strong>.</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>http://shanekrolikowski.com/blog/insertion-sort</id>
-    <link type="text/html" rel="alternate" href="http://shanekrolikowski.com/blog/insertion-sort" />
-    <title>Insertion Sort</title>
-    <published>2019-12-29T00:00:00+00:00</published>
-    <updated>2019-12-29T00:00:00+00:00</updated>
-    <author>
-        <name></name>
-    </author>
-    <summary type="html">Insertion Sort is an in-place sorting algorithm that succeeds in sorting smaller arrays of values, but suffers with larger arrays. Insertion Sort has a linear (&lt;code&gt;O(n)&lt;/code&gt;) best-case permormance, which makes it useful for adding additional items a......</summary>
-    <content type="html"><![CDATA[
-        <p><strong>Insertion Sort</strong> is an in-place sorting algorithm that succeeds in sorting smaller arrays of values, but suffers with larger arrays. <strong>Insertion Sort</strong> has a linear (<code>O(n)</code>) best-case permormance, which makes it useful for adding additional items a sorted array that's already sorted.</p>
-
-<h2>How it works?</h2>
-
-<p>When you want to sort an existing, unsorted array use <strong>Insertion Sort</strong> by traversing the array starting at index 0 (marked by <code>i</code>) and then selecting a pivot (<code>p = i + 1</code>). You then traverse backwards from the pivot (<code>p</code>) either until reaching index 0 or a value larger than the pivot, swapping adjacent values in the process.</p>
-
-<h2>Implementation</h2>
-
-<pre><code class="language-python">def insertionSort(nums: list) -&gt; list:
-  for i in range(len(nums) - 1):
-    p = i + 1  # pivot
-
-    while p &gt; 0 and nums[p-1] &gt; nums[p]:
-      nums[p-1], nums[p] = nums[p], nums[p-1]
-      p -= 1
-
-  return nums
-
-print(insertionSort([5, 2, 3, 6, 1, 4]))
-# =&gt; [1, 2, 3, 4, 5, 6]
-</code></pre>
-
-<h2>Visual Representation</h2>
-
-<p><img src="/assets/img/posts/Sort_Insertion.png" alt="" /></p>
-
-<h2>Analysis</h2>
-
-<p><strong>Insertion Sort</strong> works well for small datasets or when introducing new values into an already sorted array. It also benefits from being an in-place sorting algorithm, with minimal memory used.</p>
-
-<pre><code class="language-python">Time:
-  Worst:   O(n^2)
-  Best:    O(n)   - when array is already sorted
-  Average: O(n^2)
-
-Space: O(1) - swapping in place
-</code></pre>
-
-<h2>Further Reading</h2>
-
-<p><a href="https://en.wikipedia.org/wiki/Insertion_sort">Insertion Sort</a> - Wikipedia article on <strong>Insertion Sort</strong>.</p>
     ]]></content>
 </entry>
             <entry>
