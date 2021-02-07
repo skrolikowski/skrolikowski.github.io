@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Another Tower Defense Game">
+
+        <meta property="og:title" content="Priests vs Monsters | Shane Krolikowski"/>
+        <meta property="og:type" content="documentation" />
+        <meta property="og:url" content="http://shanekrolikowski.com/projects/priests-vs-monsters"/>
+        <meta property="og:description" content="Another Tower Defense Game" />
+
+        <title>Priests vs Monsters | Shane Krolikowski</title>
+
+        <link rel="home" href="http://shanekrolikowski.com/">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Shane Krolikowski Atom Feed">
+
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=2410cf0ee141a4b024f1">
+    </head>
+
+    <body class="min-h-screen">
+        <header>
+            <h1 class="text-base sm:text-lg mb-0">
+                <a href="/" title="Shane Krolikowski">Shane Krolikowski</a></h1>
+            </h1>
+
+           
+
+            <div id="vue-search" class="w-2/3">
+                <search></search>
+            </div>
+        </header>
+<main role="main" class="container-full p-4">
+    <div class="page">
+        
+        <div class="w-full md:w-64" aria-label="Sidebar">
+                <div class="sidebar md:space-y-3">
+	<img
+		class="h-8 w-8 rounded-full mb-2 mr-4 md:h-16 md:w-16"
+		src="/assets/img/logo.png"
+		alt="Shane Krolikowski">
+
+    		<a href="/about" class="">
+			About
+		</a>
+    		<a href="/projects" class="">
+			Projects
+		</a>
+    </div>        </div>
+
+        <div class="w-full" aria-label="Contents">
+            	<div class="content">
+		<h1>Priests vs Monsters</h1>
+
+        <article>
+            <h2>Overview</h2>
+
+<p>Can you survive a 10 wave onslaught? Each rounds last 60 seconds, with increasing difficulty.
+Spend magic to summon Priests in warp (light brown) tiles.
+Don't allow the Monsters to destroy your sacred Banner.
+Monsters are Bound to their path and can fall to their deaths into the void, but they have limited Leap skills to jump across gaps.</p>
+
+<h3>Information</h3>
+
+<ul>
+<li><strong>Release Date</strong> - Dec. 1st, 2019</li>
+<li><strong>Platforms</strong> - Mac | Win</li>
+<li><strong>Genre</strong> - Tower Defense</li>
+<li><strong>Theme</strong> - Leaps &amp; Bounds</li>
+</ul>
+
+<p><a href="https://github.com/skrolikowski/game-off-2019">Github</a>
+| <a href="https://skrolikowski.itch.io/priests-vs-monsters">itch.io</a></p>
+
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <a target="_blank" href="https://img.itch.zone/aW1hZ2UvNTI1MzMxLzI3Mjg0NTAucG5n/794x1000/IKapVd.png">
+        <img class="rounded shadow-md" src="https://img.itch.zone/aW1hZ2UvNTI1MzMxLzI3Mjg0NTAucG5n/794x1000/IKapVd.png"/>
+    </a>
+    <a target="_blank" href="https://img.itch.zone/aW1hZ2UvNTI1MzMxLzI3Mjg0NTEucG5n/794x1000/1QQ%2Brg.png">
+        <img class="rounded shadow-md" src="https://img.itch.zone/aW1hZ2UvNTI1MzMxLzI3Mjg0NTEucG5n/794x1000/1QQ%2Brg.png"/>
+    </a>
+    <a target="_blank" href="https://img.itch.zone/aW1hZ2UvNTI1MzMxLzI3Mjg0NTcucG5n/794x1000/WbTMy1.png">
+        <img class="rounded shadow-md" src="https://img.itch.zone/aW1hZ2UvNTI1MzMxLzI3Mjg0NTcucG5n/794x1000/WbTMy1.png"/>
+    </a>
+    <a target="_blank" href="https://img.itch.zone/aW1hZ2UvNTI1MzMxLzI3Mjg0NTIucG5n/794x1000/cvVuu7.png">
+        <img class="rounded shadow-md" src="https://img.itch.zone/aW1hZ2UvNTI1MzMxLzI3Mjg0NTIucG5n/794x1000/cvVuu7.png"/>
+    </a>
+</div>
+
+<h2>Design</h2>
+
+<p>I've always wanted to make a tower defense game, and finally joined a <a href="https://itch.io/jam/game-off-2019">game jam</a> to motivate myself to make my first published game.
+The timeline was a month, so it gave me plenty of time to gather assets, prototype, and build a small framework to use.
+Love2D has a wealth of <a href="https://github.com/love2d-community/awesome-love2d">community contributed libraries</a> that helped the game come to life.</p>
+
+<h2>Mechanics</h2>
+
+<p>Monsters spawn in 10 waves of increasing difficulty.
+Each wave a modifier is used to slightly increase the spawn rate.</p>
+
+<p>The monsters follow a predefined path and use steering behaviors to flow through the map. 
+Priest projectiles have knockback abilities to push the monsters into the void.</p>
+
+<p>Priests can be added in select locations and fire projectiles into the waves of monsters.
+Magic is awarded for each kill and can be used to summon more Priests.</p>
+
+<h4>Monster Types:</h4>
+
+<ul>
+<li><strong>Skeleton</strong> - Average health and movement speed</li>
+<li><strong>Skull</strong> - Low health &amp; fast movement</li>
+<li><strong>Vampire</strong> - High health &amp; slow movement</li>
+</ul>
+
+<h4>Priest Types (Towers):</h4>
+
+<ul>
+<li><strong>Range</strong> - Fast attack rate, medium attack strength.</li>
+<li><strong>Trap</strong> - Sustaining burn attack.</li>
+<li><strong>Heavy</strong> - Slow attack rate, heavy attack strength.</li>
+</ul>
+
+<h2>Challenges</h2>
+
+<p>I spent a lot of time adjusting the pathing so the monsters don't fall into the void like lemmings.
+I believe it still does happen on occasion, but it still took a while to make the necessary adjustments.
+The priest projectiles do give a knockback radius, so it is expected that monsters will indeed fall to their doom.
+Just not voluntarily.</p>
+
+<h2>Technologies Used</h2>
+
+<ul>
+<li><a href="https://love2d.org/">Love2D</a> - Game Framework.</li>
+<li><a href="https://www.sublimetext.com/3">Sublime Text 3</a> - Text Editor.</li>
+</ul>
+        </article>
+    </div>
+        </div>
+
+    </div>
+</main>
+    
+<footer>
+            	<nav class="row py-2 px-4">
+    <div>
+            </div>
+
+    <div>
+                    <a href="http://shanekrolikowski.com/projects/space-bum-for-hire" title="Newer: Space Bum For Hire">
+                Space Bum For Hire &RightArrow;
+            </a>
+            </div>
+</nav>
+        </footer>
+
+        			<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141012234-1"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+
+				gtag('config', 'UA-141012234-1');
+			</script>
+		
+        <script src="/assets/build/js/main.js?id=dea3ac29ca654b500103"></script>
+
+            </body>
+</html>
